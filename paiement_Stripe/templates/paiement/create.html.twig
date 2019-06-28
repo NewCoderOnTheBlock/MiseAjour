@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% form_theme formPaiement 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Ajout moyen de paiement</h1>
+
+    {{form_start(formPaiement)}}
+
+    {{form_row(formPaiement.numeroCarte, {'attr':{'placeholder':"Numéro de la carte bancaire"}}) }}
+    
+    {{form_row(formPaiement.nomCarte, {'attr':{'placeholder':"Nom et prénom du propriétaire de la carte bancaire"}}) }}
+    
+    {{form_row(formPaiement.dateCarte, {'attr':{'placeholder':"Date d'expiration de la carte bancaire"}}) }}
+    
+    {{form_row(formPaiement.cvcCarte, {'attr':{'placeholder':"Cryptogramme de la carte bancaire"}}) }}
+
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter carte bancaire
+        {% endif %}
+    </button>
+
+    {{form_end(formPaiement)}}
+  
+{% endblock %}

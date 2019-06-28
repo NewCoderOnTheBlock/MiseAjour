@@ -1,0 +1,215 @@
+/*body{margin:0;padding:0;font-family:Arial,Verdana,Serif;overflow-y:scroll;font-size:10pt;}*/
+#backgroundVoiture{position:fixed;bottom:0;left:0;z-index:-2;width:1130px;}
+#backgroundSimple{position:fixed;bottom:0;left:0;z-index:-3;height:900px;}
+/*#global{position:relative;width:1000px;overflow:hidden;margin-left:auto;margin-right:auto;z-index:1;padding-top:20px;}*/
+
+/* Drapeaux pour le choix des langues */
+#divDrapeau{text-align:right;}
+.imgDrapeau{border:1px solid black;width:25px;height:17px;cursor:pointer;}
+
+/* Entete */
+#entete{margin-bottom:50px;}
+#billetAvion{float: left;position:relative;z-index:2;display:none;}
+.affichageConnection{font-weight:bold;}
+
+/* Menu */
+#menu {float:left;font-weight:bold;}
+#menu ul {margin:0;padding:20px 0px 0 0px;list-style:none;margin-left:-15px;}
+#menu li {display:inline;margin:0;padding:0;}
+
+/* Banniere */
+#banniere{width:836px;height:120px;margin-left:-15px; display:none;}
+#objBanniere{
+	width:836px;
+}
+
+/* Présentation du texte */
+.blocCentre{text-align:center;padding:20px 40px 20px 40px;}
+.blocJustifie{text-align:justify;}
+.titreGrasUnder{border-bottom:1px solid black;font-weight:bold;width:100%;margin-top:15px;}
+.centreGras{font-weight:bold;text-align:center;margin-top:8px;}
+.blocFondViolet{padding:1px;width:725px;margin:0;color:white;font-weight:bold;text-align:center;background:#9A408B;margin-bottom:-15px;}
+.blocFondVioletTotal{padding:1px;width:100%;margin:0;color:white;font-weight:bold;text-align:center;background:#9A408B;margin-bottom:-15px; display:none;}
+.blocFondVioletTotal a{color:orange;}
+
+.blocFondOrangeTotal{padding:1px;width:100%;margin:0;color:white;font-weight:bold;text-align:center;background:orange;margin-bottom:-15px;}
+.blocFondOrangeTotal a{color:#9A408B;}
+
+/* Boutons du menu */
+.btnNormal a{float:left;background:url("../images/menu/btnGauche.png") no-repeat left top;margin:0;padding:0 0 0 15px;text-decoration:none;margin-left:-4px;width:81.8px;}
+.btnNormal a span{float:left;display:block;background:url("../images/menu/btnDroite.png") no-repeat right top;padding:8px 15px 4px 2px;color:#FFF;text-align:center;font-size:10px;}
+.btnNormal a span{float:none;}
+.currentMenu a{float:left;background:url("../images/menu/btnGaucheBlc.png") no-repeat left top;margin:0;padding:0 0 0 15px;text-decoration:none;margin-left:-4px;width:81.8px;}
+.currentMenu a span{float:left;display:block;background:url("../images/menu/btnDroiteBlc.png") no-repeat right top;padding:8px 15px 4px 2px;color:#000;float:none;text-align:center;font-size:10px;}
+.selectionnee a{float:left;background:url("../images/menu/btnGaucheBlc.png") no-repeat top left;margin:0;padding:0 0 0 15px;text-decoration:none;margin-left:-4px;margin-top:-7px;width:81.8px;}
+.selectionnee a span{float:left;display:block;background:url("../images/menu/btnDroiteBlc.png") no-repeat right top;padding:8px 19px 11px 2px;color:#000;float:none;text-align:center;font-size:10px;}
+
+/* Design en 3 colonnes */
+.colonneGauche_3c{float:left;width:260px;margin:0;padding:0;display:none;}
+.colonneDroite_3c{float:right;width:260px;}
+.colonneCentre_3c{height:400px;width:470px;margin-left:265px;margin-right:265px;}
+.colonneCentre_3c_h600{height:auto;width:470px;margin-left:265px;margin-right:265px;}
+.titreColonne_3c{background:url("../images/bloc/3c_titre_petit_bloc.png") no-repeat;height:28px;}
+.titreCentre_3c{background:url("../images/bloc/3c_titre_grand_bloc.png") no-repeat;height:28px;}
+.txt_titre_colonne_3c{position:relative;left:40px;top:6px;color:white;font-weight:bold;}
+.txt_titre_centre_gauche_3c{position:relative;top:6px;color:white;font-weight:bold;text-align:center;}
+.txt_titre_centre_droite_3c{position:relative;top:6px;color:white;font-weight:bold;text-align:center;}
+.titreCentreVide_3c{height:28px;}
+#titreGaucheCelluleCentrale,#titreDroiteCelluleCentrale{width:235px;height:28px;float:left;}
+#titreGaucheCelluleCentrale{background:url(../images/bloc/3c_titre_bloc_centre_actif.png) no-repeat;text-align:center;cursor:pointer;}
+#titreDroiteCelluleCentrale{background:url(../images/bloc/3c_titre_bloc_centre_inactif.png) no-repeat;text-align:center;cursor:pointer;}
+.contenuBloc_3c_h400{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:400px;background:url("../images/bloc/3c_bg_petit_bloc_h400.png") no-repeat;margin-bottom:10px;width:1010px;}
+.contenuBloc_3c_h260{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:260px;background:url("../images/bloc/3c_bg_petit_bloc_h260.png") no-repeat;margin-bottom:10px;width:1010px;}
+.contenuBloc_3c_h180{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:180px;background:url("../images/bloc/3c_bg_petit_bloc_h180.png") no-repeat;margin-bottom:10px;width:1010px;}
+.contenuBloc_3c_infini{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:auto;background:url("../images/bloc/3c_bg_petit_bloc_h180.png") no-repeat;margin-bottom:10px;width:1010px;}
+.contenuCentre_3c_h400{border:2px solid #9A408B;border-top:0;height:400px;background:url("../images/bloc/3c_bg_grand_bloc_h400.png") repeat-y;margin-bottom:10px;width:1010px;}
+.contenuCentre_3c_h260{border:2px solid #9A408B;border-top:0;height:260px;background:url("../images/bloc/3c_bg_grand_bloc_h260.png") repeat-y;margin-bottom:10px;width:1010px;}
+.contenuCentre_3c_h180{border:2px solid #9A408B;border-top:0;height:180px;background:url("../images/bloc/3c_bg_grand_bloc_h180.png") repeat-y;margin-bottom:10px;width:1010px;}
+.contenuCentre_3c_h600{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/3c_bg_grand_bloc_h400.png") no-repeat;margin-bottom:10px;width:1010px;}
+.contenuCentre_3c_infini{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/3c_bg_grand_bloc_h180.png") no-repeat;margin-bottom:10px;width:1010px;}
+
+/* Design en 2 colonnes egales (KEMPF) */
+.colonneDroite_2c_eq{float:right;width:350px;margin-right:119px;}
+.colonneGauche_2c_eq{height:auto;width:350px;margin-left:119px;}
+.titreColonne_2c_eq{background:url("../images/bloc/2c_eq_titre.png") no-repeat;height:28px;}
+.txt_titre_colonne_2c_eq{position:relative;top:6px;color:white;font-weight:bold;}
+.contenuCentre_2c_eq_infini{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_infini.png") no-repeat;margin-bottom:10px;}
+
+.contenu_grise span {color:#878787;}
+
+/* Design en 2 colonnes */
+.formulaire_2c{padding-top:20px;width:655px;margin-left:auto;margin-right:auto;}
+.colonneDroite_2c{float:right;width:260px;}
+.colonneCentre_2c{height:auto;width:735px;margin-left:0px;margin-right:265px;}
+.titreColonne_2c{background:url("../images/bloc/2c_titre_petit_bloc.png") no-repeat;height:28px;}
+.titreCentre_2c{background:url("../images/bloc/2c_titre_grand_bloc.png") no-repeat;height:28px;}
+.txt_titre_colonne_2c{position:relative;left:40px;top:6px;color:white;font-weight:bold;}
+.txt_titre_centre_gauche_2c{position:relative;top:3px;color:white;font-weight:bold;}
+.txt_titre_centre_droite_2c{position:relative;top:3px;color:white;font-weight:bold;}
+.titreCentreVide_2c{height:28px;}
+.contenuBloc_2c_h1000{border:2px solid #9A408B;border-top:0;margin:0;padding:0;min-height:905px;height:auto;background:url("../images/bloc/2c_bg_petit_bloc_h1000.png") no-repeat;margin-bottom:10px;}
+.contenuBloc_2c_h800{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:800px;background:url("../images/bloc/2c_bg_petit_bloc_h800.png") no-repeat;margin-bottom:10px;}
+.contenuBloc_2c_h400{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:400px;background:url("../images/bloc/2c_bg_petit_bloc_h400.png") no-repeat;margin-bottom:10px;}
+.contenuBloc_2c_h260{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:260px;background:url("../images/bloc/2c_bg_petit_bloc_h260.png") no-repeat;margin-bottom:10px;}
+.contenuBloc_2c_h180{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:180px;background:url("../images/bloc/2c_bg_petit_bloc_h180.png") no-repeat;margin-bottom:10px;}
+.contenuCentre_2c_h1000{border:2px solid #9A408B;border-top:0;min-height:905px;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_h1000.png") repeat-y;margin-bottom:10px;}
+.contenuCentre_2c_h800{border:2px solid #9A408B;border-top:0;height:800px;background:url("../images/bloc/2c_bg_grand_bloc_h800.png") repeat-y;margin-bottom:10px;}
+.contenuCentre_2c_h400{border:2px solid #9A408B;border-top:0;height:400px;background:url("../images/bloc/2c_bg_grand_bloc_h400.png") repeat-y;margin-bottom:10px;}
+.contenuCentre_2c_h260{border:2px solid #9A408B;border-top:0;height:260px;background:url("../images/bloc/2c_bg_grand_bloc_h260.png") repeat-y;margin-bottom:10px;}
+.contenuCentre_2c_h180{border:2px solid #9A408B;border-top:0;height:180px;background:url("../images/bloc/2c_bg_grand_bloc_h180.png") repeat-y;margin-bottom:10px;}
+.contenuBloc_2c_sansh{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:auto;background:url("../images/bloc/2c_bg_petit_bloc_h1000.png") no-repeat;margin-bottom:10px;}
+.contenuCentre_2c_sansh{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_h1000.png") no-repeat;margin-bottom:10px;}
+.contenuCentre_2c_infini{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_infini.png") no-repeat;margin-bottom:10px;}
+
+/* Bloc prenant toute la largeur */
+.blocTotal{clear:both;width:1010px;}
+.titreBlocTotal{background:url("../images/bloc/titre_bloc_total.png") no-repeat;height:28px;display:none;}
+.contenuBlocTotal{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_h1000.png") repeat-x;margin-bottom:10px; display:none;}
+
+/* Bloc prenant toute la largeur imbriqué (taille 750px) (KEMPF) */
+.blocTotal_750{clear:both;width:750px;margin-left:auto;margin-right:auto;}
+.titreBlocTotal_750{background:url("../images/bloc/titre_bloc_total_750.png") no-repeat;height:28px;}
+.contenuBlocTotal_750{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_h1000.png") repeat-x;margin-bottom:10px;}
+
+/* Style pour les formulaires */
+#divMeteo{margin-left:24.5px;padding-top:22.5px;}
+#carousel_photo{padding-left:45px;}
+.formulaire{padding-top:20px;width:390px;margin-left:auto;margin-right:auto;}
+.titreNoirFormulaire{font-weight:bold;color:black;border-bottom:1px solid black;margin-top:15px;}
+.divBouton{margin-top:20px;}
+.lblForm{display:block;width:180px;float:left;margin-top:8px;}
+.txtForm{width:200px;margin-top:8px;}
+.lblFormPetit{display:block;width:150px;float:left;margin-top:8px;}
+.txtFormPetit{width:150px;margin-top:8px;}
+.lblFormSansLarge{display:block;float:left;margin-top:8px;}
+.txtFormSansLarge{margin-top:8px;}
+.lblFormGras{display:block;width:180px;float:left;margin-top:8px;font-weight:bold;}
+.txtFormPetitSansLarge{margin-top:3px;}
+.lblFormPetitGras{display:block;float:left;margin-top:3px;font-weight:bold;}
+
+/** INDEX */
+/* bloc déroulant de l'index */
+#contenuMenuBlocDeroulant{background:url("../images/bloc/bloc_deroulant_milieu.png") repeat-y;width:260px;min-height:100px;padding-left:15px;margin-top:-5px;}
+.menuDeroulantSelection{background:url("../images/bloc/barreSelection.png") no-repeat;font-size:11pt;font-weight:bold;cursor:default;position:relative;padding:4px 0 0 10px;width:243px;height:26px;}
+.menuDeroulantNonSelection{font-size:11pt;cursor:pointer;position:relative;padding:4px 0 0 10px;width:271px;height:26px;}
+#index_colonneGauche{float:left;width:260px;height:150px;margin-bottom:20px;}
+#index_colonneDroite{float:right;width:260px;}
+#index_colonneCentre{width:470px;margin-left:265px;min-height:310px;}
+#contenu_index_colonneCentre{background:url("../images/bloc/bloc_info_milieu.png") repeat-y;height:270px;margin-top:-5px;}
+#tableau_index_centre{width:450px; border-collapse:collapse; margin:0 auto;margin-left:10px;}
+#tableau_index_centre caption{font-weight:bold;font-size:12pt;}
+#tableau_index_centre th{border:1px solid black;width:220px;background:#36317F;color:white;}
+#titre_compte{background:url("../images/bloc/bloc_compte.png") no-repeat;height:43px;width:260px;}
+#contenu_compte{height:107px;background:#bebdbd;width:260px;}
+#div_dans_tab{text-align:center;height:140px;overflow:auto;overflow-x:hidden;}
+#sec_tab{width:450px; border-collapse:collapse;}
+
+#sec_tab td{width:200px;border:1px solid black;}
+
+/* Mon compte */
+#titre_compte{background:url("../images/bloc/bloc_compte.png") no-repeat;width:260px;height:36px;padding-top:7px;text-align:center;color:white;font-weight:bold;}
+#contenu_compte{background:#C2C1C1;width:260px;min-height:100px;padding: 0 10px 10px 15px;font-weight:bold;}
+
+/* Livre d'or */
+#message_livreor{margin-top:20px;}
+
+/* Reservation */
+#gauche_reservation{width:320px;float:left;}
+#droite_reservation{width:320px;float:right;}
+
+
+/* Design en 2 colonnes */
+.formulaire_2c{padding-top:15px;width:655px;margin-left:auto;margin-right:auto;}
+.formulaire_2c_petit{padding-top:15px;width:240px;margin-left:auto;margin-right:auto; display:none;}
+.colonneDroite_2c{float:right;width:260px;display:none;}
+.colonneCentre_2c{height:auto;width:735px;margin-left:0px;margin-right:265px;}
+.titreColonne_2c{background:url("../images/bloc/2c_titre_petit_bloc.png") no-repeat;height:28px;}
+.titreCentre_2c{background:url("../images/bloc/2c_titre_grand_bloc.png") no-repeat;height:28px;}
+.txt_titre_colonne_2c{position:relative;left:40px;top:6px;color:white;font-weight:bold;}
+.txt_titre_centre_gauche_2c{position:relative;top:3px;color:white;font-weight:bold;}
+.txt_titre_centre_droite_2c{position:relative;top:3px;color:white;font-weight:bold;}
+.titreCentreVide_2c{height:28px;}
+.contenuBloc_2c_hauto{border:2px solid #9A408B;border-top:0;margin:0;padding:0;height:auto;background:url("../images/bloc/2c_bg_petit_bloc_h1000.png") no-repeat;margin-bottom:10px;}
+.contenuCentre_2c_hauto{border:2px solid #9A408B;border-top:0;height:auto;background:url("../images/bloc/2c_bg_grand_bloc_h1000.png") no-repeat;margin-bottom:10px;}
+
+/* AUTRE */
+#tableConfirmation td{width:325px;vertical-align:top}
+
+/* TARIF */
+.lignePair{font-size:13pt;color:#9A408B;font-weight:bold}
+.ligneImpair{font-size:13pt;color:#F08A00;font-weight:bold}
+.ligneTabTarif{font-size:13pt;font-weight:bold;height:40px;cursor:pointer;}
+.tableauTarif{width:655px;}
+.tarifAccueil{width:400px;}
+.tarifAccueil td{height:40px;font-size:13pt;font-weight:bold;margin:0;padding:0}
+.ligneTarifOver{background:#F08A00;font-size:13pt;font-weight:bold;height:40px;cursor:pointer;color:#FFF;}
+.prixBordeau{color:#FFF;font-weight:bold;font-size:13pt;}
+.prixNormal{color:#000;font-weight:bold;font-size:13pt;}
+.grasOrange{color:#F08A00;font-size:15pt;font-weight:bold;}
+.miseEnAvantOrange{color:#F08A00;font-size:12pt;font-weight:bold;}
+#pastilleTarif{position:absolute;margin-top:-15px;margin-left:-30px;}
+#pastilleTarif img{cursor:pointer;}
+
+
+#contenu_compte a{line-height:25px;color:black;text-decoration:none;}
+#contenu_compte span{cursor:pointer;line-height:25px;}
+
+.menu_compte a{line-height:25px;color:black;text-decoration:none;font-weight:bold;}
+.menu_compte span{cursor:pointer;line-height:25px;font-weight:bold;}
+
+a{outline:none;}
+.titreTarif{color:#9A408B;font-weight:bold;text-align:center;font-weight:bold;font-size:15pt;}
+
+
+/* page pratique */
+.tableau_horaire{width:430px; border-collapse:collapse; margin:0;margin-left:10px;border:1px solid black}
+.tableau_horaire caption{font-weight:bold;font-size:12pt;}
+.tableau_horaire th{border:1px solid black;width:220px;background:#36317F;color:white;}
+#div_horaire{height:400px;overflow-y:auto;overflow-x:hidden;}
+.formulaire_total{padding-top:20px;width:900px;margin-left:auto;margin-right:auto;}
+
+/* Fiche client*/
+#titreFicheClient{color:#9A408B;font-size:25pt;}
+#nomFicheClient{font-weight:bold;width:170px;margin-left:70px;margin-top:130px;font-size:18pt;text-align:center}
+.sousTitreFicheClient{font-weight:bold;font-size:13pt;}
+.contenuFicheClient{margin-left:20px;font-size:12pt;width:260px;text-align:justify}

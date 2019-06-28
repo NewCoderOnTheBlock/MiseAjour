@@ -1,0 +1,66 @@
+{% extends "base.html.twig" %}
+{#  Création d'une carte qui sera utilisé dans un paiement et qui servira à la création du jeton envoyé.
+    Utilisation du formulaire créé de manière classique. 
+#}
+{% block body %}
+
+    <form id="payment-form" method="post">
+
+        <div class="field">
+            <div class="col-sm-5 col-md-5">
+                <label>
+                    <span>Prénom et Nom :
+                    </span>
+                    <input data-stripe="name" name="name" placeholder="Prénom et nom du propriétaire de la carte" size="50" type="text">
+                </label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="col-sm-5 col-md-5">
+
+                <label>
+                    <span>Numéro carte</span>
+                    <input data-stripe="number" name="number" placeholder="Code de carte bleu" size="16" type="text">
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="col-sm-5 col-md-5">
+
+                <label>
+                    <span>Expire en (MM/YY)</span>
+                    <input data-stripe="exp_month" name="exp_month" placeholder="MM  " size="2" type="text">
+                </label>
+                <span>
+                    /
+                </span>
+                <label>
+                    <input data-stripe="exp_year" name="exp_year" placeholder="YYYY" size="2" type="text">
+                </label>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="col-sm-5 col-md-5">
+
+                <label>
+                    <span>CVC</span>
+                    <input data-stripe="cvc" name="cvc" placeholder="Cvc" size="3" type="text">
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-5">
+
+            <button class="btn btn-success" type="submit">Effectuer le paiement</button>
+        </div>
+
+    </form>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
+
+    <script>
+        var stripe = Stripe('pk_test_5VrYHcfqrWWrr0Tuw9zBGxlG00IX4Pvb9F');
+    </script>
+{% endblock %}

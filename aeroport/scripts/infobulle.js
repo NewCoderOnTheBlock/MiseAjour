@@ -1,0 +1,1 @@
+var elt;function apparait(a){if(a<=25){elt.style.height=a+"px";window.setTimeout(function(){apparait(a+4)},10)}}function disparait(a){if(a>0){elt.style.height=a+"px";window.setTimeout(function(){disparait(a-4)},10)}else{elt.style.display="none"}}function affiche_bulle(a){elt=document.getElementById(a);elt.style.display="block";apparait(0)}function efface_bulle(a){disparait(25)};

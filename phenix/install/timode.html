@@ -1,0 +1,167 @@
+<!--
+  /**************************************************************************\
+  * Phenix Agenda                                                            *
+  * http://phenix.gapi.fr                                                    *
+  * Written by    Stephane TEIL            <phenix-agenda@laposte.net>       *
+  * Contributors  Christian AUDEON (Omega) <christian.audeon@gmail.com>      *
+  *               Maxime CORMAU (MaxWho17) <maxwho17@free.fr>                *
+  *               Mathieu RUE (Frognico)   <matt_rue@yahoo.fr>               *
+  *               Bernard CHAIX (Berni69)  <ber123456@free.fr>               *
+  * --------------------------------------------                             *
+  *  This program is free software; you can redistribute it and/or modify it *
+  *  under the terms of the GNU General Public License as published by the   *
+  *  Free Software Foundation; either version 2 of the License, or (at your  *
+  *  option) any later version.                                              *
+  \**************************************************************************/
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <TITLE>TiMode</TITLE>
+</HEAD>
+<STYLE type="text/css">
+<!--
+Body, Table {
+  font-family: Verdana, Arial, Tahoma;
+  font-size : 12px;
+  background-color : #FFFFFF;
+  color : #000000;
+  text-align : justify;
+  margin-left : 20px;
+  margin-right : 20px;
+}
+A,A:link,A:visited {
+  COLOR: #3333FF;
+  TEXT-DECORATION: none;
+}
+A:hover {
+  COLOR: #3333FF;
+  TEXT-DECORATION: underline;
+}
+A.Code {
+  font-size : 11px;
+  font-weight : bold;
+  color : #990000;
+}
+P.Titre {
+  text-decoration : underline;
+  font-weight : bold;
+  font-size : 18px;
+  text-align : center;
+}
+P.Chapitre {
+  background-color : #FFFFE1;
+  border : 1px solid #000000;
+  font-weight : bold;
+  font-size : 13px;
+  padding-left : 5px;
+  padding-bottom : 2px;
+  padding-top : 2px;
+  margin-top : 40px;
+}
+P.Copyright {
+  color : #808080;
+  font-size : 11px;
+  text-align : right;
+}
+-->
+</STYLE>
+<BODY onload="javascript: window.focus();">
+<P class="Titre">TiMode : la version i-mode&#8482; de Phenix</P>
+
+<P class="Chapitre">Qu'est ce que c'est ?</P>
+  <A href="http://www.imode.fr" target="_blank"><IMG src="imode-logo.gif" alt="" hspace="5" vspace="5" border="0" align="left"></A>
+  TiMode est le fruit d'une id&eacute;e soumise par Jean-Christophe PEYRARD (co-fondateur de
+  <A href="http://www.homecinema-fr.com" target="_blank">HomeCinema-fr.com</A> ) :
+  cr&eacute;er une version compatible i-mode&#8482; de Phenix afin de pouvoir g&eacute;rer son
+  agenda et consulter son calepin depuis son GSM.<BR><BR>
+  Ce module est &eacute;crit en iHTML, une version all&eacute;g&eacute;e du HTML interdisant l'utilisation
+  de javaScript et des feuilles de style notamment. Officiellement, le tag &lt;table&gt; n'est
+  pas reconnu en iHTML, mais des tests ont montr&eacute; que les GSM r&eacute;cents les acceptaient sans
+  quoi le calendrier n'aurait pas pu &ecirc;tre affich&eacute;. Autre contrainte, la taille des pages
+  (images comprises) ne peut pas exc&eacute;der 10Ko. Objectif atteint, le calendrier ne d&eacute;passe pas
+  les 6ko et le reste des pages varie entre 1 et 3ko (c'est une moyenne, tout d&eacute;pend du nombre
+  de note ou de contact affich&eacute;).
+
+<P class="Chapitre">Connexion</P>
+  Pour utiliser ce module vous devez obligatoirement poss&eacute;der un t&eacute;l&eacute;phone portable compatible
+  i-mode&#8482; de <A href="http://www.imode.fr" target="_blank">Bouygues Telecom</A>
+  ou Base (Belgique) et avoir contract&eacute; un abonnement compatible aupr&egrave;s de ce dernier.<BR>
+  Selon certains mobiles, il faut &eacute;galement <B>activer l'affichage des tableaux</B>, sans quoi
+  l'affichage risque de ne pas ressembler &agrave; grand chose...<BR><BR>
+  Il existe deux fa&ccedil;ons de se connecter au module i-mode&#8482; depuis votre GSM.
+  <OL type="1">
+    <LI>Via le formulaire d'identification, en vous connectant sur<BR>
+    <B>http://<i>votre-adresse</I>/timode.php</B><BR> Pour davantage d'ergonomie, le champ
+    pour saisir le mot de passe n'est pas de type <i>password</I> donc les caract&egrave;res
+    saisis ne sont pas remplac&eacute;s par des ast&eacute;rixes (*) mais apparaissent en clair.</LI>
+    <LI>Soit pour gagner du temps, en vous connectant directement sur<BR>
+    <B>http://<i>votre-adresse</I>/timode.php?log=</B>xxx<B>&pwd=</B>yyy<BR>  O&ugrave; <A class="Code">xxx</A>
+    et <A class="Code">yyy</A>  sont respectivement votre identifiant et votre mot de passe.
+    De cette fa&ccedil;on, le formulaire d'identification n'est pas affich&eacute;, &agrave; moins que vous ayez
+    commis une erreur de saisie.</LI>
+  </OL>
+
+<P class="Chapitre">S&eacute;curit&eacute;</P>
+  Pour davantage de s&eacute;curit&eacute;, vous pouvez renommer le fichier <A class="Code">timode.php</A>
+  comme bon vous semble (mais pas le d&eacute;placer), les liens qu'il contient sont reconstruits
+  &agrave; chaque fois.<BR> <BR>
+  Concernant la dur&eacute;e de session, celle-ci n'est pas prise en compte par ce module, cependant
+  si vous utilisez conjointement Phenix et TiMode au m&ecirc;me moment, vous risquez avoir des
+  d&eacute;connexions sur TiMode (retour au formulaire d'identification) si vous avez renseign&eacute; la
+  variable <A class="Code">$DUREE_SESSION</A> du fichier de configuration avec une valeur
+  trop faible (300 par d&eacute;faut soit 5mn).
+
+<P class="Chapitre">Fonctionnalit&eacute;s</P>
+  Avec TiMode vous pouvez consulter votre agenda par l'interm&eacute;diaire d'un calendrier affichant
+  un lien pour les jours contenant une note ou un anniversaire. En cliquant sur un lien, vous
+  affichez une page d&eacute;taillant le jour choisi, en pr&eacute;cisant pour chaque note sa plage horaire
+  et son libell&eacute;. Les liens <B>Suiv</B> et <B>Prec</B> permettent de passer directement au
+  jour suivant ou pr&eacute;c&eacute;dent contenant une note, cela &eacute;vite d'avoir &agrave; revenir au calendrier.<BR>
+  <FONT color="#FF0000">Concernant l'ajout et la modification d'une note, il s'agit d'une
+  version simplifi&eacute;e &agrave; savoir que la liste des utilisateurs auxquels vous pouvez affecter
+  des notes n'est pas disponible (un peu difficile &agrave; g&eacute;rer depuis un GSM), de m&ecirc;me que les
+  options de p&eacute;riodicit&eacute; et de couleur de note.</FONT><BR><BR>
+  A propos du calepin (accessible depuis le calendrier), la premi&egrave;re page vous permet d'effectuer
+  une recherche par nom de vos contacts (vous n'&ecirc;tes pas oblig&eacute; de saisir le nom int&eacute;gralement,
+  une partie suffit). Lorsque vous lancez une recherche, une page de r&eacute;sultat est affich&eacute;e dans
+  laquelle les contacts sont tri&eacute;s par nom. Pour chaque contact, sont affich&eacute;s tous ses num&eacute;ros
+  de t&eacute;l&eacute;phone connus ainsi que ses adresses email. Il est possible de composer automatiquement
+  le num&eacute;ro de t&eacute;l&eacute;phone d'un contact en cliquant dessus ou bien de lui r&eacute;diger un mail.<BR>
+  Pour chaque contact, un lien <B>[D&eacute;tail]</B> permet d'afficher l'ensemble des informations
+  le concernant : adresse, anniversaire, commentaire...<BR>
+  <FONT color="#FF0000">TiMode ne permet que la consultation du calepin, il n'est donc pas possible
+  d'ajouter/modifier un contact. Cela est r&eacute;serv&eacute; &agrave; la version compl&egrave;te de Phenix.</FONT>
+
+<P class="Chapitre">Aper&ccedil;u</P>
+  Les photos suivantes ont &eacute;t&eacute; r&eacute;alis&eacute;es &agrave; partir d'un GSM <B>Nec 22i</B> par Jean-Christophe PEYRARD
+  qui m'a constamment aid&eacute; dans la r&eacute;alisation de ce module. Merci &agrave; lui ;)<BR><BR>
+  <TABLE border="0" cellspacing="10" cellpadding="0" align="center">
+  <TR>
+    <TD><IMG src="imode_1.jpg" width="225" alt="" border="0"></TD>
+    <TD><IMG src="imode_2.jpg" width="225" alt="" border="0"></TD>
+    <TD><IMG src="imode_3.jpg" width="225" alt="" border="0"></TD>
+    <TD><IMG src="imode_4.jpg" width="225" alt="" border="0"></TD>
+  </TR>
+  <TR align="center">
+    <TD>Calendrier</TD>
+    <TD>D&eacute;tail d'un jour</TD>
+    <TD>Recherche d'un contact</TD>
+    <TD>R&eacute;sultat d'une recherche</TD>
+  </TR>
+  </TABLE>
+
+<FORM action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="padding:0px; margin:0px;">
+  <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+  <TR>
+    <TD width="100%" nowrap><P class="copyright">Phenix (2008)&nbsp;&nbsp;&nbsp;<BR>St&eacute;phane TEIL (<A href="mailto:phenix-agenda@laposte.net">phenix-agenda@laposte.net</A>)&nbsp;&nbsp;&nbsp;</P></TD>
+    <TD align="center" valign="middle">
+      <INPUT type="hidden" name="cmd" value="_s-xclick">
+      <INPUT type="image" src="paypal.gif" border="0" name="submit" title="Soutenez ce projet via PayPal : une solution rapide et totalement s&eacute;curis&eacute;e !" align="middle">
+      <INPUT type="hidden" name="hosted_button_id" value="908608"></TD>
+  </TR>
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>

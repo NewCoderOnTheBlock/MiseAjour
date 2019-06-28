@@ -1,0 +1,66 @@
+/* Les balises générales */
+/*a{
+  color: #FE0000;
+  text-decoration:none;
+  font-weight:bold;
+}
+a:visited{
+  color: #FE0000;
+  text-decoration:none;
+  font-weight:bold;
+}
+img{
+ border:0px;
+}*/
+/* le calendrier */
+.tab_calendrier{
+   empty-cells:show;
+   border:1px solid black;
+   border-collapse:collapse;
+   border-spacing: 0px;
+   margin:auto;
+   margin-top:2px;
+   background:#ffffff;
+   width:100%;
+}
+.cell_calendrier{
+  border:1px solid black;
+  text-align:center;
+  height:40px;
+  width:14.28%;
+  font-size:16px;
+}
+.cell_calendrier_jour{
+  border:1px solid black;
+  text-align:center;
+  height:20px;
+  width:14.28%;
+}
+.titre_calendrier{
+  text-align:center;
+  border:1px solid black;
+  height:27px;
+  background-color:#cbcdfe;
+}
+span#titre{
+  width:160px;
+  font-weight:bold;
+
+}
+
+
+.voir_plus{
+  color: #000000;
+  text-decoration:none;
+  margin-left:15em;
+}
+span#link_precedent{
+  float:left;
+  width:50px;
+  cursor:pointer;
+}
+span#link_suivant{
+  float:right;
+  width:50px;
+  cursor:pointer;
+}

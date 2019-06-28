@@ -1,0 +1,58 @@
+
+<div id="fil_ariane">
+
+	<span style="text-align:left; float:left">
+    
+    	{ARIANE_DEBUT} : 
+        
+        <block name="fil">
+            
+            <if cond="{$fil.LIEN} != ''">
+            
+                <a href="{fil.LIEN}">{fil.ARIANE}</a>
+                
+            <else />
+            
+                {fil.ARIANE}
+                
+            </if>
+                
+            <if cond="{$fil.CURRENT} < {$fil.SIZE_OF}">
+            
+                 > 
+                 
+            </if>
+            
+        </block>
+        
+         
+    </span>
+   
+</div>
+
+
+<if cond="{$EST_ADMIN} == '1'">
+
+    <div class="erreur">
+        <strong>
+        Connecté en tant qu'administrateur !
+        <br />
+        A n'utiliser que pour la saisie manuelle d'une réservation
+        </strong>
+    </div>
+    <br />
+    
+    <if cond="{$EST_ADMIN_CLIENT} == '1'">
+    	
+        <br />
+        
+    	<div class="erreur">
+    		<strong>Connecté sous le compte de {ADMIN_NOM} {ADMIN_PRENOM} ({ADMIN_MAIL})<br />
+            N'oublier pas de vous <a href="deconnexion.html">déconnecter</a> à la fin de la saisie !!</strong>
+        </div>
+        
+        <br />
+        
+    </if>
+
+</if>

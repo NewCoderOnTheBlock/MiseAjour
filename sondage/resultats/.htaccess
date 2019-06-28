@@ -1,0 +1,5 @@
+AuthUserFile /homepages/3/d205267944/htdocs/sondage/resultats/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Accès résultats sondage"
+AuthType Basic
+require valid-user 

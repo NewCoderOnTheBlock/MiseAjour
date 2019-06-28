@@ -1,0 +1,535 @@
+/**************************
+
+Nom du fichier : navette_dispo_aller.html
+
+Objectif :   Template du fichier Page de reservation numero 3 sur 5 du site alsace navette
+
+Derniere modification : 11-02-2010 MARC CESCUTTI 
+
+****************************/
+/*
+	Modification de l'interface par Kempf Pierre-Louis (11/01/2012)
+*/
+
+<include tpl="aeroport/include.html" />
+
+
+<div id="contenu_v2">
+	
+	<!-- Bloc englobant toute la page -->
+	<div class='blocTotal'>
+		<div class='titreBlocTotal'>
+			<span class='txt_titre_colonne_3c'>{CHOIX_NAVETTE}</span>
+		</div>
+		<div class='contenuBlocTotal' style="padding:10px;text-align:center;">
+
+			<form id="form_back" action="index.html" method="post"></form>
+				
+			<!-- Bloc de "Mon Trajet" -->
+			<div class='blocTotal_750'>
+				<div class='titreBlocTotal_750'>
+					<span class='txt_titre_centre_gauche_3c'>{TITRE_MON_TRAJET}</span>
+				</div>
+				<div class='contenuBlocTotal_750' style="padding:10px;">
+					<table style="margin-left:37px" cellpadding="0" cellspacing="0">
+						<tr>
+							<td style="width:231px;padding:3px 0 3px 10px;">
+								<span><strong>{TYPE_TRAJET} :</strong> {TXT_TYPE_TRAJET}</span>
+							</td>
+							<td style="width:232px;padding:3px 0 3px 0;">
+								<span><strong>{TRAJET_DEPART} :</strong> {TXT_TRAJET_DEPART}</span>
+							</td>
+							<td style="width:231px;padding:3px 3px 3px 0;">
+								<span><strong>{TRAJET_ARRIVE} :</strong> {TXT_TRAJET_ARRIVE}</span>
+							</td>
+						</tr>
+
+					 <if cond="{$TXT_INFO_COMPL} != ''">
+
+						<tr >
+							<td colspan="3" style="padding:3px 0 3px 10px;">
+								<span><strong>{INFO_COMPL} :</strong><br /> {TXT_INFO_COMPL}</span>
+							</td>
+						</tr>
+					</if>
+
+					</table>
+				</div>
+			</div>
+			<!-- Fin Bloc de "Mon Trajet" -->
+			
+			<br />
+
+			<!-- Bloc de "Retour" -->
+			<if cond="{$TRAJET} == 0">
+			<div class='colonneDroite_2c_eq'>
+				<div class='titreColonne_2c_eq' >
+					<span class='txt_titre_colonne_2c_eq' style="text-align:center;color:#878787;">{RETOUR}</span>
+				</div>
+				<div class='contenuCentre_2c_eq_infini' style="padding:10px;text-align:left;">
+					<table style="margin-left:37px;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td class="contenu_grise">
+
+								<br />
+								<span><strong>{DATE_RETOUR} :</strong> {TXT_DATE_RETOUR}</span>
+
+								<br />
+								<span><strong>{HEURE_RETOUR} :</strong> {TXT_HEURE_RETOUR}</span>
+
+								<br />
+								<span><strong>{PT_RASSEMBLEMENT} :</strong> {TXT_PT_RASS_RETOUR}</span>
+
+								<if cond="{$TXT_RASS_ADRESSE_RETOUR} != ''">
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{ADRESSE_CLIENT} :</strong> {TXT_RASS_ADRESSE_RETOUR}</span>
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{CODE_POST_CLIENT} :</strong> {TXT_RASS_CP_RETOUR}</span>
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{VILLE_CLIENT} :</strong> {TXT_RASS_VILLE_RETOUR}</span>
+								</if>
+
+								<br />
+								<span><strong>{PASSAGER_ADULTE} :</strong> {TXT_PASSAGER_ADULTE_RETOUR}</span>
+
+								<if cond="{$TXT_PASSAGER_ENFANT_RETOUR} > 0">
+
+									<br />
+									<span><strong>{PASSAGER_ENFANT} :</strong> {TXT_PASSAGER_ENFANT_RETOUR}</span>
+
+								</if>
+
+								<br />
+								<span><strong>{INFO_VOL} :</strong> <br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{COMPAGNIE} : </strong>{COMPAGNIE_INFO_VOL_RETOUR}
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{DEST_VOL} : </strong>{DEST_INFO_VOL_RETOUR}
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{HEURE_VOL} : </strong>{HEURE_INFO_VOL_RETOUR}
+								</span>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			</if>
+			
+			<!-- Bloc de "Aller" -->
+			<div class='colonneGauche_2c_eq'>
+				<div class='titreColonne_2c_eq'>
+					<span class='txt_titre_colonne_2c_eq' style="text-align:center;">{ALLER}</span>
+				</div>
+				<div class='contenuCentre_2c_eq_infini' style="padding:10px;text-align:left;">
+					<table style="margin-left:37px;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td >
+								<br />
+								<span><strong>{DATE_DEPART} :</strong> {TXT_DATE_DEPART}</span>
+
+								<br />
+								<span><strong>{HEURE_DEPART} :</strong> {TXT_HEURE_DEPART}</span>
+
+								<br />
+								<span><strong>{PT_RASSEMBLEMENT} :</strong> {TXT_PT_RASS_ALLER}</span>
+
+								<if cond="{$TXT_RASS_ADRESSE_ALLER} != ''">
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{ADRESSE_CLIENT} :</strong> {TXT_RASS_ADRESSE_ALLER}</span>
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{CODE_POST_CLIENT} :</strong> {TXT_RASS_CP_ALLER}</span>
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{VILLE_CLIENT} :</strong> {TXT_RASS_VILLE_ALLER}</span>
+								</if>
+
+								<br />
+								<span><strong>{PASSAGER_ADULTE} :</strong> {TXT_PASSAGER_ADULTE_ALLER}</span>
+
+								<if cond="{$TXT_PASSAGER_ENFANT_ALLER} > 0">
+
+									<br />
+									<span><strong>{PASSAGER_ENFANT} :</strong> {TXT_PASSAGER_ENFANT_ALLER}</span>
+
+								</if>
+
+								<br />
+								<span><strong>{INFO_VOL} :</strong> <br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{COMPAGNIE} : </strong>{COMPAGNIE_INFO_VOL_ALLER}
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{DEST_VOL} : </strong>{DEST_INFO_VOL_ALLER}
+									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{HEURE_VOL} : </strong>{HEURE_INFO_VOL_ALLER}
+								</span>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			
+			
+			<br /><br />
+			
+		<if cond="{$TRAJET} == 0">
+			<form method="post" action="reservation/choix-navette_retour.php" id="form_navette_existant">
+		<else />
+			<form method="post" action="demande_reservation.php" id="form_navette_existant">
+		</if>
+
+
+
+			<!-- Possibilite de selectionner un passager différent by Alexandre 
+			input checkbox a value est prise en compte que si elle est coche
+			ce n'est pas une valeur pas defaut
+			-->
+				<br />
+
+				<div class='blocFondVioletTotal'>
+					<input name='chckPassagerDifferent' type='checkbox' id='chckPassagerDifferent' onclick='verificationSiAutrePassager()' value='oui' style='margin-right:10px;margin-left:40px;' />
+					<label style='cursor:pointer;font-size:14px;' for='chckPassagerDifferent'><strong>{TITRE_A_COCHER_SI_LA_PERSONNE_EST_AUTRE}</strong></label>
+					<br />
+					<div style='text-align:left;margin-left:40px;' id='chpPortable'></div>
+				</div>
+			<!-- Fin possibilite de selectionner un passager différent by Alexandre -->
+			
+					<br /><br />
+
+					<if cond="{$TRAJET} == 0">
+						<input type="hidden" name="res_2_2" />
+					<else />
+						<input type="hidden" name="res_3" />
+					</if>
+					
+				<if cond="{$NAVETTE}">
+
+					<!-- Bloc du choix 1 -->
+					<div class='blocTotal_750'>
+						<div class='titreBlocTotal_750'>
+							<span class='txt_titre_centre_gauche_3c'>{CHOIX_1}</span>
+						</div>
+						<div class='contenuBlocTotal_750' style="padding:10px;">
+							/* si ya des navettes disponibles, on affiche un texte explicatif */
+							<if cond="{$NAVETTE}">
+
+								<span>{NAVETTE_EXISTANT} : </span>
+								<br /><br />
+
+								<table class="tab_nav_existant" style="margin:auto">
+									<tr>
+
+										<foreach ary="{$TAB_HEADER}">
+
+											<th>{VALUE,TAB_HEADER}</th>
+
+										</foreach>
+
+									</tr>
+
+									<foreach ary="{$TAB_NAVETTE_DISPO}" as="{$TAB_NAV_DISPO}">
+
+										<tr>
+
+											 <td><input type="radio" name="rb_navette" value="{VALUE,TAB_NAV_DISPO['ID']}" /></td>
+
+											<foreach ary="{VALUE,$TAB_NAV_DISPO['NAVETTE']}" as="{$TNDA}">
+
+												<td>{VALUE,TNDA}</td>
+
+											</foreach>
+
+										</tr>
+
+									</foreach>
+
+								</table>
+
+							 <else />
+
+								<span>{AUCUNE_NAVETTE}.</span>
+								<br />
+								<br />
+
+							</if>
+						</div>
+					</div>
+				</if>
+
+				<input type="hidden" name="navette_dispo" id="navette_dispo" value="0" />
+				<input type="hidden" id="type_trajet" value="{TRAJET}" />
+
+				<input type="hidden" id="nav" value="{BOOL_NAV}" />
+				<input type="hidden" id="ressource" />
+
+
+					<if cond="{$MEME_HEURE} == '0'">
+					
+						<if cond="{$RESS}">
+							<br />
+							<!-- Bloc du choix 2 -->
+							<div class='blocTotal_750'>
+								<div class='titreBlocTotal_750'>
+									<span class='txt_titre_centre_gauche_3c'>{CHOIX_2}</span>
+								</div>
+								<div class='contenuBlocTotal_750' style="padding:10px;">
+							
+									/* si pas de ressources */
+									<if cond="!{$RESS}">
+
+										<span>{TXT_PAS_RESSOURCE} !</span>
+
+										<br />
+
+									<else />
+
+										<table class="tab_nav_existant" style="margin:auto">
+											<tr>
+
+												<foreach ary="{$TAB_HEADER}">
+
+													<th>{VALUE,TAB_HEADER}</th>
+
+												</foreach>
+
+											</tr>
+
+											<tr>
+												<td>
+
+													<if cond="{$NB_PASS_MINI} <= {$NB_PASS}">
+
+														<input type="checkbox" id="accept_forfait_mini" name="accept_forfait_mini" value="on" />
+													/*
+														<br />
+														<input type="checkbox" id="accept_forfait_mini" name="accept_forfait_mini" />
+														<label for="accept_forfait_mini"><strong>{LABEL_NOUVELLE_NAVETTE}</strong></label>
+													*/
+													<else />
+														<input type="checkbox" id="accept_forfait_mini" name="accept_forfait_mini" value="on" />
+													/*
+														<br />
+														<span>{EXPLICATION_FORFAIT_MINI}. {REMBOURSEMENT_FORFAIT}</span>
+														<br />
+														<br />
+														<input type="checkbox" id="accept_forfait_mini" name="accept_forfait_mini" />
+														<label for="accept_forfait_mini"><strong>{LABEL_CHK_FORF_MINI}</strong></label>
+													*/
+													</if>
+
+
+												</td>
+												<td>
+													{TXT_TRAJET_DEPART}
+												</td>
+												<td>
+													{TXT_TRAJET_ARRIVE}
+												</td>
+												<td>
+													{TXT_DATE_DEPART_COURT} {TXT_HEURE_DEPART}m
+												</td>
+												<td>
+													0
+												</td>
+												<td>
+													{LBL_TARIF_TRAJET} â‚¬
+												</td>
+
+											</tr>
+
+										</table>
+
+									<br />
+									<span>{EXPLICATION_FORFAIT_MINI}. {REMBOURSEMENT_FORFAIT}</span>
+		
+									</if>
+									
+								</div>
+								
+							</div>
+
+						</if>
+
+
+						 /* on peut attendre si on n'atteint pas le nombre de passagers du forfait mini */
+						<if cond="{$NB_PASS_MINI} > {$NB_PASS}">
+							<br />
+							
+							<!-- Bloc du choix 3 -->
+							<div class='blocTotal_750'>
+								<div class='titreBlocTotal_750'>
+									<span class='txt_titre_centre_gauche_3c'>{CHOIX_3}</span>
+								</div>
+								<div class='contenuBlocTotal_750' style="padding:10px;">
+									<span>{EXPLI_ATTENDRE}</span>
+									<br /><br />
+
+									<input type="checkbox" id="attendre" name="attendre" />
+									<label for="attendre"><strong>{LABEL_ATTENDRE}</strong></label>
+									
+								</div>
+								
+							</div>
+							
+						 </if>
+
+					</if>
+
+					<br />
+
+
+
+					/* vérification des adresses de prises / dépose */
+
+					<input type="hidden" id="pb_adresse" value="0" />
+
+					<if cond="{$TYPE} == 'DOM'">
+
+
+						<input type="hidden" name="decalage" id="decalage" />
+						<input type="hidden" name="distance" id="distance" />
+
+
+						<div id="sur_adresse" style="display:none;">
+							<br />
+							<span><img src="images/warning_red.gif" alt="" /> {PB_ADRESSE}</span>
+							<br />
+							<input type="checkbox" name="chk_sur_adresse" id="chk_sur_adresse" />
+							<label for="chk_sur_adresse">{SUR_ADRESSE}</label>
+							<br />
+						</div>
+
+					</if>
+
+					<if cond="{$IS_DER_MIN} == '1'">
+
+						<br />
+						<strong>{ATTENTION}</strong>
+						<br />
+						<br />
+
+					</if>
+
+
+					<div class="centre">
+
+						<br />
+						<input type="button" id="btn_annuler_demande" value="{RETOUR}" onclick="" />
+						&nbsp;&nbsp;
+						<input type="button" value="{BTN_CONTINUER}" name="nouvelle_navette" id="btn_continuer" disabled="disabled" />
+
+						<if cond="{$NAVETTE}">
+							&nbsp;&nbsp;
+							<input type="button" id="btn_deselectionner" value="DÃ©-sÃ©lectionner" disabled="disabled" />
+						</if>
+
+						<input type="hidden" id="pb_ressource" value="{PB_RESSOURCE}" />
+
+					</div>
+
+			</form>
+			
+		</div>
+		
+	</div>
+
+	<br /><br />
+
+	<script type="text/javascript" src="scripts/navette_dispo.js"></script>
+	<!-- KEMPF : Ajout de ajax.js pour pouvoir traiter les demandes annulées en cours de réservation -->
+	<script type="text/javascript" src="scripts/ajax.js"></script>
+
+</div>
+
+
+<if cond="{$TYPE} == 'DOM'">
+    <script src="http://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS}&sensor=false" type="text/javascript"></script>
+</if>
+
+
+<script type="text/javascript">
+<!--
+	// KEMPF : Gestion de l'annulation de la demande
+	var func_cancel = function(){
+		set_demande_annulee("{CIVILITE_CLIENT} {NOM_CLIENT} {PRENOM_CLIENT}", "{EMAIL_CLIENT}", {ID_TRAJET_DEPART}, {ID_TRAJET_DEST}, "Choix navette aller", {PRIX_TRAJET}, {TRAJET_EST_SIMPLE});
+	}
+	document.getElementById('btn_annuler_demande').onclick = func_cancel;
+	
+	//
+
+    var inp = document.getElementById('decalage');
+    var dist = document.getElementById('distance');
+
+    <if cond="{$TYPE} == 'DOM'">
+
+        // KEMPF : Ajout de l'API 3.0 de GoogleMaps
+		var origine = "{ADDR}";
+		var destination = new google.maps.LatLng(48.5844857, 7.7342248);
+		
+		var service = new google.maps.DistanceMatrixService();
+		
+		service.getDistanceMatrix(
+		  {
+			origins: [origine],
+			destinations: [destination],
+			travelMode: google.maps.TravelMode.DRIVING,
+			avoidHighways: false,
+			avoidTolls: false
+		  }, callback);
+		
+		function callback(response, status){
+		
+			if (status == google.maps.DistanceMatrixStatus.OK) {
+				var origins = response.originAddresses;
+				var destinations = response.destinationAddresses;
+				var trouve = false;
+				
+				for (var i = 0; i < origins.length; i++) {
+					var results = response.rows[i].elements;
+					for (var j = 0; j < results.length; j++) {
+						if (origins[i] != ""){
+							var element = results[j];
+							var dis = element.distance;
+							var dur = element.duration;
+							
+							inp.value = dur.value;
+							dist.value = dis.value;
+							trouve = true;
+						}
+					}
+				}
+				
+				if (!trouve){
+					var sur = document.getElementById('sur_adresse');
+
+					document.getElementById('pb_adresse').value = "1";
+
+					sur.style.display = "block";
+				}
+				
+			}else{
+				var sur = document.getElementById('sur_adresse');
+
+				document.getElementById('pb_adresse').value = "1";
+
+				sur.style.display = "block";
+			}
+		}
+		
+    </if>
+
+//-->
+
+function verificationSiAutrePassager()
+{
+	var ck = document.getElementById('chckPassagerDifferent');
+	if(ck.checked)
+	{
+		document.getElementById('chpPortable').innerHTML = "<br />{TXT_NOM_PASSAGER} : <input type='text' id='txtNom' name='txtNom' /><br />{LABEL_INDICATIF_TELEPHONE} : {INDICATIF_TELEPHONE} <br />{LABEL_TELEPHONE} : <input type='text' id='txtPortable' name='txtPortable' />";
+		document.getElementById('txtNom').focus();
+	}
+	else
+		document.getElementById('chpPortable').innerHTML = "";
+}
+</script>
+
+<include tpl="footer.html" />

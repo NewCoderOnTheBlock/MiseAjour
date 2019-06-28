@@ -1,0 +1,629 @@
+/* ==============================================
+   FEUILLE DE STYLES DES GABARITS HTML/CSS --- 03
+   © Elephorm & Alsacreations.com
+   Conditions d'utilisation:
+   http://creativecommons.org/licenses/by/2.0/fr/
+   ============================================== */
+
+
+/* Général */
+body {
+	color: black;
+	background:#FD7014;
+}
+strong {
+	color: #FD7014;
+}
+th {
+	color: #B6C90C;
+}
+h1 {
+	text-align: center;
+	color:#0194B5;
+}
+h2 {
+	color:#FD7014;
+}
+
+/* Page */
+#global {
+	background: white;
+}
+
+/* Contenu principal */
+#contenu {
+	color: black;
+	background: white;  
+	text-align: left; /* pour corriger le bug de centrage IE */
+}
+#contenu strong {
+	color: #FD7014
+}
+
+/* Pied de page */
+#pied {
+	color: #0194B5;
+}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+html, body {
+	height: 100%; /* Voir -> Note 1 ci-dessous */
+}
+body {
+	padding: 0;
+}
+#global {
+	overflow: hidden; /* -> 2 */
+}
+
+#global .header {
+	margin:0 10% auto;
+}
+
+#global .header > div:first-of-type, #global .header > div:last-of-type {
+	margin-top:50px;
+}
+
+.header a, .header a:focus, .header a:hover, #contenu a, #contenu a:focus, #contenu a:hover {
+	color:#919191;
+}
+
+/* En-tête */
+#entete {
+	margin:0;
+}
+
+/* Menu de navigation */
+#navigation {
+	margin:auto;
+	height:35px;
+	line-height:30px;
+	background-color:black;
+}
+
+#navigation > div {
+	padding:0;
+}
+
+#navigation > div a {
+	color:white;
+}
+
+/* Contenu */
+#contenu {
+	text-align:left;
+	margin:0 10% auto;
+}
+
+#contenu .row {
+	margin:0;
+}
+
+#contenu .texte_accueil {
+	position:relative;
+	z-index:1;
+	top:-63px;
+	background-color:white;
+	width:400px;
+	margin:auto;
+	padding:10px;
+	border:3px solid grey;
+	border-bottom:none;
+}
+
+#contenu .formules {
+	margin-bottom:40px;
+}
+
+#contenu .formules .texte_formules {
+	font-size:12px;
+	display:none;
+}
+
+#contenu .formules .texte_affiche {
+	display:block;
+}
+
+#contenu .formules img, #contenu #liste_outlet img {
+	width:100%;
+}
+
+#contenu .formules > div, #contenu #liste_outlet > div {
+	text-align:justify;
+	padding:0 10px;
+}
+
+#contenu .formules > div > div, #contenu #liste_outlet > div > div, #contenu #liste_outlet .services > div, #contenu #liste_outlet .services .bloc_services div {
+	padding:0;
+}
+
+#contenu .formules .picto_sur_image, #contenu #liste_outlet .services .picto_sur_image {
+	position:absolute;
+	left:43%;
+	top:30%;
+	width:auto;
+}
+
+#contenu .formules .picto_blanc {
+	left:30%;
+}
+
+#contenu  .formules .picto_sur_image_droite {
+	left:40%;
+}
+
+#contenu #liste_outlet .services .picto_sur_image {
+	top:25%;
+}
+
+#contenu #liste_outlet .services .div_prix {
+	color:#E52144;
+	font-weight:900;
+	position:absolute;
+	left:31%;
+	top:65%;
+	font-size:13px;
+}
+
+#contenu #liste_outlet .services .div_texte {
+	color:#E52144;
+	position:absolute;
+	font-weight:900;
+	font-size:14px;
+	left:32%;
+	top:50%;
+}
+
+#contenu #liste_outlet > div {
+	text-align:center;
+	margin-bottom:30px;
+}
+
+#contenu .formules > div > div:first-of-type img:first-of-type, #contenu #liste_outlet > div > div:first-of-type {
+	border-top:3px solid black;
+}
+
+#contenu .plus {
+	position:relative;
+	top:-14px;
+	left:45%;
+	background-color:white;
+    border-radius:50%;
+	padding:3px 9px;
+	font-size:20px;
+	color:black;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#contenu .plus:hover, #contenu .plus:focus {
+	text-decoration:none;
+}
+
+#contenu #liste_outlet .infos_pratiques {
+	background-color:#EFEFEF;
+}
+
+#contenu #liste_outlet .infos_pratiques .bloc_infos_pratiques {
+	display:none;
+}
+
+#contenu #liste_outlet .horaires {
+	height:70px;
+}
+
+#contenu #liste_outlet .horaires div, #contenu #liste_outlet .adresse p {
+	padding:0;
+	font-size:12px;
+}
+
+#contenu #liste_outlet .horaires .horaires_jours, #contenu #liste_outlet .adresse p {
+	text-align:left;
+}
+
+#contenu #liste_outlet .horaires .horaires_heures {
+	text-align:right;
+}
+
+#contenu #liste_outlet .titre_infos, #contenu .formules .titre_infos, #contenu #liste_outlet .adresse .titre_infos {
+	background-color:black;
+	color:white;
+	text-align:center;
+}
+
+#contenu #liste_outlet .titre_infos_grand, #contenu .formules .titre_infos_grand {
+	text-transform:uppercase;
+	height:45px;
+	line-height:35px;
+}
+
+#contenu .plus_infos_pratiques {
+	left:0;
+	top:-24px;
+}
+
+#contenu .plus_services {
+	position:absolute;
+	padding:3px 11.5px;
+	line-height:1.2;
+	z-index:2;
+	left:44%;
+	top:29px;
+}
+
+#contenu .plus_services_droite {
+	left:47%;
+}
+
+#contenu p, #contenu li {
+	line-height: 1.5;
+}
+
+#contenu ul li {
+	margin-top:10px;
+}
+
+#contenu form > div.row {
+	margin:0;
+	margin-bottom:10px;
+}
+
+#contenu form label, #contenu .fieldset_infos_client label, #contenu .fieldset_tarifs label {
+	text-align:right;
+}
+
+#contenu form input, #contenu form select, #contenu form textarea {
+	padding:0 5px;
+}
+
+#contenu form .btn_submit {
+	text-align:right;
+}
+
+#contenu .rouge {
+	color:red;
+}
+
+#contenu .vert {
+	color:green;
+}
+
+#contenu .contact_gauche {
+	padding-left:0;
+}
+
+#contenu .contact_droite {
+	padding-right:0;
+}
+
+#contenu .contact_droite .picto_contact {
+	padding-right:0;
+	text-align:right;
+	margin-top:20px;
+}
+
+#contenu .bloc_legende {
+	width:20%;
+	padding:0;
+	font-size:10px;
+}
+
+#contenu .bloc_legende > div:last-of-type {
+	padding-left:5px;
+	padding-right:10px;
+}
+
+#contenu .bloc_legende > * {
+	padding:0;
+}
+
+#contenu .case_legende {
+	height:18px;
+}
+
+#contenu .case_talange {
+	background-color:green;
+}
+
+#contenu .case_zweibrucken {
+	background-color:orange;
+}
+
+#contenu .case_roppenheim {
+	background-color:#EDF78D;
+}
+
+#contenu .case_metzingen {
+	background-color:FC83CE;
+}
+
+#contenu .formulaire_reservation form {
+	margin-top:60px;
+	background-color:#EFEFEF;
+	padding:20px 0;
+}
+
+#contenu .formulaire_reservation > form > div {
+	padding:0;
+}
+
+#contenu .btn_etape_suivante {
+	height:30px;
+	background-color:black;
+	color:white;
+	text-transform:uppercase;
+	border:none;
+	padding:0 10px;
+}
+
+#contenu .formulaire_reservation form div.row {
+	margin-bottom:10px;
+}
+
+#contenu .formulaire_reservation label {
+	font-weight:normal;
+}
+
+#contenu .formulaire_reservation select option {
+	padding:0 5px;
+}
+
+#contenu form .image_paiement {
+	width:50%;
+}
+
+#contenu .services > div {
+	background-color:#EFEFEF;
+}
+
+#contenu .formules_outlet div.row {
+	font-size:12px;
+}
+
+#contenu .texte_formules_services {
+	height:100px;
+}
+
+/* Pied de page */
+footer {
+	margin:0 10% auto;
+	padding-top:30px;
+	font-size:0.85em;
+	border-top:3px solid black;
+	text-align:left;
+}
+
+.picto {
+	width:15px;
+	margin-bottom:3px;
+	margin-right:5px;
+}
+
+footer .picto_footer {
+	width:20px;
+	margin-right:10px;
+}
+
+footer a, footer a:hover, footer a:focus {
+	color:black;
+}
+
+#copyright {
+	text-align: left;
+	font-size: 1em;
+}
+
+@media (max-width:1280px) {
+	#contenu #liste_outlet .horaires {
+		height:100px;
+	}
+}
+
+@media (max-width:1200px) {
+	#contenu #liste_outlet .services .div_prix {
+		left:30%;
+		top:70%;
+	}
+}
+
+@media (max-width:1120px) {
+	#contenu #liste_outlet .horaires {
+		height:130px;
+	}
+	
+	#contenu #liste_outlet .services .div_prix {
+		top:75%;
+	}
+	
+	#contenu .formules .picto_sur_image, #contenu #liste_outlet .services .picto_sur_image {
+		left:28%;
+	}
+}
+
+@media (max-width:1035px) {
+	#contenu #liste_outlet .titre_infos_grand {
+		height:60px;
+		line-height:20px;
+	}
+	
+	#contenu #liste_outlet .titre_infos_grand_services {
+		line-height:40px;
+	}
+	
+	#contenu .formules .picto_sur_image, #contenu #liste_outlet .services .picto_sur_image {
+		left:25%;
+		top:20%;
+	}
+	
+	#contenu #liste_outlet .services .div_prix {
+		left:25%;
+	}
+	
+	#contenu .plus {
+		left:42%;
+	}
+	
+	#contenu .plus_services {
+		top:42px;
+	}
+	
+	#contenu .plus_infos_pratiques {
+		left:0;
+	}
+}
+
+@media (max-width:991px) {
+	#contenu #liste_outlet .titre_infos_grand {
+		height:45px;
+		line-height:35px;
+	}
+	
+	#contenu .formules .picto_sur_image, #contenu #liste_outlet .services .picto_sur_image {
+		left:37%;
+		top:30%;
+	}
+	
+	#contenu #liste_outlet .horaires {
+		height:70px;
+	}
+	
+	#contenu #liste_outlet .services .div_prix {
+		left:37%;
+	}
+	
+	#contenu .plus {
+		left:45%;
+	}
+	
+	#contenu .plus_services {
+		top:29px;
+		left:46%;
+	}
+	
+	#contenu .plus_infos_pratiques {
+		left:0;
+	}
+	
+	#contenu .formules > div {
+		margin-bottom:10px;
+	}
+	
+	#contenu .contact_droite .picto_contact {
+		text-align:center;
+	}
+	
+	#contenu .bloc_legende {
+		width:50%;
+	}
+	
+	#contenu .formulaire_reservation form div.row, #contenu .formulaire_reservation form label {
+		text-align:center;
+	}
+	
+	#contenu .fieldset_retour {
+		margin-top:20px;
+	}
+}
+
+@media (max-width:767px) {
+	#global .header > div:first-of-type, #global .header > div:last-of-type {
+		margin:0;
+		margin-bottom:10px;
+	}
+	
+	#navigation {
+		height:auto;
+	}
+	
+	#contenu .texte_accueil {
+		position:static;
+		background-color:white;
+		margin:auto;
+		padding:10px;
+		width:auto;
+		border:none;
+		margin-bottom:20px;
+	}
+	
+	#contenu .formules > div div {
+		text-align:center;
+	}
+	
+	#contenu .formules .texte_formules {
+		margin-bottom:10px;
+	}
+	
+	#contenu .plus {
+		left:0;
+	}
+	
+	#contenu .plus_services {
+		left:46%;
+	}
+	
+	#contenu #liste_outlet > div > div:first-of-type > div:first-of-type > img {
+		width:auto;
+	}
+	
+	#contenu .contact_gauche, #contenu .contact_droite, #contenu .fieldset_infos_client label, #contenu .fieldset_tarifs label {
+		padding:0;
+	}
+	
+	#contenu form label, #contenu form .btn_submit {
+		text-align:center;
+	}
+	
+	#contenu .reservation_droite {
+		margin-top:20px;
+	}
+	
+	#contenu .formulaire_reservation form {
+		margin-top:10px;
+	}
+	
+	#contenu .fieldset_infos_client, #contenu .fieldset_infos_client label, #contenu .fieldset_tarifs label {
+		text-align:left;
+	}
+	
+	#contenu #form_reservation div.row, #contenu .fieldset_infos_client div.row, #contenu .fieldset_tarifs div.row {
+		margin-bottom:10px;
+	}
+	
+	#contenu form .image_paiement {
+		width:30%;
+	}
+	
+	footer > div  > div:nth-of-type(3), footer > div  > div:nth-of-type(4), footer > div  > div:last-of-type, footer > div:last-of-type > div:nth-of-type(2) {
+		margin-top:20px;
+	}
+	
+	footer > div:first-of-type > div:first-of-type > div {
+		margin-bottom:5px;
+	}
+}
+
+@media (max-width:480px) {
+	#contenu .formules .picto_sur_image, #contenu #liste_outlet .services .picto_sur_image {
+		left:30%;
+		top:30%;
+	}
+	
+	#contenu .plus_services {
+		left:44%;
+	}
+	
+	#contenu #liste_outlet .services .div_prix {
+		left:32%;
+	}
+	
+	#contenu #liste_outlet > div > div:first-of-type > div:first-of-type > img {
+		width:100%;
+	}
+	
+	#contenu form .image_paiement {
+		width:50%;
+	}
+}

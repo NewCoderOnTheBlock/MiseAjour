@@ -1,0 +1,158 @@
+body{
+	font-family:Arial,Verdana,Helvetica, sans-serif;	
+}
+#centre{
+	
+	margin-left: 10px;
+	margin-right: auto;
+	width: 1300px;
+	height: auto;
+	padding: 2px;
+	margin-top: 35px;
+	text-align: center;
+}
+
+corps {
+margin: 0;
+padding: 0;
+background: white;
+font: 80% verdana, arial, sans-serif;
+}
+
+
+#menu {
+	margin:auto;
+	width:1400px;
+	z-index:100;
+	left: 2px;
+	top: 2px;
+	height: 38px;
+}
+/* STYLE POUR LE CALENDRIERS */
+.ds_box {
+	background-color: #FFF;
+	border: 1px solid #000;
+	margin-left:auto;
+	margin-right:auto;
+	z-index: 32767;
+}
+
+.ds_tbl {
+	background-color: #FFF;
+}
+
+.ds_head {
+	background-color: #333;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.ds_subhead {
+	background-color: #CCC;
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 32px;
+}
+
+.ds_cell {
+	background-color: #EEE;
+	color: #000;
+	font-size: 13px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 5px;
+	cursor: pointer;
+}
+
+a{
+	text-decoration:none;
+}
+
+.ds_cell:hover {
+	background-color: #F3F3F3;
+} /* This hover code won't work for IE */
+
+
+
+
+/**
+*
+* Modif par Alex
+*
+**/
+
+.lblForm{
+	display:block;
+	width:200px;
+	float:left;
+	text-align:left;
+}
+
+.lblFormLong{
+	display:block;
+	width:330px;
+	float:left;
+	text-align:left;
+}
+
+.txtForm
+{
+	float:left;
+	width:250px;
+	text-align:left;
+}
+
+.conducteur{
+	width:550px;
+	padding: 30px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+#lgdConducteur{
+	border : 1px outset #AAA;
+	padding:5px;
+	font-size:10pt;
+	font-weight:bold;
+}
+
+  /**** SOUS MENU *****/
+ 
+.underlinemenu{
+font-weight: bold;
+width: 100%;
+}
+
+.underlinemenu ul{
+padding: 6px 0 7px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+margin: 0;
+text-align: center;
+}
+
+.underlinemenu ul li{
+display: inline;
+}
+
+.underlinemenu ul li a{
+color: #494949;
+padding: 6px 3px 4px 3px; /*top padding is 6px, bottom padding is 4px*/
+margin-right: 70px; /*spacing between each menu link*/
+text-decoration: none;
+border-bottom: 3px solid gray; /*bottom border is 3px*/
+}
+
+.underlinemenu ul li a:hover, .underlinemenu ul li a.selected{
+border-bottom-color: black;
+}
+
+#table_info_trajet{
+
+}

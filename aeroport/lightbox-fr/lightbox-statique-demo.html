@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lightbox CSS, d&eacute;mo simple de contenu statique</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link type="text/css" rel="stylesheet" href="lightbox-css.css">
+
+</head>
+
+<body>
+<h1>Lightbox CSS, d&eacute;mo simple</h1>
+<p>D&eacute;monstration simple de la lightbox universelle avec un contenu statique.</p>
+
+<br>
+
+<div id="shadowing"></div>
+<div id="box">
+	<div id="boxheader">
+    	Titre pour le contenu (image, formulaire ou autre)
+   <span id="boxclose" onclick="document.getElementById('box').style.display='none';
+   document.getElementById('shadowing').style.display='none'"> </span>
+	</div>
+	<div id="boxcontent">
+Et ceci est le contenu statique de la boite. <br><br>
+Contenu dynamique dans la démo suivante...
+	</div>
+</div>
+
+
+<p>Pour afficher la boite, cliquer sur le lien <a href="#" onclick="document.getElementById('shadowing').style.display='block';
+	  document.getElementById('box').style.display='block';">ouvrir</a> 
+</p>
+
+<br>
+
+<hr>
+
+<p>&copy 2008-2011 <a href="http://www.xul.fr">xul.fr</a></p>
+</body>
+</html>

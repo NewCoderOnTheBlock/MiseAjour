@@ -1,0 +1,395 @@
+/* CSS Document */
+
+/* Body */
+
+body
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#797979;
+	background-color:#EBF3FC;
+	/*background: url(../images_corps/bg.png) repeat-x;*/
+}
+
+a
+{
+	color:#333333;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+h1
+{
+	font-size:20px;
+}
+h2
+{
+	font-size:16px;
+}
+
+h4
+{
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+	top:0px;
+}
+h5
+{
+	font-size:11px;
+}
+
+h6
+{
+	font-size:10px;
+}
+
+#cache {
+    position:absolute; 
+	top:250px; 
+	z-index:999; 
+	visibility:hidden;
+	left:40px;
+	width:575px;
+	height:470px;
+	padding:80px;
+	background-color:#FFFFFF;
+}
+
+#corps_page_haut
+{
+	width:800px;
+	height:250px;
+	background-image:url(../images_corps/fond_haut.png);
+	background-repeat:no-repeat;
+}
+
+#corps_page_haut_noel
+{
+	width:800px;
+	height:250px;
+	background-image:url(../images_corps/fond_haut_noel.png);
+	background-repeat:no-repeat;
+	z-index:50;
+}
+
+#corps_page_contenu
+{
+	width:800px;
+	height:600px;
+	background-image:url(../images_corps/fond_repeat.png);
+	background-repeat:repeat-y;
+}
+
+#corps_page_contenu1
+{
+	width:800px;
+	height:830px;
+	background-image:url(../images_corps/fond_repeat.png);
+	background-repeat:repeat-y;
+}
+
+#corps_page_footer
+{
+	width:800px;
+	height:85px;
+	background-image:url(../images_corps/fond_bas.png);
+	background-repeat:repeat-y;
+	color:#FFFFFF;
+}
+
+#corps_page_footer_noel
+{
+	width:800px;
+	height:85px;
+	background-image:url(../images_corps/fond_bas_noel.png);
+	background-repeat:repeat-y;
+	color:#FFFFFF;
+}
+
+#corps_images {
+	position:absolute;
+	left:472px;
+	margin-left:5px;
+	top:741px;
+	width:293px;
+	height:95px;
+	z-index:3;
+	overflow:hidden;
+}
+
+#corps_index
+{
+	position:inherit;
+	padding-left:5px;
+	padding-top:0px;
+	margin-left:33px;
+	padding-right:10px;
+	width:700px;
+	height:600px;
+	z-index:3;
+	overflow:auto;
+	background-color:#FFFFFF;
+	background-image:url(../images/alsace.png);
+	background-repeat:no-repeat;
+	background-position:bottom right;
+}
+
+#corps_planning {
+	position:absolute;
+	left:472px;
+	top:245px;
+	width:293px;
+	height:480px;
+	z-index:3;
+	margin:5px;
+	overflow:auto;
+	border-bottom:thin;
+	border-bottom-style:solid;
+	border-bottom-color:#CCCCCC;
+}
+
+#corps_texte
+{
+	position:inherit;
+	padding-left:5px;
+	padding-top:0px;
+	margin-left:33px;
+	padding-right:10px;
+	width:415px;
+	height:560px;
+	z-index:3;
+	overflow:auto;
+	border-bottom:thin;
+	border-bottom-style:solid;
+	border-bottom-color:#CCCCCC;
+}
+
+dl, dt, dd, ul, li {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#menu_prin_content  /* div de placement du menu en entier */
+{
+	height:20px;
+	width:259px;
+	left:150px;
+	top:135px;
+	position:absolute;
+}
+
+#menu {
+position: absolute; /* placement du menu, à modifier selon vos besoins */
+top: 132px;
+left: 181px;
+z-index:100;
+width: 100%; /* correction pour Opera */
+}
+#menu dl {
+float: left;
+width: 7em;
+}
+
+#menu dt {
+
+cursor: pointer;
+text-align: center;
+font-weight: bold;
+background:#579CF0;
+border: 1px solid gray;
+margin: 1px;
+}
+#menu dd {
+display: none;
+border: 1px solid gray;
+}
+#menu li {
+text-align: left;
+background:#CFE7FE;
+color:#000000;
+}
+#menu li a, #menu dt a {
+color: #fff;
+text-decoration: none;
+display: block;
+height: 100%;
+border: 0 none;
+margin-left:3px;
+margin-right:3px;
+margin-top:1px;
+margin-bottom:1px;
+color:#000000;
+}
+#menu li a:hover, #menu li a:focus, #menu dt a:hover, #menu dt a:focus {
+background:#FFFFFF;
+color:#000000;
+}
+
+
+#news
+{
+	position:absolute;
+	left:800px;
+	width:205px;
+	height:450px;
+	top:0px;
+
+}
+
+#news_haut
+{
+	position:inherit;
+	width:205px;
+	height:45px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/news_haut.png);
+}
+
+#news_haut_noel
+{
+	position:inherit;
+	width:205px;
+	height:45px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/news_haut_noel.png);
+}
+
+#news_contenu
+{
+	top:45px;
+	position:inherit;
+	width:195px; 
+	padding-left:10px;
+	z-index:50;
+	height:404px;
+	background-repeat:repeat-y;
+	background-image:url(../images_corps/partenaire_repeat.png);
+}
+
+
+#news_footer
+{
+	position:inherit;
+	width:205px;
+	height:31px;
+	top:429px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/partenaire_bas.png);
+}
+
+
+#page
+{
+	position:absolute;
+	left:3px;
+	z-index:2;
+	top:3px;
+}
+
+#partenaires
+{
+	position:absolute;
+	left:800px;
+	width:205px;
+	height:480px;
+	top:455px;
+
+}
+
+#partenaires_haut
+{
+	position:inherit;
+	width:205px;
+	height:45px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/partenaire_haut.png);
+}
+
+#partenaires_haut_noel
+{
+	position:inherit;
+	width:205px;
+	height:45px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/partenaire_haut_noel.png);
+}
+
+#partenaires_contenu
+{
+	top:45px;
+	position:inherit;
+	width:205px;
+	height:404px;
+	z-index:50;
+	background-repeat:repeat-y;
+	background-image:url(../images_corps/partenaire_repeat.png);
+	padding-left:30px;
+
+}
+
+
+#partenaires_footer
+{
+	position:inherit;
+	width:205px;
+	height:31px;
+	top:449px;
+	background-repeat:no-repeat;
+	background-image:url(../images_corps/partenaire_bas.png);
+}
+
+#services
+{
+	position:absolute;
+	left: 485px;
+	top: 133px;
+	width: 285px;
+	margin-left:1px;
+	height: 90px;
+	z-index:5000;
+}
+
+#special_reservation
+{
+	height:650px;
+	width:730px;
+	position:inherit;
+	padding-left:40px;
+	z-index:3;
+	background-image:url(../images/alsace.png);
+	background-repeat:no-repeat;
+	background-position:bottom right;
+}
+
+#special_reservation_1
+{
+	height:650px;
+	width:730px;
+	position:inherit;
+	padding-left:40px;
+	z-index:3;
+	background-image:url(../images/alsace.png);
+	background-repeat:no-repeat;
+	background-position:bottom right;
+	background-color:#FFFFFF;
+}
+
+#titre_page {
+	position:absolute;
+	left:181px;
+	top:160px;
+	width:282px;
+	height:48px;
+	z-index:3;
+	margin-bottom:5px;
+	font-size:10px;
+}
+
+#titres_themes
+{
+	font-size:18px;
+	text-align:center;
+}
+/* end Body */

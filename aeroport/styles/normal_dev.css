@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+
+#menu {
+	margin-left: auto;
+	margin-right: auto;
+	width: 850px;
+	height: 35px;
+}
+
+
+.valign_select {
+	margin-top: 10px;
+}
+
+
+.valign_txt {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.label_cote_1 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 82px;
+	margin-top: 3px;
+}
+
+.label_cote_2 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 90px;
+	margin-top: 3px;
+}
+
+
+.label_cote_3 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 115px;
+	margin-top: 3px;
+}
+
+.label_cote_4 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 140px;
+	margin-top: 3px;
+}
+
+
+.label_cote_5 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 110px;
+	margin-top: 3px;
+}
+
+
+.label_cote_6 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 155px;
+	margin-top: 3px;
+}
+
+
+.label_cote_7 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 140px;
+	margin-top: 3px;
+}
+
+
+.label_cote_8 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 85px;
+	margin-top: 3px;
+}
+
+
+.label_cote_9 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 200px;
+	margin-top: 3px;
+}
+
+
+label, p, li {
+	font-size:12px;
+}
+
+span {
+	font-size: 12px;
+}
+
+span > label {
+	font-size:12px;
+}

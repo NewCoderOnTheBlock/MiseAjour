@@ -1,0 +1,95 @@
+
+#############
+#	.htaccess pour la version en ligne
+#############
+
+
+# Activation de l'URL Rewriting
+RewriteEngine On
+
+
+# Les erreurs
+RewriteRule ^(.*)erreur-e([0-9]+)\.html$ /aeroport/erreur.php?erreur=$2 [L]
+
+# Les factures
+RewriteRule ^(.*)facture-([0-9a-zA-z]+)$ /aeroport/gen_facture_aeroport.php?f=$2 [L]
+
+# Les missions de conducteur
+RewriteRule ^(.*)missions_([0-9]+)_([0-9]+)-([0-9]+)-([0-9]+)$ /cronjob/gen_missions_conducteur.php?cond=$2&jour=$3&mois=$4&annee=$5 [L]
+
+# Le livre d'or : num�ro de page � afficher
+RewriteRule ^(.*)livreor-p([0-9]+)\.html$ /aeroport/livreor.php?page=$2 [L]
+
+# News : num�ro de page � afficher
+RewriteRule ^(.*)news-p([0-9]+)\.html$ /aeroport/news.php?page=$2 [L]
+RewriteRule ^(.*)news-p([0-9]+)-([0-9]+)\.html$ /aeroport/news.php?page=$2&cat=$3 [L]
+
+# News : news à afficher
+RewriteRule ^(.*)news-n([0-9]+)\.html$ /aeroport/news.php?news=$2 [L]
+
+# Partenaire à afficher
+RewriteRule ^(.*)partenaires-p([0-9]+)\.html$ /aeroport/partenaires.php?partner=$2 [L]
+
+# Fiche tarif à afficher
+RewriteRule ^(.*)fiche_tarif-([0-9]+)\.html$ /aeroport/fiche_tarif.php?tarif=$2 [L]
+
+# la page de r�servation
+RewriteRule ^(.*)reserver\.html$ /aeroport/index.html [L]
+
+
+# action sur la page du mot de passe
+RewriteRule ^(.*)password-a([1-2])\.html$ /aeroport/client/password.php?action=$2 [L]
+
+
+#pages du footer
+RewriteRule ^(.*)foire-aux-questions\.html$ /aeroport/faq.php [L]
+RewriteRule ^(.*)charte-de-qualite\.html$ /aeroport/charte.php [L]
+RewriteRule ^(.*)conditions-generales-de-vente\.html$ /aeroport/cgv.php [L]
+RewriteRule ^(.*)mentions-legales\.html$ /aeroport/mentions.php [L]
+
+
+#page de paiement manuel
+
+RewriteRule ^(.*)paiement-manuel-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)\.html /aeroport/reservation/paiement-manuel.php?id_client=$2&id_res=$3&id_trajet1=$4&id_trajet2=$5&id_ligne1=$6&id_ligne2=$7&ar=$8&alea=$9 [L]
+
+#page de paiement pro
+RewriteRule ^(.*)professionnel-([0-9]+)-([0-9]+)-([0-9]+)\.html /aeroport/reservation/professionnel.php?id_pro=$2&date=$3&nb_alea=$4 [L]
+
+# Pour toutes les URLs en html
+RewriteRule ^(.*).html$ /aeroport/$1.php [L]
+
+#Page des horaires
+RewriteRule ^(.*)horaires-baden-karlsruhe-sttutgart-frankfurt-basel-mulhouse-entzheim.php /aeroport/horaires.php [L]
+
+#Page des tarifs
+RewriteRule ^(.*)tarifs-baden-karlsruhe-sttutgart-frankfurt-basel-mulhouse-entzheim.php /aeroport/tarifs.php [L]
+
+#Page d'aide
+RewriteRule ^(.*)aide-lufthansa-easyjet-ryanair-airberlin.php /aeroport/aide.php [L]
+
+# Les erreurs (special 1&1 !)
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /aeroport/erreur.php?erreur=404
+
+#erreurs client
+
+ErrorDocument 400 /aeroport/erreur-e400.html
+ErrorDocument 401 /aeroport/erreur-e401.html
+ErrorDocument 403 /aeroport/erreur-e403.html
+ErrorDocument 404 /Alsace-Navette05-2015/aeroport/erreur.php?erreur=404
+ErrorDocument 405 /aeroport/erreur-e405.html
+
+#erreurs serveur
+
+ErrorDocument 500 /aeroport/erreur-e500.html
+ErrorDocument 501 /aeroport/erreur-e501.html
+ErrorDocument 502 /aeroport/erreur-e502.html
+ErrorDocument 503 /aeroport/erreur-e503.html
+ErrorDocument 504 /aeroport/erreur-e504.html
+ErrorDocument 505 /aeroport/erreur-e505.html
+
+RemoveType x-mapp-php4 .html
+
+

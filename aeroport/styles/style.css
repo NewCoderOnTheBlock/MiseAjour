@@ -1,0 +1,1054 @@
+
+/*body{margin:0;padding:0;font-family:Arial,Verdana,Serif;overflow-y:scroll;font-size:10pt;}*/
+#backgroundVoiture{position:fixed;bottom:0;left:0;z-index:-2;width:1130px;}
+#backgroundSimple{position:fixed;bottom:0;left:0;z-index:-3;height:900px;}
+/*#global{position:relative;width:1000px;overflow:hidden;margin-left:auto;margin-right:auto;z-index:1;padding-top:20px;}*/
+
+/* Drapeaux pour le choix des langues */
+#divDrapeau{
+	text-align:right;
+	background-color:#00A0C3;
+	height:35px;
+	line-height:25px;
+	padding:0 10%;
+}
+.imgDrapeau{width:25px;height:17px;cursor:pointer;}
+
+/* Entete */
+#entete{margin:0;}
+.affichageConnection{font-weight:bold;}
+.lien_espace_an a {
+	border:1px solid white;
+	color:white;
+	padding:3px;
+	margin-right:10px;
+	text-transform:uppercase;
+	font-size:10px;
+}
+
+.lien_espace_an a:hover, .lien_espace_an a:visited {
+	color:white;
+}
+
+/* Menu */
+#menu {font-weight:bold;padding-top:10px;margin:0 10%;}
+#menu ul {margin:0;padding-left:0;list-style:none;line-height:70px;text-align:center;}
+#menu ul > div:last-of-type > div {margin:0;padding:0;}
+
+#menu ul a, #menu ul a:hover, #menu ul a:visited  {
+	color:black;
+	text-decoration:none;
+}
+
+#menu ul  > div:last-of-type a:hover span, #menu ul > div:last-of-type li.current_menu a span, #menu ul  > div:last-of-type li.selectionnee a span, #menu div a#co:hover span, #menu span#compte:hover, .compte_selectionne {
+	padding-bottom:3px;
+	border-bottom:1px solid #00A0C3;
+}
+
+#menu #menu_compte div:hover , #menu #menu_compte div.compte_selectionne {
+	background-color:#00A0C3;
+}
+
+#menu #menu_compte div:hover a , #menu #menu_compte div.compte_selectionne a {
+	color:white;
+}
+
+#menu #menu_compte {
+	display:none;
+	position:absolute;
+	top:50px;
+	z-index:2;
+	background-color:#EFEFEF;
+	line-height:20px;
+	font-weight:normal;
+	font-size:0.9em;
+	padding:5px;
+}
+
+#menu #lien_compte {
+	line-height:20px;
+	margin-top:25px;
+}
+
+#menu span#compte {
+	cursor:pointer;
+}
+
+#slider1_container {
+	position:relative;
+}
+
+#slider1_container > div > div div {
+	text-align:right;
+	position:absolute;
+	top:40%;
+	right:30%;
+	padding:10px;
+	color:white;
+	background-color:rgba(0,160,195,0.5);
+}
+
+#slider1_container > div > div div h4 {
+	text-align:left;
+	margin:0;
+	margin-bottom:5px;
+	font-style:italic;
+}
+
+#slider1_container > div > div div a {
+	color:white;
+	text-decoration:underline;
+}
+
+/* Présentation du texte */
+.blocCentre{text-align:center;padding:20px 40px 20px 40px;}
+.blocJustifie{text-align:justify;}
+.titreGrasUnder{border-bottom:1px solid black;font-weight:bold;width:100%;margin-top:15px;}
+.centreGras{font-weight:bold;text-align:center;margin-top:8px;}
+.blocFondViolet{padding:1px;width:725px;margin:0;color:white;font-weight:bold;text-align:center;background:#9A408B;margin-bottom:-15px;}
+.blocFondVioletTotal{padding:1px;width:100%;margin:0;color:white;font-weight:bold;text-align:center;background:#9A408B;margin-bottom:-15px;}
+.blocFondVioletTotal a{color:orange;}
+
+.blocFondOrangeTotal{padding:1px;width:100%;margin:0;color:white;font-weight:bold;text-align:center;background:orange;margin-bottom:-15px;}
+.blocFondOrangeTotal a{color:#9A408B;}
+
+/* Style pour les formulaires */
+#carousel_photo{padding-left:45px;}
+.formulaire{padding-top:20px;width:390px;margin-left:auto;margin-right:auto;}
+.titreNoirFormulaire{font-weight:bold;color:black;border-bottom:1px solid black;margin-top:15px;}
+.divBouton{margin-top:20px;}
+.lblForm{display:block;width:180px;float:left;margin-top:8px;}
+.txtForm{width:200px;margin-top:8px;}
+.lblFormPetit{display:block;width:150px;float:left;margin-top:8px;}
+.txtFormPetit{width:150px;margin-top:8px;}
+.lblFormSansLarge{display:block;float:left;margin-top:8px;}
+.txtFormSansLarge{margin-top:8px;}
+.lblFormGras{display:block;width:180px;float:left;margin-top:8px;font-weight:bold;}
+.txtFormPetitSansLarge{margin-top:3px;}
+.lblFormPetitGras{display:block;float:left;margin-top:3px;font-weight:bold;}
+
+/** INDEX */
+/* bloc déroulant de l'index */
+#contenuMenuBlocDeroulant{background:url("../images/bloc/bloc_deroulant_milieu.png") repeat-y;width:260px;min-height:100px;padding-left:15px;margin-top:-5px;}
+.menuDeroulantSelection{background:url("../images/bloc/barreSelection.png") no-repeat;font-size:11pt;font-weight:bold;cursor:default;position:relative;padding:4px 0 0 10px;width:243px;height:26px;}
+.menuDeroulantNonSelection{font-size:11pt;cursor:pointer;position:relative;padding:4px 0 0 10px;width:271px;height:26px;}
+#index_colonneGauche{float:left;width:260px;height:150px;margin-bottom:20px;}
+#index_colonneGauche2{float:left;width:260px;height:150px;margin-bottom:100px;}
+#index_colonneDroite{float:right;width:260px;}
+#index_colonneCentre{width:470px;margin-left:265px;min-height:310px;}
+#index_colonneCentre2{width:470px;margin-left:265px;min-height:310px;margin-bottom:20px;}
+#contenu_index_colonneCentre{background:url("../images/bloc/bloc_info_milieu.png") repeat-y;height:270px;margin-top:-5px;}
+#contenu_index_colonneCentre2{background:url("../images/bloc/timetable.jpg") repeat-y;height:390px;margin-top:-5px;}
+#tableau_index_centre{width:450px; border-collapse:collapse; margin:0 auto;margin-left:10px;}
+#tableau_index_centre caption{font-weight:bold;font-size:12pt;}
+#tableau_index_centre th{border:1px solid black;width:220px;background:#36317F;color:white;}
+#titre_compte{background:url("../images/bloc/bloc_compte.png") no-repeat;height:43px;width:260px;}
+#contenu_compte{height:107px;background:#bebdbd;width:260px;}
+#div_dans_tab{text-align:center;height:140px;overflow:auto;overflow-x:hidden;}
+#sec_tab{width:450px; border-collapse:collapse;}
+#sec_tab td{width:200px;border:1px solid black;}
+
+/* Mon compte */
+#titre_compte{background:url("../images/bloc/bloc_compte.png") no-repeat;width:260px;height:36px;padding-top:7px;text-align:center;color:white;font-weight:bold;}
+#contenu_compte{background:#C2C1C1;width:260px;min-height:100px;padding: 0 10px 10px 15px;font-weight:bold;}
+
+/* Livre d'or */
+#message_livreor{margin-top:20px;}
+
+/* Reservation */
+#gauche_reservation{width:320px;float:left;}
+#droite_reservation{width:320px;float:right;}
+
+/* AUTRE */
+#tableConfirmation td{width:325px;vertical-align:top}
+
+/* TARIF */
+.lignePair{font-size:13pt;color:#9A408B;font-weight:bold}
+.ligneImpair{font-size:13pt;color:#F08A00;font-weight:bold}
+.ligneTabTarif{font-size:13pt;font-weight:bold;height:40px;cursor:pointer;}
+.tableauTarif{width:655px;}
+.tarifAccueil{width:400px;}
+.tarifAccueil td{height:40px;font-size:13pt;font-weight:bold;margin:0;padding:0}
+.ligneTarifOver{background:#F08A00;font-size:13pt;font-weight:bold;height:40px;cursor:pointer;color:#FFF;}
+.prixBordeau{color:#FFF;font-weight:bold;font-size:13pt;}
+.prixNormal{color:#000;font-weight:bold;font-size:13pt;}
+.grasOrange{color:#F08A00;font-size:15pt;font-weight:bold;}
+.miseEnAvantOrange{color:#F08A00;font-size:12pt;font-weight:bold;}
+#pastilleTarif{position:absolute;margin-top:-15px;margin-left:-30px;}
+#pastilleTarif img{cursor:pointer;}
+
+
+#contenu_compte a{line-height:25px;color:black;text-decoration:none;}
+#contenu_compte span{cursor:pointer;line-height:25px;}
+
+.menu_compte a{line-height:25px;color:black;text-decoration:none;font-weight:bold;}
+.menu_compte span{cursor:pointer;line-height:25px;font-weight:bold;}
+
+a{outline:none;}
+.titreTarif{color:#9A408B;font-weight:bold;text-align:center;font-weight:bold;font-size:15pt;}
+
+
+/* page pratique */
+.tableau_horaire{width:430px; border-collapse:collapse; margin:0;margin-left:10px;border:1px solid black}
+.tableau_horaire caption{font-weight:bold;font-size:12pt;}
+.tableau_horaire th{border:1px solid black;width:220px;background:#36317F;color:white;}
+#div_horaire{height:400px;overflow-y:auto;overflow-x:hidden;}
+.formulaire_total{padding-top:20px;width:900px;margin-left:auto;margin-right:auto;}
+
+/* Fiche client*/
+#titreFicheClient{color:#9A408B;font-size:25pt;}
+#nomFicheClient{font-weight:bold;width:170px;margin-left:70px;margin-top:130px;font-size:18pt;text-align:center}
+.sousTitreFicheClient{font-weight:bold;font-size:13pt;}
+.contenuFicheClient{margin-left:20px;font-size:12pt;width:260px;text-align:justify}
+
+@media (max-width:991px) {
+	#billetAvion {
+		float:none;
+	}
+}
+
+.picto {
+	width:15px;
+	margin-bottom:3px;
+	margin-right:5px;
+}
+
+#menu > ul  > div:last-of-type {
+	padding:0;
+}
+
+#menu > ul  > div:first-of-type  {
+	padding-left:0;
+	text-align:left;
+}
+
+#menu > ul  > div:first-of-type img {
+	width:100px;
+}
+
+#menu > ul  > div:last-of-type > div:last-of-type {
+	padding-right:0;
+	text-align:right;
+}
+
+.reservation, .bloc_droite {
+	height:550px;
+}
+
+.reservation, .demande_reservation_form, .recap_reservation_form , .info_client_form, .infos_persos_form {
+	padding-top:20px;
+	padding-bottom:10px;
+}
+
+.reservation > h5 {
+	margin-top:20px;
+}
+
+.reservation .type-trajet {
+	margin-bottom:5px;
+}
+
+.reservation  .type-trajet > *, .demande_reservation_form .type-trajet > *, .demande_reservation_form .info_vol div.row > *, .demande_reservation_form #vol_retour div.row > *, .demande_reservation_form .info_transport div.row > *, .demande_reservation_form #retour div.row > *, .demande_reservation_form .info_compl > *, .recap_reservation_form div.row > *, .info_client_form form > div.row > *, .infos_persos_form div.row > * {
+	padding:0;
+	padding-left:3px;
+}
+
+.reservation .aller {
+	padding:0;
+	border-right:1px solid black;
+}
+
+.reservation div.row select, .demande_reservation_form div.row select {
+	padding:0;
+}
+
+.reservation > form > div > div.row, .reservation #rass_aller > div.row, .reservation #rass_retour > div.row, .demande_reservation_form > form div.row, .recap_reservation_form div.row, .info_client_form .row, #contenu .pages_annexes, #contenu .pages_annexes .row, #contenu .infos_persos .row, #contenu .news, #contenu .news .row, #contenu .livre_or, #contenu .livre_or .row, #contenu .trajets, #contenu .trajets .row {
+	margin:0;
+	margin-bottom:5px;
+}
+
+.reservation #rass_aller input, .reservation #rass_aller label, .reservation #rass_aller select, .reservation #rass_retour input, .reservation #rass_retour label, .reservation #rass_retour select  {
+	padding:0;
+}
+
+.reservation #btn_envoie, .demande_reservation .demande_reservation_form #btn_envoie, .demande_reservation .demande_reservation_form #btn_raz, .recap_reservation .recap_reservation_form #btn_annuler_demande, .recap_reservation .recap_reservation_form .btn_confirm_reservation, #form_res #btn_envoie_res, .navettes_dispos #retour, .navettes_dispos #btn_continuer, .info_client_form #retour, .info_client_form #raz, .info_client_form #btn_envoie , .div_pages_annexes #btn_envoyer, .infos_persos_form #btn_envoie, .infos_persos_form #raz, #box .btn_envoie, .livre_or #btn_captcha, .livre_or #btn_envoyer, #btn_payer {
+	border:1px solid white;
+	border-radius:0;
+	margin:auto;
+	color:white;
+	height:30px;
+	line-height:25px;
+	background-color:#00A0C3;
+	cursor:pointer;
+	font-size:0.8em;
+}
+
+#contenu .pages_annexes, #contenu .livre_or {
+	text-align:center;
+} 
+
+#contenu .info_reservation {
+	margin:0;
+	margin-top:40px;
+	padding-bottom:10px;
+}
+
+#contenu .info_reservation .image_etape {
+	width:100px;
+	height:110px;
+}
+
+#contenu .info_reservation  > div {
+	color:white;
+	text-align:center;
+	padding:0;
+}
+
+#contenu .info_reservation p.image_hover {
+	background: rgba(0,160,195,0.8);
+	color: white;
+	font-weight:bold;
+	cursor: pointer;
+	display: table;
+	height: 110px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	opacity: 0;
+}
+
+#contenu .info_reservation > div:hover p.image_hover  {
+	opacity:1;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;
+}
+
+#contenu .info_reservation p.image_hover span {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#contenu .demande_reservation .demande_reservation_form .demande_reservation_form_titre, #contenu .recap_reservation .recap_reservation_form .recap_reservation_form_titre, #contenu .liste_news .new > h4 {
+	background-color:#00A0C3;
+	color:white;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:1.1em;
+}
+
+#contenu .demande_reservation .demande_reservation_form .info_vol {
+	padding:0;
+}
+
+#contenu .demande_reservation .demande_reservation_form input[type="text"] {
+	padding-left:3px;
+}
+
+#contenu .liens_accueil {
+	margin:0;
+	margin-top:10px;
+}
+
+#contenu .liens_accueil div {
+	padding:0;
+	padding-top:5px;
+	text-align:center;
+}
+
+#contenu .liens_accueil div img {
+	margin:0 2px;
+	width:95%;
+}
+
+#contenu .liens_accueil div h4 {
+	color:white;
+	font-size:1.1em;
+	height:50px;
+	line-height:50px;
+}
+
+#contenu .liens_accueil .gauche {
+	border-right:5px solid white;
+}
+
+#contenu .liens_accueil .droite {
+	border-left:5px solid white;
+}
+
+@media (max-width:1250px) and (min-width:768px) {
+	#contenu .liens_accueil div h4 {
+		line-height:20px;
+	}
+}
+
+#contenu .tampon {
+	height:120px;
+}
+
+.aide h3, .titre_tarifs, .faq h3, .titre_pratique, .titre_navettes_dispos, .titre_contact, .titre_paiement, .titre_pages_annexes, .titre_livre_or, .titre_trajets {
+	font-size:1.3em;
+	text-align:center;
+	color:#45B3C8;
+	padding-left:15px;
+	padding-right:15px;
+	margin-top:0;
+	margin-bottom:50px;
+}
+
+.faq h3 {
+	margin-top:30px;
+}
+
+.faq_num_question, .livre_or_message_auteur {
+	color:#45B3C8;
+	font-size:1.2em;
+}
+
+.titre_tarifs, .faq h3, .titre_pratique, .titre_navettes_dispos, .titre_contact, .titre_paiement, .titre_pages_annexes, .titre_livre_or, .titre_trajets {
+	margin-bottom:30px;
+}
+
+.aide .etape {
+	width:20%;
+	text-align:center;
+	padding:0;
+}
+
+.aide .etape:first-of-type, .aide .etape:nth-of-type(2), .aide .etape:nth-of-type(3), .aide .etape:nth-of-type(4), .aide .etape:nth-of-type(5) {
+	margin-bottom:60px;
+}
+
+.aide .etape h4 {
+	color:#2C9EB4;
+	font-weight:bold;
+	font-size:16px;
+	margin-top:40px;
+	margin-bottom:20px;
+}
+
+.aide .etape_haut {
+	background-color:#2C9EB4;
+	height:50px;
+}
+
+.aide .etape_haut img {
+	position:relative;
+	width:100px;
+	top:-50%;
+	z-index:1;
+}
+
+.aide .etape_bas {
+	background-color:#EFEFEF;
+	padding:0 15px;
+	border-left:15px solid white;
+	border-right:15px solid white;
+	height:290px;
+}
+
+.aide .etape_bas > p > img {
+	margin-bottom:20px;
+}
+
+.aide .etape_bas a , .aide .etape_bas a:hover, .aide .etape_bas a:visited{
+	color:#2C9EB4;
+}
+
+.faq_questions, #contenu .livre_or {
+	width:60%;
+	margin:0 20%;
+	padding:0 15px;
+}
+
+.tarifs, .pratique {
+	background-image:url('../images/background_tarifs.png');
+	background-size:cover;
+	padding:15px;
+}
+
+.tarifs .liste_tarifs, .pratique .liste_aeroports {
+	padding:0 30px;
+}
+
+.tarifs .bloc_tarif, .pratique .bloc_aeroport {
+	border:5px solid transparent;
+	padding:0;
+}
+
+.tarifs .bloc_tarif .bloc_tarif_nom, .tarifs .bloc_tarif .bloc_tarif_prix , .pratique .bloc_aeroport_nom, .pratique .bloc_aeroport_voir {
+	padding:0;
+}
+
+.tarifs .bloc_tarif .bloc_tarif_nom, .pratique .bloc_aeroport_nom {
+	height:70px;
+	background-color:white;
+	padding:5px;
+	border:1px solid #45B3C8;
+	text-align:center;
+	font-weight:bold;
+}
+
+.tarifs .bloc_tarif .bloc_tarif_prix, .pratique .bloc_aeroport_voir {
+	height:35px;
+	background-color:#2C9EB4;
+	padding:5px;
+	border:1px solid #45B3C8;
+	border-top:none;
+	text-align:center;
+	color:white;
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+.pratique .bloc_aeroport_voir {
+	font-size:1em;
+}
+
+.tarifs .bloc_tarif:hover, .tarifs .bloc_tarif_selectionne, .pratique .bloc_aeroport:hover, .pratique .bloc_aeroport_selectionne {
+	color:white;
+	cursor:pointer;
+}
+
+.tarifs .bloc_tarif:hover .bloc_tarif_nom, .tarifs .bloc_tarif_selectionne .bloc_tarif_nom, .pratique .bloc_aeroport:hover .bloc_aeroport_nom, .pratique .bloc_aeroport_selectionne .bloc_aeroport_nom {
+	background-color:#2C9EB4;
+	border:2px solid white;
+	border-bottom:none;
+}
+
+.tarifs .bloc_tarif:hover .bloc_tarif_prix, .tarifs .bloc_tarif_selectionne .bloc_tarif_prix, .pratique .bloc_aeroport:hover .bloc_aeroport_voir, .pratique .bloc_aeroport_selectionne .bloc_aeroport_voir {
+	border:2px solid white;
+	border-top:none;
+}
+
+.pratique .bloc_strasbourg:hover  .bloc_aeroport_nom {
+	border-bottom:2px solid white;
+}
+
+.pratique .bloc_strasbourg_selectionne .bloc_aeroport_nom {
+	border-bottom:2px solid white;
+}
+
+.tarifs .info_tarifs, .pratique .infos_pratiques {
+	margin-top:5px;
+	padding-right:35px;
+	margin-bottom:20px;
+}
+
+.info_tarifs .info_tarifs_nom, .infos_pratiques .infos_pratiques_nom {
+	height:70px;
+	background-color:#2C9EB4;
+	color:white;
+}
+
+.info_tarifs .info_tarifs_nom a, .info_tarifs .info_tarifs_nom a:hover, .info_tarifs .info_tarifs_nom a:visited, .infos_pratiques .infos_pratiques_nom a, .infos_pratiques .infos_pratiques_nom a:hover, .infos_pratiques .infos_pratiques_nom a:visited {
+	color:white;
+}
+
+.info_tarifs .info_tarifs_forfait .info_tarifs_forfait_tarif, .info_tarifs .info_tarifs_forfait .info_tarifs_forfait_min {
+	padding:0;
+}
+
+.info_tarifs_forfait, .infos_pratiques_horaires {
+	padding:15px 0;
+	background-color:white;
+}
+
+.info_tarifs_forfait_options, .info_tarifs_forfait_services, .infos_pratiques_horaires, .infos_pratiques_option, .infos_pratiques_duree, .infos_pratiques_rass, .infos_pratiques_horaires_vols {
+	background-color:white;
+}
+
+.info_tarifs_forfait_options ul ~ p:first-of-type {
+	text-align:right;
+}
+
+.info_tarifs_petit {
+	text-transform:none;
+	font-size:9px;
+}
+
+.info_tarifs p, .infos_pratiques p {
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.info_tarifs ul, .infos_pratiques ul {
+	list-style:none;
+	padding:0;
+}
+
+.info_tarifs ul li:before, .infos_pratiques ul li:before {
+	content:"\2022";
+	color:#2C9EB4;
+	font-size:1.3em;
+	padding-right:0.7em;
+}
+
+.pratique .infos_pratiques .infos_pratiques_nom img {
+	width:80%;
+}
+
+.infos_pratiques .infos_pratiques_horaires .infos_pratiques_horaires_tab {
+	background-color:#EFEFEF;
+	text-align:center;
+	padding:0;
+	padding-bottom:10px;
+}
+
+.infos_pratiques .infos_pratiques_horaires .infos_pratiques_horaires_tab h4{
+	color:#2C9EB4;
+	text-transform:uppercase;
+	margin:0;
+	margin-bottom:10px;
+	padding:10px 0;
+	cursor:pointer;
+}
+
+.infos_pratiques .infos_pratiques_rass, .infos_pratiques .infos_pratiques_duree {
+	padding-bottom:15px;
+}
+
+.infos_pratiques .infos_pratiques_rass p:nth-of-type(4), .infos_pratiques .infos_pratiques_rass p:last-of-type {
+	margin-bottom:0;
+}
+
+.infos_pratiques_rass > p:first-of-type ~ p {
+	text-transform:none;
+	font-weight:normal;
+	padding:0;
+}
+
+.pratique .infos_pratiques .infos_pratiques_rass .infos_pratiques_rass_map {
+	text-align:center;
+}
+
+.pratique .infos_pratiques .infos_pratiques_rass > p:nth-of-type(2n+1) {
+	margin-bottom:10px;
+}
+
+.pratique .infos_pratiques .infos_pratiques_rass .infos_pratiques_rass_map img {
+	width:auto;
+}
+
+.logos_compagnies {
+	margin-top:30px;
+}
+
+.logos_compagnies > div {
+	padding:0;
+	text-align:center;
+}
+
+.logos_compagnies > div img {
+	width:70%;
+}
+
+.navettes_dispos > div, .navettes_dispos > form > div {
+	margin-top:20px;
+	background-color:#EFEFEF;
+}
+
+.navettes_dispos > div > div:last-of-type, .navettes_dispos > form > div > div:last-of-type {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.navettes_dispos .navettes_dispos_titre_bloc, .navettes_dispos .navettes_dispos_tab:first-of-type {
+	background-color:#2C9EB4;
+	color:white;
+}
+
+.navettes_dispos .navettes_dispos_case_tab_radio {
+	background-color:#EFEFEF;
+}
+
+.navettes_dispos .navettes_dispos_tab {
+	border:1px solid black;
+	border-right:none;
+	padding:0;
+}
+
+.navettes_dispos .navettes_dispos_tab:last-of-type {
+	border-right:1px solid black;
+}
+
+.navettes_dispos .navettes_dispos_en_tete_tab  {
+	font-weight:bold;
+	padding:5px;
+	height:50px;
+}
+
+.navettes_dispos .navettes_dispos_case_tab {
+	padding:5px;
+	height:50px;
+	border-top:1px solid black;
+}
+
+.contact_droite > div:first-of-type, .contact_gauche > p {
+	padding-top:10px;
+}
+
+.contact_gauche a, .contact_gauche a:hover, .contact_gauche a:visited, .contact_droite a, .contact_droite a:hover, .contact_droite a:visited {
+	color:#2C9EB4;
+}
+
+.contact_gauche div {
+	margin:0;
+	margin-bottom:10px;
+}
+
+.contact_gauche form div input, .contact_gauche form div textarea {
+	border:1px solid rgb(166,166,166);
+}
+
+.contact_gauche form div input, .contact_gauche form div select, .contact_gauche form div textarea {
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.contact_gauche form div label, .contact_gauche form div.centre {
+	text-align:right;
+}
+
+.contact_droite .picto_contact {
+	text-align:right;
+	margin-top:20px;
+	padding-right:0;
+}
+
+#contenu .liste_news .new {
+	margin:20px 0;
+}
+
+#contenu .liste_news .new .contenu_new {
+	padding-top:20px;
+	padding-bottom:10px;
+}
+
+#contenu .livre_or .livre_or_messages {
+	margin-top:40px;
+}
+
+#contenu .livre_or .livre_or_messages > p:first-of-type {
+	margin-bottom:20px;
+}
+
+#contenu .livre_or .livre_or_message {
+	text-align:left;
+}
+
+footer {
+	border-top:20px solid #00A0C3;
+	padding-top:20px;
+	background-color:white;
+	padding-bottom:20px;
+	margin:auto 10%;
+	margin-top:30px;
+	font-size:0.8em;
+}
+
+footer div {
+	text-align:left;
+}
+
+footer > div  > div:nth-of-type(3) img {
+	margin-right:10px;
+	margin-bottom:2px;
+}
+
+footer > div > div:last-of-type > img {
+	width:100%;
+}
+
+footer a , footer a:hover, footer a:visited{
+	color:black;
+	font-size:1em;
+}
+
+footer .picto_footer {
+	width:20px;
+	margin-right:10px;
+}
+
+@media (max-width:1355px) {
+	.navettes_dispos .navettes_dispos_en_tete_tab {
+		height:70px;
+	}
+}
+
+@media (max-width:1200px) {
+	.aide .etape:first-of-type, .aide .etape:nth-of-type(2), .aide .etape:nth-of-type(3), .aide .etape:nth-of-type(4), .aide .etape:nth-of-type(5) {
+		margin-bottom:40px;
+	}
+	
+	.aide .etape {
+		width:50%;
+		margin-bottom:40px;
+	}
+	
+	.aide .etape_bas  {
+		height:240px;
+	}
+	
+	.faq_questions, #contenu .livre_or{
+		width:80%;
+		margin:0 10%;
+	}
+	
+	.tarifs .info_tarifs .info_tarifs_nom , .pratique .infos_pratiques .infos_pratiques_nom  {
+		height:105px;
+	}
+	
+	.info_tarifs_forfait_options ul ~ p:first-of-type {
+		text-align:left;
+	}
+	
+	.navettes_dispos .navettes_dispos_en_tete_tab {
+		height:90px;
+	}
+}
+
+@media (max-width:991px) {
+	#menu ul {
+		line-height:30px;
+	}
+	
+	#menu > ul  > div:last-of-type > div:last-of-type  {
+		text-align:center;
+	}
+	
+	#menu #menu_compte {
+		top:30px;
+	}
+	
+	#menu #lien_compte {
+		margin-top:0;
+	}
+	
+	.reservation, .bloc_droite {
+		height:700px;
+	}
+	
+	.reservation #btn_envoie, .reservation #btn_envoie ~ span {
+		margin-top:20px;
+	}
+	
+	.pratique .bloc_strasbourg .bloc_aeroport_nom {
+		height:80px;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_horaires > p {
+		margin-top:20px;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_horaires .infos_pratiques_horaires_tab > div, .pratique .infos_pratiques .infos_pratiques_horaires .infos_pratiques_horaires_tab > div > div {
+		padding:0;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_rass p:nth-of-type(4) img, .pratique .infos_pratiques .infos_pratiques_rass p:last-of-type img {
+		width:100%;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_rass p:nth-of-type(4) img {
+		margin-bottom:5px;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_rass > .infos_pratiques_rass_map > a > img {
+		width:auto;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_nom img {
+		width:70%;
+	}
+	
+	.contact_droite .picto_contact {
+		text-align:center;
+		margin-top:20px;
+		padding-right:0;
+	}
+}
+
+@media (min-width:991px) and (max-width:1200px) {
+	.info_reservation > div img {
+		width:80%;
+	}
+	
+	.tarifs .bloc_tarif, .pratique .bloc_aeroport {
+		width:33.33%;
+	}
+	
+	.pratique .bloc_strasbourg {
+		width:100%;
+	}
+}
+
+@media (max-width:890px) {
+	.navettes_dispos .navettes_dispos_case_tab {
+		height:70px;
+	}
+}
+
+@media (max-width:767px) {
+	#menu > ul  > div:first-of-type {
+		text-align:center;
+	}
+	
+	#menu > ul  > div:first-of-type img {
+		width:150px;
+	}
+	
+	#menu ul  > div:last-of-type a:hover, #menu ul > div:last-of-type li.current_menu a, #menu ul  > div:last-of-type li.selectionnee a {
+		padding-bottom:10px;
+	}
+	
+	.lien_espace_an {
+		display:none;
+	}
+	
+	.reservation, .bloc_droite {
+		height:auto;
+	}
+	
+	.reservation .aller {
+		padding-bottom:10px;
+		padding-top:10px;
+		margin-bottom:10px;
+		border-right:none;
+		border-top:1px solid black;
+		border-bottom:1px solid black;
+	}
+	
+	.reservation #vol_retour {
+		padding-left:0;
+	}
+	
+	#contenu .liens_accueil {
+		margin:0;
+	}
+	
+	#contenu .liens_accueil:first-of-type {
+		margin-top:50px;
+	}
+	
+	#contenu .liens_accueil .gauche, #contenu .liens_accueil .droite {
+		border:none;
+		margin-top:10px;
+	}
+	
+	.aide > div:last-of-type {
+		margin-top:0;
+	}
+	
+	.aide .etape {
+		width:100%;
+		margin-bottom:40px;
+	}
+	
+	.aide .etape:last-of-type {
+		margin-bottom:20px;
+	}
+	
+	.faq_questions, #contenu .livre_or {
+		width:100%;
+		margin:0;
+	}
+	
+	.tarifs .info_tarifs, .pratique .infos_pratiques {
+		padding-left:35px;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_nom img {
+		width:50%;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_horaires_tab > p {
+		padding:0;
+	}
+
+	.pratique .infos_pratiques .infos_pratiques_rass .infos_pratiques_rass_map {
+		text-align:left;
+		margin-bottom:10px;
+	}
+
+	.pratique .infos_pratiques .infos_pratiques_rass > p:nth-of-type(2n+1) {
+		margin-bottom:0;
+	}
+	
+	.logos_compagnies > div {
+		width:50%;
+		margin-bottom:10px;
+	}
+	
+	.logos_compagnies > div:nth-of-type(5), .logos_compagnies > div:last-of-type {
+		margin-bottom:0;
+	}
+
+	.logos_compagnies > div img {
+		width:50%;
+	}
+	
+	.navettes_dispos .navettes_dispos_tab {
+		border-right:1px solid black;
+		border-bottom:none;
+	}
+	
+	.navettes_dispos .navettes_dispos_tab:last-of-type {
+		border-bottom:1px solid black;
+	}
+	
+	.navettes_dispos .navettes_dispos_en_tete_tab, .navettes_dispos .navettes_dispos_case_tab {
+		height:auto;
+	}
+	
+	.navettes_dispos .navettes_dispos_case_tab {
+		border-top:none;
+	}
+	
+	.navettes_dispos .navettes_dispos_case_tab_radio {
+		background-color:#2C9EB4;
+	}
+	
+	.contact_gauche form div label, .contact_gauche form div.centre {
+		text-align:center;
+	}
+	
+	.contact_droite {
+		margin-top:20px;
+	}
+	
+	footer  > div > div:first-of-type {
+		text-align:center;
+	}
+	
+	footer > div  > div:nth-of-type(3), footer > div  > div:nth-of-type(4), footer > div  > div:last-of-type, footer > div:last-of-type > div:nth-of-type(2) {
+		margin-top:20px;
+	}
+	
+	footer > div:first-of-type > div:first-of-type > div {
+		margin-bottom:5px;
+	}
+}
+
+@media (max-width:400px) {
+	.tarifs .info_tarifs .info_tarifs_nom {
+		height:125px;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_nom img {
+		width:70%;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_horaires .infos_pratiques_horaires_tab > div > div > div {
+		padding:0;
+	}
+	
+	.pratique .infos_pratiques .infos_pratiques_horaires_ete_depart_am, .pratique .infos_pratiques .infos_pratiques_horaires_hiver_depart_am {
+		border-right:1px solid black;
+	}
+	
+	.logos_compagnies > div img {
+		width:70%;
+	}
+}

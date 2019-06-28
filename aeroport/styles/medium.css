@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+
+/*#menu {
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+	height: 37px;
+}*/
+
+
+.label_cote_1 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 82px;
+	margin-top: 3px;
+}
+
+.label_cote_2 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 110px;
+	margin-top: 3px;
+}
+
+
+.label_cote_3 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 145px;
+}
+
+.label_cote_4 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 180px;
+}
+
+
+.label_cote_5 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 110px;
+	margin-top: 3px;
+}
+
+
+.label_cote_6 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 155px;
+}
+
+
+.label_cote_7 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 150px;
+}
+
+
+.label_cote_8 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 85px;
+	margin-top: 3px;
+}
+
+
+.label_cote_9 {
+	font-weight: bold;
+	float:left;
+	text-align:right;
+	margin-right: 8px;
+	width: 200px;
+	margin-top: 3px;
+}
+
+
+
+.titre_droite_prix {
+	background: url(../images/bar_d_prix.gif) repeat-y scroll 0 0;
+	background-position:left;
+	background-color: white;
+	height: 40px;
+	padding:5px;
+	text-align:center;
+}
+
+
+.valign_select {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.valign_txt {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+label, p, li {
+	font-size: 15px;
+}
+
+span {
+	font-size: 15px;
+}
+
+span > label {
+	font-size: 15px;
+}
+
+strong {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+
+h5 {
+	font-size: 15px;
+}
+
+
+h1 {
+	font-size: 30px;	
+}
+
+
+h2 {
+	font-size: 24px;
+}
+
+
+h3 {
+	font-size: 20px;	
+}
+
+h4 {
+	font-size: 17px;
+}
+
+
+table {
+	font-size: 15px;
+}

@@ -1,0 +1,39 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Lightbox et Ajax</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link type="text/css" rel="stylesheet" href="lightbox-ajax.css">
+<script src="ajax.js" type="text/javascript"></script>
+<script src="lightbox-ajax.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<h1>Lightbox et Ajax, d&eacute;monstration</h1>
+<p>D&eacute;monstration de la lightbox avec des images charg&eacute;es dynamiquement 
+  gr&acirc;ce &agrave; Ajax.</p>
+
+<br>
+
+<div id="shadowing"></div>
+<div id="box">
+    <div id="boxcontent"  onclick="closebox()">  </div> 
+    <div id="boxtitle"> Nom de l'image</div>
+</div>
+
+
+<p>Les images en taille originale se chargent pendant que vous regardez cette 
+  page,</p>
+<p>mais vous pouvez cliquer &agrave; tout moment sur la vignette correspondante...</p> 
+<img src="images/thumb-acores.jpg" width="150" height="150" onclick="openbox('images/acores.jpg');">
+<img src="images/thumb-prison.jpg" width="150" height="150" onclick="openbox('images/prison.jpg');">
+<img src="images/thumb-shark.jpg" width="150" height="150" onclick="openbox('images/shark.jpg');">
+
+<br>
+
+<hr>
+
+<p>(c) 2008 <a href="http://www.xul.fr">xul.fr</a></p>
+</body>
+</html>

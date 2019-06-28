@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+{#  Création d'une carte qui sera utilisé dans un paiement et qui servira à la création du jeton envoyé.
+    Utilisation du formulaire créé en utilisant Twig. (A améliorer)
+#}
+{% block body %}
+
+    {{form_start(formPaie)}}
+
+    {{form_row(formPaie.numeroCarte, {'attr':{'placeholder':"Numéro de la carte"}}) }}
+    
+    {{form_row(formPaie.nomCarte, {'attr':{'placeholder':"Nom et prénom du propriétaire de la carte"}}) }}
+    
+    {{form_row(formPaie.dateCarte, {'attr':{'placeholder':"Date d'expiration de la carte"}}) }}
+    
+    {{form_row(formPaie.cvcCarte, {'attr':{'placeholder':"Cryptogramme de la carte"}}) }}
+
+                <button>Payer</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
+
+    <script>
+        var stripe = Stripe('pk_test_5VrYHcfqrWWrr0Tuw9zBGxlG00IX4Pvb9F');       
+    </script>
+{% endblock %}
+

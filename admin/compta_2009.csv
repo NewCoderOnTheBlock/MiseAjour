@@ -1,0 +1,9 @@
+période;aéroport;Destination;"Nombre de passagers qui ont réservé";"recette des réservations"
+Mai;"Karlsruhe / Baden-Baden";"london stansted";1;50
+Mai;"Karlsruhe / Baden-Baden";Londres;1;50
+Mai;"Karlsruhe / Baden-Baden";Hamburg;1;50
+Juin;Bâle-Mulhouse;Londres;2;50
+Juin;Bâle-Mulhouse;"Bari (Italie)";3;50
+Juin;Bâle-Mulhouse;LONDRES;1;50
+Juin;"Karlsruhe / Baden-Baden";Londres;2;50
+Juin;Stuttgart;Split;2;50

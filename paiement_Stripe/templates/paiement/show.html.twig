@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <article>
+        <h2>Réservation n°:{{paiement.id}}</h2>
+        <div class="metadata">
+            Effectué le{{paiement.createdAt| date('d/m/Y')}} à{{paiement.createdAt| date('H:i')}}</div>
+        <div class="content">
+            <img alt="" src="http://placehold.it/350x150">
+            <p>Avec la carte
+                {{paiement.NumeroCarte}}</p>
+            <p>Appartenant à
+                {{paiement.NomCarte | raw }}</p>
+            <p>Qui expire le
+                {{paiement.DateCarte | date('m/Y')}}</p>
+            <p>Qui a pour CVC
+                {{paiement.CvcCarte}}</p>
+
+
+            <hr>
+
+                <p>Je crois qu'on vit dans un monde où il faudrait rire tout le temps, c'est même une promesse de prostituée, un peu salace.</p>
+                <p>J'essaye de faire en sorte que la comédie soit un genre fait avec sérieux. C'est ce que j'ai essayé de faire avec Kaamelott.</p>
+                <p>Quoi que vous fassiez, vous vous apprêtez à devenir, pour vos enfants, un vieux con. Le mieux est de l'accepter le plus tôt possible.</p>
+                <p>Voilà. Nous avons franchi le solstice d'été. Et pendant que d'autres célèbrent le jour le plus interminable de l'année... nous allons secrètement nous réjouir du retour des longues nuits.</p>
+                <p>Au printemps, le sommeil ne cesse dès l'aurore. Partout se font ouïr les gazouillis d'oiseaux. La nuit s'achève enfin dans le souffle des eaux, qui sait combien de fleurs seront tombées encore</p>
+                <p>Est-ce que vous avez conscience que j'ai de menues responsabilités au sein de ce gouvernement qui me tiennent relativement éloigné des problèmes de répartition des piaules ?</p>
+            </hr>
+
+        </div>
+    </article>
+{% endblock %}
+

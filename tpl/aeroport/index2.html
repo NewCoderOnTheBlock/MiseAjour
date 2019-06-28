@@ -1,0 +1,1425 @@
+
+<include tpl="aeroport/include.html" />
+
+<div id="contenu">
+
+    <input type="hidden" id="logger" value="{LOGGER}" />
+    <input type="hidden" id="heure_fixe_aller" value="{HEURE_FIXE_ALLER}" />
+    <input type="hidden" id="heure_fixe_retour" value="{HEURE_FIXE_RETOUR}" />
+
+	<include tpl="aeroport/ariane.html" />
+
+    <script type="text/javascript" src="scripts/calendrier.js"></script>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+
+    <br />
+
+    <div id="div_gauche">
+		
+        <div id="reservation">
+
+            <div class="titre_gauche">
+                <strong>{TITLE_RESERVATION}</strong>
+            </div>
+
+            <div id="sous_reservation">
+
+                <if cond="{$CLASS_ERREUR} != ''">
+
+                    <br />
+
+                    <div class="{CLASS_ERREUR}">
+                        <strong>{ERREUR}</strong>
+                    </div>
+
+                    <br />
+
+                </if>
+
+                <if cond="!{$LOGGER}">
+                    <p>{DEJA_CLIENT}</p>
+                </if>
+
+            <form method="post" action="reservation/info_client.html" id="form_res">
+                <div>
+
+                    <script type="text/javascript" src="scripts/infobulle.js"></script>
+
+                    <div>
+                        <br />
+
+                        <span class="label_cote_3">{TRAJET_TYPE} <span class="rouge">*</span> : </span>
+
+                        <div class="input_type_trajet">
+                            <if cond="{$TRAJET} == '1'">
+                                <input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" checked="checked" />
+                            <else />
+                                <input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" />
+                            </if>
+
+                            <label for="trajet_aller_simple">{TRAJET_ALLER_SIMPLE}</label>
+
+                            <if cond="{$TRAJET} == '0'">
+                                <input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" checked="checked" />
+                            <else />
+                                <input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" />
+                            </if>
+                            <label for="trajet_aller_retour">{TRAJET_ALLER_RETOUR}</label>
+                        </div>
+                    </div>
+
+                    <br />
+
+
+                    <span>
+                        <label for="lst_trajet_depart" class="label_cote_3">{TRAJET_DEPART} <span class="rouge">*</span> : </label>
+                        <select name="lst_trajet_depart" id="lst_trajet_depart">
+
+                            <foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+                                <if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEP_CHERCHE}">
+
+                                    <option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+
+                                <else />
+
+                                    <option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+                                </if>
+
+                            </foreach>
+
+                        </select>
+                    </span>
+
+                    <br />
+
+                    <span>
+                        <label for="lst_trajet_arrive" class="label_cote_3">{TRAJET_ARRIVE} <span class="rouge">*</span> : </label>
+                        <select name="lst_trajet_arrive" id="lst_trajet_arrive">
+
+                            <foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+                                <if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEST_CHERCHE}">
+
+                                    <option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+
+                                <else />
+
+                                    <option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+                                </if>
+
+                            </foreach>
+
+                        </select>
+                    </span>
+
+                    <hr />
+
+                    <span class="en_valeur">{INFO_VOL} : </span>
+                    <br />
+					<br />
+					
+                    <div>
+						<table>
+						
+							<tr >
+								<th colspan="2" class="header_tab" style="display:none;">
+									{ALLER}
+								</th>
+							</tr>
+							
+							<tr>
+								<td style="margin:4px;">
+									<label for="compagnie_depart_vol" class="label_cote_4">{COMPAGNIE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td style="margin:4px;">
+									<input type="text" style="width:200px" id="compagnie_depart_vol" name="compagnie_depart_vol" value="{TXT_COMPAGNIE_DEPART_VOL}" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td style="margin:4px;">
+									<label for="provenance_depart_vol_1" class="label_cote_4">{DEST_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td style="margin:4px;">
+									<input type="text" style="width:200px" id="provenance_depart_vol_1" name="provenance_depart_vol_1" maxlength="40" value="{TXT_PROVENANCE_DEPART_VOL_1}" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td style="margin:4px;">
+									<label for="provenance_depart_vol_2" class="label_cote_4">{PROVENANCE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td style="margin:4px;">
+									<input type="text" style="width:200px" id="provenance_depart_vol_2" name="provenance_depart_vol_2" maxlength="40" value="{TXT_PROVENANCE_DEPART_VOL_2}" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td style="margin:4px;">
+									<label for="heure_depart_vol" class="label_cote_4">{HEURE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td style="margin:4px;">
+									<select name="heure_depart_vol" id="heure_depart_vol">
+
+										<foreach ary="{$HEURE_LST}">
+
+											<if cond="{VALUE,$HEURE_LST['code_heure']} == {$TXT_HEURE_DEPART_VOL}">
+
+												<option value="{VALUE,HEURE_LST['code_heure']}" selected="selected">{VALUE,HEURE_LST['heure']}</option>
+
+											<else />
+
+												<option value="{VALUE,HEURE_LST['code_heure']}">{VALUE,HEURE_LST['heure']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+									
+									h
+									
+									<select name="minute_depart_vol" id="minute_depart_vol">
+
+										<foreach ary="{$MINUTE_LST}">
+
+											<if cond="{VALUE,$MINUTE_LST['code_heure']} == {$TXT_MINUTE_DEPART_VOL}">
+
+												<option value="{VALUE,MINUTE_LST['code_heure']}" selected="selected">{VALUE,MINUTE_LST['heure']}</option>
+
+											<else />
+
+												<option value="{VALUE,MINUTE_LST['code_heure']}">{VALUE,MINUTE_LST['heure']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+									
+								</td>
+								
+							</tr>
+							
+						</table>
+
+                    </div>
+					
+					<br />
+
+                    <div id="vol_retour" style="display:none">
+						<table>
+							<tr >
+								<th colspan="2" class="header_tab" style="display:none;">
+									{RETOUR}
+								</th>
+							</tr>
+
+                            <tr>
+								<td>
+									<label for="compagnie_retour_vol" class="label_cote_4">{COMPAGNIE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td>
+									<input type="text" style="width:200px" id="compagnie_retour_vol" name="compagnie_retour_vol" value="{TXT_COMPAGNIE_RETOUR_VOL}" />
+								</td>
+                            </tr>
+
+                            <tr>
+								<td>
+									<label for="provenance_retour_vol_1" class="label_cote_4">{PROVENANCE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td>
+									<input type="text" style="width:200px" id="provenance_retour_vol_1" name="provenance_retour_vol_1" maxlength="40" value="{TXT_PROVENANCE_RETOUR_VOL_1}" />
+								</td>
+                            </tr>
+
+                            <tr>
+								<td>
+									<label for="provenance_retour_vol_2" class="label_cote_4">{DEST_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td>
+									<input type="text" style="width:200px" id="provenance_retour_vol_2" name="provenance_retour_vol_2" maxlength="40" value="{TXT_PROVENANCE_RETOUR_VOL_2}" />
+								</td>
+                            </tr>
+
+                            <tr>
+								<td>
+									<label for="heure_retour_vol" class="label_cote_4">{HEURE_VOL} <span class="rouge">*</span> : </label>
+								</td>
+								<td>
+									<select name="heure_retour_vol" id="heure_retour_vol">
+
+										<foreach ary="{$HEURE_LST}">
+
+											<if cond="{VALUE,$HEURE_LST['code_heure']} == {$TXT_HEURE_RETOUR_VOL}">
+
+												<option value="{VALUE,HEURE_LST['code_heure']}" selected="selected">{VALUE,HEURE_LST['heure']}</option>
+
+											<else />
+
+												<option value="{VALUE,HEURE_LST['code_heure']}">{VALUE,HEURE_LST['heure']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+									
+									h
+
+									<select name="minute_retour_vol" id="minute_retour_vol">
+
+										<foreach ary="{$MINUTE_LST}">
+
+											<if cond="{VALUE,$MINUTE_LST['code_heure']} == {$TXT_MINUTE_RETOUR_VOL}">
+
+												<option value="{VALUE,MINUTE_LST['code_heure']}" selected="selected">{VALUE,MINUTE_LST['heure']}</option>
+
+											<else />
+
+												<option value="{VALUE,MINUTE_LST['code_heure']}">{VALUE,MINUTE_LST['heure']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+
+								</td>
+							</tr>
+
+                        </table>
+						
+                    </div>
+
+                    <hr />
+
+                    <span class="en_valeur">{INFO_TRANSPORT} : </span>
+                    <br />
+					<br />
+
+					<table>
+						<tr >
+							<th colspan="2" class="header_tab" style="display:none;">
+								{ALLER}
+							</th>
+						</tr>
+						
+						<tr>
+							<td>
+								<span class="label_cote_4">{DATE_DEPART} <span class="rouge">*</span> : </span>
+							</td>
+							<td>
+								<span id="lbl_jour_depart" style="background-color:#FFF" class="pointer" onclick="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');">{SELECTIONNER_DATE_DEPART}</span>
+								<span>
+									<input type="hidden" name="jour_depart" id="jour_depart" value="{TXT_JOUR_DEPART}" />
+									<input type="hidden" name="jour_depart_long" id="jour_depart_long" value="{TXT_JOUR_DEPART_LONG}" />
+
+									<input type="button" onfocus="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');" onclick="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');" style="background-image:url(images/calendar.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+
+								</span>
+								<table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass1" style="display: none;">
+									<tr>
+										<td id="ds_calclass1" valign="top"></td>
+										<td id="ds_calclass2" valign="top"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+						<tr id="horaire_fixe_aller" style="display:none;">
+							<td>
+								<label for="lst_fixe_depart" class="label_cote_7">{FIXE_ALLER} <span class="rouge">**</span> : </label>
+							</td>
+							<td>
+								<select id="lst_fixe_depart" name="lst_fixe_depart">
+									<option></option>
+								</select>
+								<a href="#" onmouseover="affiche_bulle('bulle_1');" onmouseout="efface_bulle('bulle_1');">
+									<img src="images/help.gif" class="pointer" alt="{ALT_AIDE}" />
+								</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label for="lst_heure_depart" class="label_cote_6">{HEURE_DEPART} <span class="rouge">*</span><span id="etoile_depart" style="display:none"><span class="rouge">*</span></span> : </label>
+							</td>
+							<td>
+								<select name="lst_heure_depart" id="lst_heure_depart">
+
+									<foreach ary="{$LST_HEURE}">
+
+										<if cond="{VALUE,$LST_HEURE['code_heure']} == {$HEURE_DEPART_CHERCHE} && {$HEURE_FIXE_ALLER} == 0">
+
+											<option value="{VALUE,LST_HEURE['code_heure']}" selected="selected">{VALUE,LST_HEURE['heure']}</option>
+
+										<else />
+
+											<option value="{VALUE,LST_HEURE['code_heure']}">{VALUE,LST_HEURE['heure']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+
+								<a href="#" onmouseover="affiche_bulle('bulle_2');" onmouseout="efface_bulle('bulle_2');"><img src="images/help.gif" class="pointer" alt="{ALT_AIDE}" /></a>
+							</td>
+						</tr>
+						
+						<tr id="bulle_1">
+							<td colspan="2">
+								<span class="info_bulle">{HOVER_AIDE_FIXE}</span>
+							</td>
+						</tr>
+						
+						<tr id="bulle_2">
+							<td colspan="2">
+								<span class="info_bulle">{HOVER_AIDE}</span>
+							</td>
+						</tr>
+						
+					</table>
+
+                    <br />
+
+
+                    <span>
+                        <label for="pt_rassemblement_aller" class="label_cote_7">{PT_RASSEMBLEMENT} <span class="rouge">*</span> : </label>
+                        <select name="pt_rassemblement_aller" id="pt_rassemblement_aller" class="valign_select">
+
+                            <foreach ary="{$LST_PT_RASSEMBLEMENT}" as="{$PT}">
+
+                                <if cond="{VALUE,$PT['id_pt']} == {$PT_RASSEMBLEMENT_ALLER_CHERCHE}">
+
+                                    <option value="{VALUE,PT['id_pt']}" selected="selected">{VALUE,PT['nom']}</option>
+
+                                <else />
+
+                                    <option value="{VALUE,PT['id_pt']}">{VALUE,PT['nom']}</option>
+
+                                </if>
+
+                            </foreach>
+
+                        </select>
+                    </span>
+
+                    <br />
+                    <br />
+                    <div id="rass_aller" style="display:none">
+                        <br />
+                        <span>
+                            <label for="rass_adresse_aller" class="label_cote_4">{ADRESSE_CLIENT} <span class="rouge">*</span> : </label>
+                            <input type="text" id="rass_adresse_aller" name="rass_adresse_aller" value="{TXT_RASS_ADRESSE_ALLER}" maxlength="200" />
+                        </span>
+
+                        <br />
+
+                        <span>
+                            <label for="rass_cp_aller" class="label_cote_4">{CODE_POST_CLIENT} <span class="rouge">*</span> : </label>
+                            <input type="text" id="rass_cp_aller" name="rass_cp_aller" value="{TXT_RASS_CP_ALLER}" maxlength="5" />
+                        </span>
+
+                        <br />
+
+                        <span>
+                            <label for="rass_ville_aller" class="label_cote_4">{VILLE_CLIENT} <span class="rouge">*</span> : </label>
+                            <input type="text" id="rass_ville_aller" name="rass_ville_aller" value="{TXT_RASS_VILLE_ALLER}" maxlength="50" />
+                        </span>
+                    </div>
+
+
+                    <br />
+
+                    <if cond="{$TRAJET} == '0'">
+                        <div id="retour">
+                    <else />
+                        <div id="retour" style="display:none">
+                    </if>
+
+                    <span class="header_tab" style="display:none;"><br /><br />{RETOUR}<br /><br /></span>
+
+                    <span class="label_cote_4">{DATE_RETOUR} <span class="rouge">*</span> : </span>
+                    <span id="lbl_jour_retour" style="background-color:#FFF" class="pointer" onclick="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');">{SELECTIONNER_DATE_RETOUR}</span>
+
+                    <span>
+                        <input type="hidden" name="jour_retour" id="jour_retour" value="{TXT_JOUR_RETOUR}" />
+                        <input type="hidden" name="jour_retour_long" id="jour_retour_long" value="{TXT_JOUR_RETOUR_LONG}" />
+
+                        <input type="button" onfocus="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');" onclick="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');" style="background-image:url(images/calendar.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+
+                    </span>
+
+                    <table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass2" style="display: none;">
+                        <tr style="float:left; display:inline;">
+                            <td id="ds_calclass3" valign="top"></td>
+                            <td id="ds_calclass4" valign="top"></td>
+                        </tr>
+                    </table>
+
+                    <br />
+                    <br />
+
+                    <div id="horaire_fixe_retour" style="display:none; float:left;">
+
+                        <label for="lst_fixe_retour" class="label_cote_7">{FIXE_RETOUR} <span class="rouge">**</span> : </label>
+						
+                        <select id="lst_fixe_retour" name="lst_fixe_retour">
+							<option></option>
+						</select>
+						
+						<a href="#" onmouseover="affiche_bulle('bulle_3');" onmouseout="efface_bulle('bulle_3');">
+							<img src="images/help.gif" class="pointer" alt="{ALT_AIDE}" />
+						</a>
+						
+                        <br />
+                    </div>
+
+                    <span>
+                        <label for="lst_heure_retour" class="label_cote_6">{HEURE_RETOUR} <span class="rouge">*</span><span id="etoile_retour" style="display:none"><span class="rouge">*</span></span> : </label>
+                        <select name="lst_heure_retour" id="lst_heure_retour">
+
+                            <foreach ary="{$LST_HEURE}">
+
+                                <if cond="{VALUE,$LST_HEURE['code_heure']} == {$HEURE_RETOUR_CHERCHE} && {$HEURE_FIXE_RETOUR} == 0">
+
+                                    <option value="{VALUE,LST_HEURE['code_heure']}" selected="selected">{VALUE,LST_HEURE['heure']}</option>
+
+                                <else />
+
+                                    <option value="{VALUE,LST_HEURE['code_heure']}">{VALUE,LST_HEURE['heure']}</option>
+
+                                </if>
+
+                            </foreach>
+
+                        </select>
+
+                        <a href="#" onmouseover="affiche_bulle('bulle_4');" onmouseout="efface_bulle('bulle_4');"><img src="images/help.gif" class="pointer" alt="{ALT_AIDE}" /></a>
+
+                    </span>
+
+                    <div class="info_bulle" id="bulle_3">{HOVER_AIDE_FIXE}</div>
+
+                    <div class="info_bulle" id="bulle_4">{HOVER_AIDE}</div>
+
+                    <br />
+
+                    <div id="div_rass_retour" style="display:none">
+						<span>
+							<label for="pt_rassemblement_retour" class="label_cote_7">{PT_RASSEMBLEMENT} <span class="rouge">*</span> : </label>
+							<select name="pt_rassemblement_retour" id="pt_rassemblement_retour" class="valign_select">
+
+								<foreach ary="{$LST_PT_RASSEMBLEMENT}" as="{$PT}">
+
+									<if cond="{VALUE,$PT['id_pt']} == {$PT_RASSEMBLEMENT_RETOUR_CHERCHE}">
+
+										<option value="{VALUE,PT['id_pt']}" selected="selected">{VALUE,PT['nom']}</option>
+
+									<else />
+
+										<option value="{VALUE,PT['id_pt']}">{VALUE,PT['nom']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+						</span>
+
+						<br /><br />
+
+						<div id="rass_retour" style="display:none">
+							<br />
+							<span>
+								<label for="rass_adresse_retour" class="label_cote_4">{ADRESSE_CLIENT} <span class="rouge">*</span> : </label>
+								<input type="text" id="rass_adresse_retour" name="rass_adresse_retour" value="{TXT_RASS_ADRESSE_RETOUR}" maxlength="200" />
+							</span>
+
+							<br />
+
+							<span>
+								<label for="rass_cp_retour" class="label_cote_4">{CODE_POST_CLIENT} <span class="rouge">*</span> : </label>
+								<input type="text" id="rass_cp_retour" name="rass_cp_retour" value="{TXT_RASS_CP_RETOUR}" maxlength="5" />
+							</span>
+
+							<br />
+
+							<span>
+								<label for="rass_ville_retour" class="label_cote_4">{VILLE_CLIENT} <span class="rouge">*</span> : </label>
+								<input type="text" id="rass_ville_retour" name="rass_ville_retour" value="{TXT_RASS_VILLE_RETOUR}" maxlength="50" />
+							</span>
+							
+						</div>
+					</div>
+
+                    <br />
+                </div>
+
+                <hr />
+
+                <span class="en_valeur">{NOMBRE_PASSAGER} : </span>
+
+                <br /><br />
+
+                <table>
+                    <tr>
+                        <th class="header_tab" style="width:350px;display:none;">{ALLER}</th>
+                        <th class="header_tab" style="display:none;width:350px;">{RETOUR}</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <label for="lst_passager_adulte_aller" class="label_cote_4">{PASSAGER_ADULTE} <span class="rouge">*</span> : </label>
+                            <select name="lst_passager_adulte_aller" id="lst_passager_adulte_aller">
+
+                                <foreach ary="{$LST_PERSONNE}">
+
+                                    <if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_ALLER}">
+
+                                        <option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+                                    <else />
+
+                                        <option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+                                    </if>
+
+                                </foreach>
+
+                            </select>
+
+                            <br />
+
+                            <label for="lst_passager_enfant_aller" class="label_cote_4">{PASSAGER_ENFANT} <span class="rouge">*</span> : </label>
+                            <select name="lst_passager_enfant_aller" id="lst_passager_enfant_aller">
+
+                                <foreach ary="{$LST_ENFANT}">
+
+                                    <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER}">
+
+                                        <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                    <else />
+
+                                        <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                    </if>
+
+                                </foreach>
+
+                            </select>
+
+                            <div id="passager_aller_enfant" style="display:none">
+                                <br />
+
+                                <span>
+                                    <label for="lst_passager_enfant_aller_g0" class="label_cote_6">{PASSAGER_ENFANT_G0} <span class="rouge">*</span> : </label>
+                                    <select name="lst_passager_enfant_aller_g0" id="lst_passager_enfant_aller_g0">
+
+                                        <foreach ary="{$LST_ENFANT}">
+
+                                            <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G0}">
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            <else />
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            </if>
+
+                                        </foreach>
+
+                                    </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                    <label for="lst_passager_enfant_aller_g1" class="label_cote_6">{PASSAGER_ENFANT_G1} <span class="rouge">*</span> : </label>
+                                    <select name="lst_passager_enfant_aller_g1" id="lst_passager_enfant_aller_g1">
+
+                                        <foreach ary="{$LST_ENFANT}">
+
+                                            <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G1}">
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            <else />
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            </if>
+
+                                        </foreach>
+
+                                    </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                    <label for="lst_passager_enfant_aller_g2" class="label_cote_6">{PASSAGER_ENFANT_G2} <span class="rouge">*</span> : </label>
+                                    <select name="lst_passager_enfant_aller_g2" id="lst_passager_enfant_aller_g2">
+
+                                        <foreach ary="{$LST_ENFANT}">
+
+                                            <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G2}">
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            <else />
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            </if>
+
+                                        </foreach>
+
+                                    </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                    <label for="lst_passager_enfant_aller_g3" class="label_cote_6">{PASSAGER_ENFANT_G3} <span class="rouge">*</span> : </label>
+                                    <select name="lst_passager_enfant_aller_g3" id="lst_passager_enfant_aller_g3">
+
+                                        <foreach ary="{$LST_ENFANT}">
+
+                                            <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G3}">
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            <else />
+
+                                                <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                            </if>
+
+                                        </foreach>
+
+                                    </select>
+                                </span>
+
+                            </div>
+                        </td>
+
+                        <td>
+                        <div id="passager_retour" style="display:none;">
+
+                            <label for="lst_passager_adulte_retour" class="label_cote_4">{PASSAGER_ADULTE} <span class="rouge">*</span> : </label>
+                            <select name="lst_passager_adulte_retour" id="lst_passager_adulte_retour">
+
+                                <foreach ary="{$LST_PERSONNE}">
+
+                                    <if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_RETOUR}">
+
+                                        <option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+                                    <else />
+
+                                        <option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+                                    </if>
+
+                                </foreach>
+
+                            </select>
+
+                            <br />
+
+                            <label for="lst_passager_enfant_retour" class="label_cote_4">{PASSAGER_ENFANT} <span class="rouge">*</span> : </label>
+                            <select name="lst_passager_enfant_retour" id="lst_passager_enfant_retour">
+
+                                <foreach ary="{$LST_ENFANT}">
+
+                                    <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR}">
+
+                                        <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                    <else />
+
+                                        <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                    </if>
+
+                                </foreach>
+
+                            </select>
+                            <br />
+
+                            <div id="passager_retour_enfant" style="display:none">
+                                <br />
+
+                                <span>
+                                <label for="lst_passager_enfant_retour_g0" class="label_cote_6">{PASSAGER_ENFANT_G0} <span class="rouge">*</span> : </label>
+                                <select name="lst_passager_enfant_retour_g0" id="lst_passager_enfant_retour_g0">
+
+                                    <foreach ary="{$LST_ENFANT}">
+
+                                        <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G0}">
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        <else />
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        </if>
+
+                                    </foreach>
+
+                                </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                <label for="lst_passager_enfant_retour_g1" class="label_cote_6">{PASSAGER_ENFANT_G1} <span class="rouge">*</span> : </label>
+                                <select name="lst_passager_enfant_retour_g1" id="lst_passager_enfant_retour_g1">
+
+                                    <foreach ary="{$LST_ENFANT}">
+
+                                        <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G1}">
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        <else />
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        </if>
+
+                                    </foreach>
+
+                                </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                <label for="lst_passager_enfant_retour_g2" class="label_cote_6">{PASSAGER_ENFANT_G2} <span class="rouge">*</span> : </label>
+                                <select name="lst_passager_enfant_retour_g2" id="lst_passager_enfant_retour_g2">
+
+                                    <foreach ary="{$LST_ENFANT}">
+
+                                        <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G2}">
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        <else />
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        </if>
+
+                                    </foreach>
+
+                                </select>
+                                </span>
+
+                                <br />
+
+                                <span>
+                                <label for="lst_passager_enfant_retour_g3" class="label_cote_6">{PASSAGER_ENFANT_G3} <span class="rouge">*</span> : </label>
+                                <select name="lst_passager_enfant_retour_g3" id="lst_passager_enfant_retour_g3">
+
+                                    <foreach ary="{$LST_ENFANT}">
+
+                                        <if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G3}">
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        <else />
+
+                                            <option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+                                        </if>
+
+                                    </foreach>
+
+                                </select>
+                                </span>
+
+                            </div>
+
+                        </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <hr />
+
+                <label for="info_compl">{INFO_COMPL} : </label>
+
+                <br />
+
+                <div>
+                    <textarea rows="2" cols="50" name="info_compl" id="info_compl">{TXT_INFO_COMPL}</textarea>
+                </div>
+
+                <div>
+                    <br />
+
+                    <span>
+                        <input type="checkbox" id="accept_cgv" name="accept_cgv" />
+                        <label for="accept_cgv">{TXT_ACCEPT_CGV}</label>
+                    </span>
+
+                    <br />
+                    <br />
+
+                    <input type="hidden" name="res_1" id="res_1" value="0" />
+                    <input type="button" value="{BTN_RAZ}" id="btn_raz" />
+                    <input type="button" value="{BTN_ENVOYER}" id="btn_envoie" />
+                </div>
+
+                <h5><span class="rouge">*</span> : {OBLIGATOIRE}
+                <br />
+                <span class="rouge">**</span> : {OBLIGATOIRE_2}</h5>
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+            
+        <div class="bas_border_gauche"></div>
+
+
+        <script type="text/javascript" src="scripts/ajax.js"></script>
+        <script type="text/javascript" src="scripts/accueil.js"></script>
+
+
+    </div>
+
+
+    <div class="border2">
+
+        <div class="titre_gauche">
+            <strong><a href="news.html">{NEWS}</a></strong>
+        </div>
+
+        <div style="padding:5px;">
+
+            {NEWS_ALEATOIRE}
+
+        </div>
+
+        <div class="bas_border_gauche"></div>
+
+    </div>
+
+</div>
+
+    <script src="scripts/swfobject_modified.js" type="text/javascript"></script>
+    
+<div id="div_droite">
+		
+    <div id="meilleurs_prix" class="border">
+        
+        <div class="titre_droite titre_droite_prix">
+            <strong>{MEILLEURS_PRIX}</strong>
+        </div>
+
+
+        <div id="meilleur_prix" style="height:180px;">
+
+            <object id="FlashID1" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="150" height="150" style="margin-top: 15px;">
+                <param name="movie" value="images/anim_prix.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="swfversion" value="8.0.35.0" />
+                <!-- Cette balise <param> invite les utilisateurs de Flash Player en version 6.0 r65 et ultérieure à télécharger la version la plus récente de Flash Player. Supprimez-la si vous ne voulez pas que cette invite soit visible. -->
+                <param name="expressinstall" value="scripts/expressInstall.swf" />
+                <!-- La balise <object> suivante est destinée aux navigateurs autres qu'IE. Supprimez-la d'IE à l'aide d'IECC. -->
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="images/anim_prix.swf" width="150" height="150" style="margin-top: 15px;">
+                    <!--<![endif]-->
+                    <param name="quality" value="high" />
+                    <param name="wmode" value="opaque" />
+                    <param name="swfversion" value="8.0.35.0" />
+                    <param name="expressinstall" value="scripts/expressInstall.swf" />
+                    <!-- Le navigateur affichera le contenu alternatif suivant pour les utilisateurs d'un lecteur Flash de version 6.0 ou de versions plus anciennes. -->
+                    <div>
+                      <h4>Le contenu de cette page nécessite une version plus récente d’Adobe Flash Player.</h4>
+                      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtenir le lecteur Adobe Flash" /></a></p>
+                    </div>
+                    <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+
+            <script type="text/javascript">
+            <!--
+                swfobject.registerObject("FlashID1");
+            //-->
+            </script>
+
+            
+
+/*
+            <a href="tarifs.html"><img src="images/bale_mulhouse.gif" alt="" class="image_prix" /></a>
+
+            <a href="tarifs.html"><img src="images/karlsruhe_bb.gif" alt="" class="image_prix" /></a>
+
+            <a href="tarifs.html"><img src="images/franc_hahn.gif" alt="" class="image_prix" /></a>
+
+            <a href="tarifs.html"><img src="images/stuttgart.gif" alt="" class="image_prix" /></a>
+
+            <a href="tarifs.html"><img src="images/franc_main.gif" alt="" class="image_prix" /></a>
+
+            <a href="tarifs.html"><img src="images/zurich.gif" alt="" class="image_prix" /></a>
+*/
+        </div>
+/*
+        <!--[if !IE]>-->
+            <style type="text/css">
+                #meilleur_prix { padding-left: 75px; }
+            </style>
+        <!--<![endif]-->
+
+        <!--[if IE 8]>
+                <style type="text/css">
+                    #meilleur_prix { padding-left: 75px; }
+                </style>
+        <![endif]-->
+*/
+        <div class="bas_border_droite"></div>
+
+        /*<script type="text/javascript" src="scripts/img_accueil.js"></script>*/
+
+    </div>
+
+
+    <div id="moyen_paiement" class="border">
+
+        <div class="titre_droite">
+            <strong>{MODE_DE_PAIEMENT}</strong>
+        </div>
+
+        <br />
+
+        <img src="images/payer.png" alt="{ALT_PAYPAL}" />
+
+        <br />
+
+        <img src="images/carte_paypal.png" alt="Carte PayPal" class="resize" />
+
+        <br /><br />
+
+        <img src="images/credit_agricole.gif" alt="e-transaction" />
+
+        <br />
+
+        <img src="images/carte_paybox.png" alt="Carte PayBox" class="resize" />
+
+        <br /><br />
+
+        <div class="bas_border_droite"></div>
+
+    </div>
+        
+
+    <div id="visiter" class="border">
+                
+        <div class="titre_droite">
+            <strong>{VISITER_ALSACE}</strong>
+        </div>
+
+        <if cond="{$MODE} == 'online'">
+
+            
+
+           /* <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="220" height="160" id="FLVPlayer">
+                  <param name="movie" value="FLVPlayer_Progressive.swf" />
+                  <param name="quality" value="high" />
+                  <param name="wmode" value="opaque" />
+                  <param name="scale" value="noscale" />
+                  <param name="salign" value="lt" />
+                  <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=videos/{NOM_VIDEO}&amp;autoPlay=true&amp;autoRewind=false" />
+                  <param name="swfversion" value="8,0,0,0" />
+                  <!-- Cette balise <param> invite les utilisateurs de Flash Player en version 6.0 r65 et ultérieure à télécharger la version la plus récente de Flash Player. Supprimez-la si vous ne voulez pas que cette invite soit visible. -->
+                  <param name="expressinstall" value="scripts/expressInstall.swf" />
+                  <!-- La balise <object> suivante est destinée aux navigateurs autres qu'IE. Supprimez-la d'IE à l'aide d'IECC. -->
+                  <!--[if !IE]>-->
+                  <object type="application/x-shockwave-flash" data="FLVPlayer_Progressive.swf" width="220" height="160">
+                    <!--<![endif]-->
+                        <param name="quality" value="high" />
+                        <param name="wmode" value="opaque" />
+                        <param name="scale" value="noscale" />
+                        <param name="salign" value="lt" />
+                        <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=videos/{NOM_VIDEO}&amp;autoPlay=true&amp;autoRewind=false" />
+                        <param name="swfversion" value="8,0,0,0" />
+                        <param name="expressinstall" value="scripts/expressInstall.swf" />
+                        <!-- Le navigateur affichera le contenu alternatif suivant pour les utilisateurs d'un lecteur Flash de version 6.0 ou de versions plus anciennes. -->
+                        <div>
+                          <h4>{ERREUR_FLASH}</h4>
+                          <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtenir le lecteur Adobe Flash" /></a></p>
+                        </div>
+                        <!--[if !IE]>-->
+                    </object>
+                <!--<![endif]-->
+            </object>
+
+            <script type="text/javascript">
+            <!--
+                swfobject.registerObject("FLVPlayer");
+            //-->
+            </script>
+        */
+
+            <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="173" height="150" style="margin-top: 30px;">
+                <param name="movie" value="images/anim_portail.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="swfversion" value="8.0.35.0" />
+                <!-- Cette balise <param> invite les utilisateurs de Flash Player en version 6.0 r65 et ultérieure à télécharger la version la plus récente de Flash Player. Supprimez-la si vous ne voulez pas que cette invite soit visible. -->
+                <param name="expressinstall" value="scripts/expressInstall.swf" />
+                <!-- La balise <object> suivante est destinée aux navigateurs autres qu'IE. Supprimez-la d'IE à l'aide d'IECC. -->
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="images/anim_portail.swf" width="173" height="150" style="margin-top: 30px;">
+                    <!--<![endif]-->
+                    <param name="quality" value="high" />
+                    <param name="wmode" value="opaque" />
+                    <param name="swfversion" value="8.0.35.0" />
+                    <param name="expressinstall" value="scripts/expressInstall.swf" />
+                    <!-- Le navigateur affichera le contenu alternatif suivant pour les utilisateurs d'un lecteur Flash de version 6.0 ou de versions plus anciennes. -->
+                    <div>
+                      <h4>Le contenu de cette page nécessite une version plus récente d’Adobe Flash Player.</h4>
+                      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtenir le lecteur Adobe Flash" /></a></p>
+                    </div>
+                    <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+
+            <script type="text/javascript">
+            <!--
+                swfobject.registerObject("FlashID");
+            //-->
+            </script>
+
+
+            
+
+        </if>
+
+
+        <br />
+        <br />
+
+        <div class="bas_border_droite"></div>
+
+    </div>
+          
+        
+    <div id="navette" class="border">
+        
+        <div class="titre_droite">
+            <strong>{NAVETTE_VOL}</strong>
+        </div>
+
+        <br />
+
+        <label for="fixe_aeroport">{CHOIX_AEROPORT} : </label>
+        <select id="fixe_aeroport">
+            <option value="0"></option>
+            <option value="2">Karlsruhe / Baden Baden</option>
+            <option value="1">Bâle / Mulhouse</option>
+        </select>
+
+        <br />
+        <br />
+
+        <span>
+        <input type="radio" name="choix_fixe" id="dest" value="corr_depart" />&nbsp;<label for="dest">{A_DEST_DE}&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" name="choix_fixe" id="provenance" value="corr_retour" />&nbsp;<label for="provenance">{EN_PROV_DE}  </label>
+        </span>
+        <br />
+        <select id="fixe_dest">
+
+            <foreach ary="{$FIXE_DEST}">
+
+                <option value="{VALUE,FIXE_DEST['id_fixe']}">{VALUE,FIXE_DEST['nom_dest']}</option>
+
+            </foreach>
+
+        </select>
+
+        <br />
+        <br />
+        <input type="button" id="btn_trouve_navette" value="{BTN_RECHERCHE}" />
+        <span id="span_gif"></span>
+
+        <div id="res_recherche"></div>
+
+        <div class="bas_border_droite"></div>
+
+        <script type="text/javascript">
+        <!--
+            var fixe_dest = document.getElementById('fixe_dest');
+            var fixe_aeroport = document.getElementById('fixe_aeroport');
+            var btn_type = document.getElementsByName('choix_fixe');
+            var btn_trouve_navette = document.getElementById('btn_trouve_navette');
+            var res_recherche = document.getElementById('res_recherche');
+            var span_gif = document.getElementById('span_gif');
+
+            function trouve_dest_depuis_aeroport()
+            {
+                btn_type[0].checked = false;
+                btn_type[1].checked = false;
+
+                if(this.selectedIndex != 0)
+                    get_aeroport(this.options[this.selectedIndex].value);
+            }
+
+
+            function trouve_dest_depuit_type()
+            {
+                if(fixe_aeroport.selectedIndex != 0)
+                    get_aeroport_type(this.value, fixe_aeroport.options[fixe_aeroport.selectedIndex].value);
+            }
+
+
+            function trouve_navette()
+            {
+                if(fixe_aeroport.selectedIndex != 0)
+                {
+                    if(btn_type[0].checked || btn_type[1].checked)
+                    {
+                        if(btn_type[0].checked)
+                            get_navette_xhr(fixe_aeroport.options[fixe_aeroport.selectedIndex].value, fixe_dest.options[fixe_dest.selectedIndex].value, "depart");
+                        else
+                            get_navette_xhr(fixe_aeroport.options[fixe_aeroport.selectedIndex].value, fixe_dest.options[fixe_dest.selectedIndex].value, "retour");
+                    }
+                }
+            }
+
+
+
+            btn_trouve_navette.onclick = trouve_navette;
+
+            btn_type[0].onclick = trouve_dest_depuit_type;
+            btn_type[1].onclick = trouve_dest_depuit_type;
+
+            fixe_aeroport.onchange = trouve_dest_depuis_aeroport;
+
+        //-->
+        </script>
+
+  </div>
+      
+      
+    <div class="border">
+        
+        <div class="titre_droite">
+            <strong>{METEO}</strong>
+        </div>
+
+
+        <if cond="{$MODE} == 'online'">
+
+            <iframe marginheight="0" marginwidth="0" name="wxButtonFrame" id="wxButtonFrame" height="180" src="http://btn.meteomedia.ca/weatherbuttons/template7.php?placeCode=FRXX0095&amp;category0=Cities&amp;placeCode1=FRXX0071&amp;category1=Cities&amp;placeCode2=DEXX0001&amp;category2=Cities&amp;placeCode3=SZXX0033&amp;category3=Cities&amp;containerWidth=180&amp;btnNo=&amp;backgroundColor=blue&amp;multipleCity=1&amp;citySearch=1&amp;celsiusF=C" align="top" frameborder="0" width="180" scrolling="no"></iframe>
+
+        </if>
+
+        <div class="bas_border_droite"></div>
+        
+    </div>
+    
+</div>
+
+<div style="clear:both;height:2px;"></div>
+
+<div class="collapsible_recherche1">
+
+    <div class="collapsible_recherche_bar1" style="text-align:center"><strong>{PHOTOS}</strong></div>
+
+    <div class="collapsible_recherche_content1">
+
+        <div style="padding:5px;">
+
+            <marquee behavior="scroll" direction="left" scrolldelay="1" scrollamount="2" onmouseout="start()" onmouseover="stop()">
+
+                <foreach ary="{$TAB_PHOTOS}">
+
+                    <img src="photos/{VALUE,TAB_PHOTOS['PHOTO']}" alt="" />
+
+                </foreach>
+
+            </marquee>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+    <div style="text-align:center;width:780px;margin-left:115px;">
+
+        <div class="collapsible_recherche">
+
+            <div class="collapsible_recherche_bar"><strong>{RECHERCHE_DE_NAVETTE}</strong></div>
+
+            <div class="collapsible_recherche_content" style="display:none">
+
+                <br />
+
+                <label for="lst_depart_recherche"><strong>{TRAJET_DEPART} : </strong></label>
+                <select id="lst_depart_recherche">
+
+                    <foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+                        <option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+                    </foreach>
+
+                </select>
+                &nbsp;&nbsp;
+                <span>
+                    <label for="lst_arrive_recherche"><strong>{TRAJET_ARRIVE} : </strong></label>
+                    <select id="lst_arrive_recherche" disabled="disabled">
+
+                        <foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+                            <option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+                        </foreach>
+
+                    </select>
+                </span>
+
+                <br />
+
+                <span><strong>{DATE_DEPART} : </strong></span>
+                <span id="lbl_depart_recherche" style="background-color:#FFF" class="pointer" onclick="ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass5', '1');ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass6', '2');">{SELECTIONNER_DATE_DEPART_2}</span>
+
+
+                <span>
+                    <input type="hidden" id="depart_recherche" />
+                    <input type="hidden" id="depart_recherche_long" />
+
+                    <input type="button" onfocus="ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass5', '1');ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass6', '2');" onclick="ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass5', '1');ds_sh('lbl_depart_recherche', 'ds_conclass5', 'ds_calclass6', '2');" style="background-image:url(images/calendar.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+                </span>
+
+                <table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass5" style="display: none;margin:auto">
+                    <tr>
+                        <td id="ds_calclass5" valign="top"></td>
+                        <td id="ds_calclass6" valign="top"></td>
+                    </tr>
+                </table>
+
+                <br /><br />
+
+                <input type="button" value="{BTN_RECHERCHE}" id="btn_recherche" />
+                <span id="loader" style="display:none"><img src="images/loader.gif" alt="loader" /></span>
+                <br /><br />
+                <div id="res_recherche_top">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+        <!--
+
+            var is_open = true;
+            $('.collapsible_recherche_bar').click(function(){
+                if(!is_open)
+                {
+                    is_open = true;
+                    $('.collapsible_recherche_content').slideDown("normal");
+                }
+                else
+                {
+                    is_open = false;
+                    $('.collapsible_recherche_content').slideUp("normal");
+                }
+            });
+
+            $('.collapsible_recherche_content').show();
+
+
+
+            var dep_recherche = document.getElementById("lst_depart_recherche");
+            var dest_recherche = document.getElementById("lst_arrive_recherche");
+            var date_recherche = document.getElementById("depart_recherche");
+            var btn_recherche = document.getElementById("btn_recherche");
+            var img_loader = document.getElementById("loader");
+
+
+            function recherche()
+            {
+                if(dep_recherche.options[dep_recherche.selectedIndex].value != "" && dest_recherche.options[dest_recherche.selectedIndex].value != "" && date_recherche.value != "")
+                {
+                    img_loader.style.display = "inline";
+                    get_navette_recherche(dep_recherche.options[dep_recherche.selectedIndex].value, dest_recherche.options[dest_recherche.selectedIndex].value, date_recherche.value);
+                }
+            }
+
+            btn_recherche.onclick = recherche;
+
+            var tab_dep_org_recherche = copie2(dep_recherche);
+            var tab_arr_org_recherche = copie2(dest_recherche);
+
+            function copie2(elt)
+            {
+                var res = new Array();
+                res[0] = new Array();
+                res[1] = new Array();
+
+                for(var i = 0; i < elt.length; i++)
+                {
+                    res[0][i] = elt.options[i].value;
+                    res[1][i] = elt.options[i].text;
+                }
+
+                return res;
+            }
+
+
+            function maj_liste()
+            {
+                var si_dep = dep_recherche.options.selectedIndex;
+                var si_arr = dest_recherche.options.selectedIndex;
+
+                if(si_dep != 0)
+                    dest_recherche.disabled = "";
+                else
+                    dest_recherche.disabled = "disabled";
+
+                for(var i = 0; i < tab_arr_org_recherche[0].length; i++)
+                    dest_recherche.options[i] = new Option(tab_arr_org_recherche[1][i], tab_arr_org_recherche[0][i]);
+
+                if(si_dep == dep_recherche.options.length - 1)
+                    dest_recherche.options[dest_recherche.options.length - 1] = null;
+                else
+                {
+                    for(var i = dest_recherche.length - 2; i >= 0; i--)
+                        dest_recherche.options[i] = null;
+                }
+            }
+
+            dep_recherche.onchange = maj_liste;
+        //-->
+        </script>
+            
+    </div>
+<include tpl="footer.html" />
+

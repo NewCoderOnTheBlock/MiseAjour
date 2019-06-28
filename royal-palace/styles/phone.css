@@ -1,0 +1,181 @@
+/* ==============================================
+   FEUILLE DE STYLES DES GABARITS HTML/CSS --- 03
+   © Elephorm & Alsacreations.com
+   Conditions d'utilisation:
+   http://creativecommons.org/licenses/by/2.0/fr/
+   ============================================== */
+
+
+/* Général */
+body {
+	color: white;
+	background:#090601 url("../images/bg.jpg") no-repeat center bottom fixed;
+}
+a {
+	color: #F7C418;
+	font-weight: bold;
+}
+a:hover, a:focus {
+	color: #F9D24F;
+}
+strong {
+	color: #A1B55D;
+}
+h1 {
+	text-align: center;
+	color:#F9D24F;
+}
+
+/* Page */
+#global {
+	background: #090601;
+}
+
+/* Navigation */
+#navigation {
+	background: url(../images/background_navigation.png) repeat-x left top;
+}
+
+/* Contenu principal */
+#contenu {
+	color: white;
+	background: #291909;  
+	text-align: left; /* pour corriger le bug de centrage IE */
+}
+#contenu strong {
+	color: #EAB709;
+}
+
+/* Pied de page */
+#pied {
+	color: #E6A948;
+}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+html, body {
+	height: 100%; /* Voir -> Note 1 ci-dessous */
+}
+body {
+	padding: 0;
+}
+#global {
+	width: auto;
+	overflow: hidden; /* -> 2 */
+	margin-left: auto;
+	margin-right: auto; /* -> 3 */
+	border:solid black 1px;
+}
+
+/* En-tête */
+#entete {
+width:auto;
+	
+}
+
+/* Menu de navigation */
+#navigation {
+	margin:4 0 0 0;
+}
+
+#navigation table {
+	margin:auto auto auto auto;
+	border-spacing: 5px;
+}
+#navigation table tr td a{
+	padding: 6px;
+	text-decoration:none;
+	font-size: 0.9em;
+}
+#navigation table tr td:hover, #navigation table tr td:focus{
+	background: #291909;
+}
+#navigation table tr td{
+	background: #462B0F;
+	border:solid black 1px;
+	padding: 1 2 1 2;
+}
+
+/* Contenu */
+#contenu {
+	padding: 10px 20px;
+}
+#contenu > :first-child {
+	margin-top: 10px;
+}
+#contenu p, #contenu li {
+	line-height: 1.5;
+}
+#contenu .table_spec{
+	border:solid black 1px;
+	border-collapse: collapse;
+}
+#contenu .table_spec th, td{
+	font-size:.8em;
+	border:solid black 1px;
+	padding: 1 20 1 20;
+	text-align:center;
+}
+/* Personnalisation des fieldset */
+#contenu .table_spec fieldset{
+	padding:10 10 10 10;
+	margin:10 10 10 10;
+}
+#contenu .table_spec fieldset legend{
+	color:white;
+}
+#contenu .table_reserv {
+	border:none;
+	width:100%;
+	border-spacing: 5px;
+}
+#contenu .table_reserv td{
+	border:none;
+	text-align:left;
+	font-size:.8em;
+	padding:2 2 2 2;
+	margin:2 2 2 2;
+}
+#contenu .table_reserv  th{
+	border:none;
+	text-align:right;
+	font-size:.8em;
+	padding:2 2 2 2;
+	width:200px;
+}
+/* Champs de texte avec les pointillés */
+#contenu .dotted_input{
+	width:250px;
+	font-size:1.1em;
+	color:white;
+	background:none;
+	border:none;
+	border-bottom:dotted #F9D24F 1px;
+}
+/* Personnalisation des fieldset */
+#contenu .spaced_fieldset{
+	margin:5 0 25;
+}
+#contenu .spaced_fieldset legend{
+	color:#F9D24F;
+	font-weight: bold;
+	padding:0 20 0 20;
+	margin-left:20px;
+}
+
+/* Pied de page */
+#pied {
+	margin:10px;
+	padding: 5px;
+	font-size: .85em;
+	border-top:solid black 1px;
+}
+#pied p {
+	margin: .5em 0;
+}
+#copyright {
+	text-align: left;
+	font-size: 1em;
+}

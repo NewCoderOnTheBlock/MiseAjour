@@ -1,0 +1,271 @@
+/* ==============================================
+   FEUILLE DE STYLES ROYAL-PALACE
+   AFFICHAGE MOBILE (-640 PX MAX)
+   PAR RADJA TENDAYOUDABANY 
+   05-2014
+   ============================================== */
+   
+   
+@charset "utf-8";
+
+body {
+      min-width: 120px;
+      max-width: 320px;
+	  }
+    
+h1 {
+      font-size: 1.5em;
+    }
+    
+img {
+      width: 250px;
+      height: 187.5px;
+    }
+    
+ul.thumbnails li {
+      width: 265px;
+        height: 200px;
+        line-height: 200px;
+    }
+    
+ul.thumbnails li span.image-overlay {
+        width: 265px;
+    }
+	
+body {
+	width: auto;
+	      min-width: 120px;
+      max-width: 320px;
+	color: white;
+	background:#090601 url("../images/bg.jpg") no-repeat center bottom fixed;
+}
+a {
+	color: #F7C418;
+	      min-width: 120px;
+      max-width: 320px;
+	font-weight: bold;
+}
+a:hover, a:focus {
+	color: #F9D24F;
+	      min-width: 120px;
+      max-width: 320px;
+}
+strong {
+	color: #A1B55D;
+	      min-width: 120px;
+      max-width: 320px;
+}
+h1 {
+	text-align: center;
+	      min-width: 120px;
+      max-width: 320px;
+	color:#F9D24F;
+}
+
+/* Page */
+#global {
+	background: #090601;
+	      min-width: 120px;
+      max-width: 320px;
+}
+
+/* Navigation */
+#navigation {
+	background: url(../images/background_navigation.png) repeat-x left top;      min-width: 120px;
+      max-width: 320px;
+}
+
+/* Contenu principal */
+#contenu {
+	color: white;
+	      min-width: 120px;
+      max-width: 320px;
+	background: #291909;  
+	text-align: left; /* pour corriger le bug de centrage IE */
+}
+#contenu strong {
+	color: #EAB709;
+	      min-width: 120px;
+      max-width: 320px;
+}
+
+/* Pied de page */
+#pied {
+	color: #E6A948;
+	/*      min-width: 120px;
+      max-width: 320px;*/
+	  width: auto;
+}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+html, body {
+	height: 100%; /* Voir -> Note 1 ci-dessous */
+	      min-width: 120px;
+      max-width: 320px;
+}
+body {
+	padding: 0;
+	width: auto;
+	margin: 0;
+	      min-width: 120px;
+      max-width: 320px;
+}
+
+
+	
+#global {
+	      min-width: 120px;
+      max-width: 320px;
+	width: 750px;
+	overflow: hidden; /* -> 2 */
+	margin-left: auto;
+	margin-right: auto; /* -> 3 */
+	border:solid black 1px;
+}
+
+/* En-tête */
+#entete {      min-width: 120px;
+      max-width: 320px;
+	
+}
+
+/* Menu de navigation */
+#navigation {
+	margin:4 0 0 0;
+	width:320px;
+}
+
+#navigation table {
+	margin:auto auto auto auto;
+	border-spacing: 5px;
+	width:320px;
+}
+#navigation table tr td a{
+	padding: 6px;
+	text-decoration:none;
+	font-size: 0.9em;
+}
+#navigation table tr td:hover, #navigation table tr td:focus{
+	background: #291909;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#navigation table tr td{
+	background: #462B0F;
+	      min-width: 120px;
+      max-width: 320px;
+	border:solid black 1px;
+	padding: 1 2 1 2;
+}
+
+/* Contenu */
+#contenu {
+	padding: 10px 20px;
+	/*	      min-width: 120px;
+      max-width: 640px;*/
+	  width:320px;
+}
+#contenu > :first-child {
+	margin-top: 10px;
+}
+#contenu p, #contenu li {
+	line-height: 1.5;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#contenu .table_spec{
+	border:solid black 1px;
+	border-collapse: collapse;
+	width:320px;
+}
+#contenu .table_spec th, td{
+	font-size:.8em;
+	border:solid black 1px;
+	padding: 1 20 1 20;
+	text-align:center;
+	width:320px;
+}
+/* Personnalisation des fieldset */
+#contenu .table_spec fieldset{
+	padding:10 10 10 10;
+	margin:10 10 10 10;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#contenu .table_spec fieldset legend{
+	color:white;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#contenu .table_reserv {
+	border:none;
+	width:100%;
+	border-spacing: 5px;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#contenu .table_reserv td{
+	border:none;
+	text-align:left;
+	font-size:.8em;
+	padding:2 2 2 2;
+	margin:2 2 2 2;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#contenu .table_reserv  th{
+	border:none;
+	text-align:right;
+	font-size:.8em;
+	padding:2 2 2 2;
+	width:200px;
+	      min-width: 120px;
+      max-width: 320px;
+}
+/* Champs de texte avec les pointillés */
+#contenu .dotted_input{
+	width:250px;
+	font-size:1.1em;
+	color:white;
+	background:none;
+	border:none;
+	border-bottom:dotted #F9D24F 1px;
+	      min-width: 120px;
+      max-width: 320px;
+}
+/* Personnalisation des fieldset */
+#contenu .spaced_fieldset{
+	margin:5 0 25;
+	width:320px;
+}
+#contenu .spaced_fieldset legend{
+	color:#F9D24F;
+	font-weight: bold;
+	padding:0 20 0 20;
+	margin-left:20px;
+	width:320px;
+}
+
+/* Pied de page */
+#pied {
+	margin:10px;
+	padding: 5px;
+	font-size: .85em;
+	border-top:solid black 1px;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#pied p {
+	margin: .5em 0;
+	      min-width: 120px;
+      max-width: 320px;
+}
+#copyright {
+	text-align: left;
+	font-size: 1em;
+	      min-width: 120px;
+      max-width: 320px;
+}

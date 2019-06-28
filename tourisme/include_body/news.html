@@ -1,0 +1,34 @@
+<marquee onmouseout="start()" onmouseover="stop()" direction="up" height="370px">
+
+<?php
+require ("db.php");  //connection BDD
+connectiondb(); 
+
+
+$retour = mysql_query('SELECT * FROM tourisme_news ORDER BY id DESC'); //chercher les news dans la table  par ordre d'id ( derniere news )
+
+while ($donnees = mysql_fetch_array($retour)) //boucle d'affichage de news
+{
+$nb_caracter = 60;     //caractere max dans la news affichée ( les espaces comptent )
+
+if (strlen($donnees['contenu']) > $nb_caracter) //tant que le contenu de la news dépasse pas le nombre de caractére 
+	{  
+$contenu = substr($donnees['contenu'],0 , 60); // on place le contenu dans une variable
+$contenu .= "...";  //après les 60 ou X caractéres on met "..."
+	}
+else{
+$contenu = $donnees['contenu']; //si la news fait moins on affiche tout
+	}
+$titre1 = stripslashes($donnees['titre']);
+$titre = nl2br($titre1) ;
+?>
+
+<?php echo '<a href="index.php?afficher_news=' . $donnees['id'] . '">'.$titre.''; ?></a> <!-- titre de la news + lien vers affichage complet -->
+<br /><em><font size="-3">posté le <?php echo date('d/m/Y à H\hi', $donnees['timestamp']); ?></font></em><br /> <!-- la date en petit en dessous du dite -->
+<?php echo $contenu; ?> <!-- le contenue de 60 charactere max -->
+<br /><br />
+<?php
+}
+?>
+
+</marquee>

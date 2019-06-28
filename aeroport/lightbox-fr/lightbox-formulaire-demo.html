@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formulaire dans une lightbox, la d&eacute;monstration </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link type="text/css" rel="stylesheet" href="lightbox-form.css">
+
+<script src="lightbox-form.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<h1>Formulaire dans une lightbox, la d&eacute;monstration</h1>
+<p>D&eacute;monstration de l'utilisation d'une lightbox pour pr&eacute;senter 
+  un formulaire &agrave; remplir.</p>
+
+<br>
+
+<div id="shadowing"></div>
+<div id="box">
+  <span id="boxtitle"></span>
+  <form method="GET" action="lightbox-formulaire-test.html" target="_parent">
+      <p>Adresse email: 
+      <input type="text" name="email" value="myself@somedomainname.com" maxlength="60" size="60">
+      </p>
+      
+    <p>Sexe masculin 
+      <input type="radio" name="genre" value="man" checked>
+      F&eacute;minin 
+      <input type="radio" name="genre" value="woman">
+    </p>
+      <p> Ville de r&eacute;sidence actuelle 
+        <select name="select">
+        <option>Paris</option>
+        <option>Lyon</option>
+        <option>Bordeaux</option>
+        <option selected>Marseille</option>
+        <option>Strasbourg</option>
+      </select>
+      </p>
+    <p> 
+      <input type="submit" name="submit" value="Envoyer">
+      <input type="button" name="cancel" value="Annuler" onclick="closebox()">
+    </p>
+    </form>
+</div>
+
+
+<p> Pour faire appara&icirc;tre le formulaire, <a href="#" onclick="openbox('Titre du formulaire', 1)">cliquer 
+  ici</a>. <br>
+  On utilise dans cet exemple un effet de fondu, cela peut &ecirc;tre d&eacute;sactiv&eacute;, 
+  dans ce cas cliquer sur <a href="#" onclick="openbox('Titre du formulaire', 0)">formulaire sans fondu</a>.</p>
+
+
+<br>
+
+<hr>
+
+<p>&copy; 2008-2011 <a href="http://www.xul.fr">xul.fr</a></p>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!--
+  /**************************************************************************\
+  * Phenix Agenda                                                            *
+  * http://phenix.gapi.fr                                                    *
+  * Written by    Stephane TEIL            <phenix-agenda@laposte.net>       *
+  * Contributors  Christian AUDEON (Omega) <christian.audeon@gmail.com>      *
+  *               Maxime CORMAU (MaxWho17) <maxwho17@free.fr>                *
+  *               Mathieu RUE (Frognico)   <matt_rue@yahoo.fr>               *
+  *               Bernard CHAIX (Berni69)  <ber123456@free.fr>               *
+  * --------------------------------------------                             *
+  *  This program is free software; you can redistribute it and/or modify it *
+  *  under the terms of the GNU General Public License as published by the   *
+  *  Free Software Foundation; either version 2 of the License, or (at your  *
+  *  option) any later version.                                              *
+  \**************************************************************************/
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <TITLE>Historique des versions de Phenix</TITLE>
+</HEAD>
+<STYLE type="text/css">
+<!--
+BODY {
+  font-family: Verdana, Arial, Tahoma;
+  font-size : 12px;
+  background-color : #FFFFFF;
+  color : #000000;
+  text-align : justify;
+  margin-left : 20px;
+  margin-right : 20px;
+}
+A,A:LINK,A:VISITED {
+  COLOR: #3333FF;
+  TEXT-DECORATION: none;
+}
+A:HOVER {
+  COLOR: #3333FF;
+  TEXT-DECORATION: underline;
+}
+P.Titre {
+  text-decoration : underline;
+  font-weight : bold;
+  font-size : 18px;
+  text-align : center;
+}
+P.Chapitre {
+  background-color : #FFFFE1;
+  border : 1px solid #000000;
+  font-weight : bold;
+  font-size : 13px;
+  padding-left : 5px;
+  padding-bottom : 2px;
+  padding-top : 2px;
+  margin-top : 40px;
+}
+P.Copyright {
+  color : #808080;
+  font-size : 11px;
+  text-align : right;
+}
+-->
+</STYLE>
+<BODY onload="javascript: window.focus();">
+<P class="Titre">Historique de Phenix</P>
+
+<P class="Chapitre">[31-Oct-2008] Phenix 5.51</P>
+<U>Correctifs v5.51</U>
+<OL type="1">
+  <LI>Correction sur le maintien des personnes concern&eacute;es quels que soient les droits.</LI>
+  <LI>Correction sur le contr&ocirc;le de superposition.</LI>
+  <LI>Correction de la hauteur du tableau du menu de gauche pour &eacute;viter l'ascenseur vertical.</LI>
+  <LI>Extension de la taille du champ pour enregistrer les membres d'un groupe.</LI>
+  <LI>Correction du nom du formulaire dans certains appels javascript de admin_param.php.</LI>
+  <LI>Correction du bouton "Dupliquer" pr&eacute;sent en cr&eacute;ation de note alors qu'il ne devrait pas.</LI>
+  <LI>Correction sur <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=37&t=1917" target="pxForum">l'initialisation des tableaux d'envoi de mail</A> lors d'une modif/suppression de note.</LI>
+  <LI>Correction de <A href="http://phenix.gapi.fr/forum/viewtopic.php?f=37&t=1929" target="pxForum">la date contenue dans le mail &agrave; la cr&eacute;ation de note</A>.</LI>
+  <LI>Correction sur l'affichage des anniversaires et <A href="http://phenix.gapi.fr/forum/viewtopic.php?f=37&t=1948&p=12246#p12246" target="pxForum">des notes se terminant &agrave; minuit pour les fuseaux n&eacute;gatifs</A>.</LI>
+  <LI>Correction de <A href="http://phenix.gapi.fr/forum/viewtopic.php?f=37&t=1969" target="pxForum">l'erreur onfocus</A> dans admin/options utilisateurs, anniv et rappels.</LI>
+</OL>
+<U>Version v5.50</U>
+<OL type="1">
+  <LI>Correction de la prise en compte des param&egrave;tres de rappel lors de la cr&eacute;ation d'une note.</LI>
+  <LI>Possibilit&eacute; d'<A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1449&p=9920#p9920" target="pxForum">afficher l'int&eacute;gralit&eacute; du d&eacute;tail d'une note</A> lors de la recherche.</LI>
+  <LI>Utilisation syst&eacute;matique <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=10&t=1391&p=9464#p9464" target="pxForum">de la classe mailer</A> pour toutes les fonctionnalit&eacute;s d'envoi de mail de l'application.</LI>
+  <LI>Corrections des styles des listes d'utilisateurs qui &eacute;taient parfois redondant avec la feuille de style.</LI>
+  <LI>Ajout d'un commentaire dans le gestionnaire de MOD pour indiquer que <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=10&t=1408&p=9906#p9906" target="pxForum">tous les fichiers et r&eacute;pertoires doivent &ecirc;tre en 766</A>.</LI>
+  <LI>Correction de l'alerte sur le <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1455" target="pxForum">chevauchement des notes</A>.</LI>
+  <LI>Enregistrement et renommage des 3 constantes d&eacute;clar&eacute;es dans info_surveille.php dans inc/<B>param.inc.php</B> pour harmoniser.</LI>
+  <LI><A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1466" target="pxForum">Probl&egrave;me d'import Ics,Vcal</A> sur les notes sur une journ&eacute;e et sur les notes sans d&eacute;tail.</LI>
+  <LI>Correction du <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1420#p9768" target="pxForum">bug dans le planning hebdo global</A> lorsque la semaine type ne commence pas un lundi</LI>
+  <LI>Renseignement des valeurs par d&eacute;faut sur les champs de la base (<A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1497#p10208" target="pxForum">Bug nouvelle installation 5.01 sous IIS)</A></LI>
+  <LI>Correction d'un probl&egrave;me sur les <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1504" target="pxForum">notes r&eacute;currentes</A> avec p&eacute;riodicit&eacute; et date de fin</LI>
+  <LI>Ajout d'un lien vers la modification du profil d'un utilisateur depuis la console d'administration.</LI>
+  <LI>Correction de la date de cr&eacute;ation des notes r&eacute;currentes.</LI>
+  <LI><A href="http://www.phenix.gapi.fr/forum/viewtopic.php?p=9200#p9200" target="pxForum">Application du timezone s&eacute;lectionn&eacute; aux utilisateurs existants</A> lors d'une mise &agrave; jour depuis une version ant&eacute;rieure &agrave; la 5.00.</LI>
+  <LI>Ajout d'un message d'avertissement lors de la mise &agrave; jour des notes dans le script d'install.</LI>
+  <LI>Prise en compte du timezone dans la modification des comptes utilisateurs.</LI>
+  <LI>Correction d'un bug d'affichage du <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=8&t=1514" target="pxForum">planning hebdomadaire sous FF 2.0.0.12</A></LI>
+  <LI>Ajout d'un rollover sur les boutons et les champs de saisie pour une meilleure ergonomie.</LI>
+  <LI>Correction d'un bug de s&eacute;lection de skin sur la page d'accueil et dans le profil lorsque le fichier n'existait plus.</LI>
+  <LI>Maintien de l'onglet s&eacute;lectionn&eacute; dans la page de profil lors d'un changement d'utilisateur.</LI>
+  <LI><A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1536" target="pxForum">Initialisation des variables</A> <FONT color="#800000">$vu</FONT>, <FONT color="#800000">$IP</FONT>, <FONT color="#800000">$navigateur</FONT> dans <B>agenda_css</B> comme d&eacute;crit.</LI>
+  <LI>Correction d'un probl&egrave;me sur la <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=24&t=1539&p=10517#p10437" target="pxForum">suppression massive de note</A> (admin->suppression), lorsque la liste des notes &agrave; supprimer est trop longue, le sql est tronqu&eacute; et non execut&eacute;.</LI>
+  <LI>Correction du <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1562" target="pxForum">remplissage des cases en quotidien global</A>.</LI>
+  <LI>Regroupement des deux derni&egrave;res options <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?p=10563#p10563" target="pxForum">"d'acc&egrave;s au profil"</A>.</LI>
+  <LI>Suppression de l'affichage de l'icone de rappel dans les plannings lorsqu'une note est termin&eacute;e.</LI>
+  <LI>Correction d'un petit bug avec la boite &agrave; propos et la liste des plannings &agrave; consulter sous IE6.</LI>
+  <LI>Ajout de la <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=8&t=1576#p10701" target="pxForum">diff&eacute;renciation de tags</A> suivant le type de fichier pour les MODs.</LI>
+  <LI>Rectification d'un petit bug d'affichage pour les notes allant jusqu'&agrave; 24h dans les planning globaux.</LI>
+  <LI>Correction du libell&eacute; [INSTALL_FIN_INF] de fin d'install.</LI>
+  <LI>Correction de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=24&t=1629" target="pxForum">l'affichage de la date d'anniversaire des contacts</A>.</LI>
+  <LI>Correction d'un <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=10&t=1417#p10725" target="pxForum">probl&egrave;me d'affichage de la liste d&eacute;roulante des actions</A> du script d'installation.</LI>
+  <LI>Correction de l'extraction des zip contenant des fichiers vides dans le gestionnaire de MOD.</LI>
+  <LI>Correction de la suppression des &eacute;v&egrave;nements communs via la console d'administration (reprise cin&eacute;matique et libell&eacute;s).</LI>
+  <LI><A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=26&t=1651" target="pxForum">Correction d'orthographe sur le terme "occurrence"</A> dans tout le code (y compris commentaires).</LI>
+  <LI>Correction de la gestion des fuseaux horaires.</LI>
+  <LI>Correction sur le <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1641" target="pxForum">calcul de date des occurrences</A>.</LI>
+  <LI>Correction de l'enregistrement en UTC des notes avec une date diff&eacute;rente de l'ann&eacute;e en cours.</LI>
+  <LI>Correction du d&eacute;calage des notes jusqu'&agrave; minuit le soir de bascule &eacute;t&eacute;/hiver.</LI>
+  <LI>Correction de la prise en charge du timezone dans le calendrier lat&eacute;ral.</LI>
+  <LI>Correction de la <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1518" target="pxForum">gestion du "hors profil"</A> dans les modules des disponibilt&eacute;s dispos et les plannings globaux.</LI>
+  <LI>Correction dans les plannings globaux des notes &agrave; la fois "hors profil" et "hors plage s&eacute;lectionn&eacute;e".</LI>
+  <LI>Correction de la recherche pour la prise en compte des timezones pour certaines notes.</LI>
+  <LI>Correction de la <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1621" target="pxForum">v&eacute;rification de superposition</A> qui ne tenait pas compte des notes "&agrave; cheval".</LI>
+  <LI>Correction de la prise en compte des fuseaux dans les notifications par mail.</LI>
+  <LI>Ajout du d&eacute;calage de la journ&eacute;e type lorsque l'option "agendas dans leurs fuseaux d'origines" est d&eacute;coch&eacute;e.</LI>
+  <LI>Ajout dans la saisie de note de l'affichage du fuseau dans lequel on se trouve.</LI>
+  <LI>Correction d'un probl&egrave;me de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=5&t=1625&p=10990" target="pxForum">connexion automatique</A> et de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=24&t=1492&p=10991#p10991" target="pxForum">l'ajout d'utilisateur via la page de connexion</A> lorsque MySQL est en mode "strict".</LI>
+  <LI>Ajout de la suppression de note dans la synchro Sunbird.</LI>
+  <LI>Correction sur l'envoi d'ent&ecirc;te html lors de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1702&p=11125#p11123" target="pxForum">l'export des notes</A>.</LI>
+  <LI>Correction sur la prise en charge de l'option "agendas dans leurs fuseaux d'origines".</LI>
+  <LI>Correction de l'affichage des infobulles lorsque le champ lieu contient des guillemets.</LI>
+  <LI>Correction de la prise en compte de l'extension .txt lors de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1702&p=11125#p11141" target="pxForum">l'import des notes</A>.</LI>
+  <LI>Am&eacute;lioration de la prise en charge du favicon pour IE7.</LI>
+  <LI>Correction du <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1732" target="pxForum">&amp;nbsp; dans l'envoi de rappel</A>.</LI>
+  <LI>Correction du script <A href="http://dreaxteam.net/" target="_blank">XT-Dump</A> pour l'envoi de mail par t&acirc;che Cron et sauvegarde automatique.</LI>
+  <LI>Correction du contrôle des droits de substitution.</LI>
+  <LI>Ajout de traductions manquantes dans le scripts d'installation (titre de la page) et d'export de note (flux rss).</LI>
+  <LI>Correction des notes "&eacute;t&eacute;" dans le script d'install.</LI>
+  <LI>Am&eacute;lioration de la <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=5&t=1820#p11694" target="pxForum">page g&eacute;n&eacute;r&eacute;e par les liens du flux RSS</A>.</LI>
+  <LI>Mise &agrave; jour de la base des fuseaux horaires en tzdata2008d.</LI>
+  <LI>Correction du retour apr&egrave;s enregistrement qui ne gardait pas toujours le planning choisi.</LI>
+  <LI>Int&eacute;gration de <A href="http://www.fckeditor.net/" target="_blank">FCKeditor 2.6.2</A></LI>
+  <LI>Correction de <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=22&t=1845#p11756" target="pxForum">l'appropriation des notes r&eacute;currentes</A>.</LI>
+  <LI>Possibilit&eacute; de choisir via le profil utilisateur, d'afficher les menus en automatique ou sur un clic souris.</LI>
+  <LI>Ajout du choix <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?f=4&t=1878" target="pxForum">"Dernier jour du mois"</A> dans la p&eacute;riodicit&eacute; mensuelle.</LI>
+</OL>
+  Lisez attentivement le fichier <A href="install.html"><B>install.html</B></A> du r&eacute;pertoire "<I>install</I>"
+  pour installer Phenix pour la premi&egrave;re fois ou pour mettre votre version &agrave; jour
+  via le script <B>install.php</B>.
+
+<P class="Chapitre">[05-Jan-2008] Phenix 5.01</P>
+<OL type="1">
+  <LI>Passage &agrave; la version 2.5.1 de FCKEditor.</LI>
+  <LI>Int&eacute;gration du MOD d'administration d'Omega. Un utilisateur et un administrateur sont cr&eacute;&eacute;s
+  automatiquement &agrave; l'installation ou mise &agrave; jour de Phenix.<BR>
+  <FONT color="#FF0000"><B>Pensez &agrave; personnaliser les mots de passe.</B></FONT><BR>
+  Via la console d'administration, il est possible :<BR>
+   &nbsp;&nbsp;- de g&eacute;rer les options par d&eacute;faut des comptes utilisateurs,<BR>
+   &nbsp;&nbsp;- de g&eacute;rer les options g&eacute;n&eacute;rales de Phenix (anciennement dans le fichier inc/conf.inc.php,<BR>
+   &nbsp;&nbsp;- de planifier des sauvegardes automatiques de la base de donn&eacute;es (avec possibilit&eacute; de les envoyer par mail),<BR>
+   &nbsp;&nbsp;- d'optimiser la base de donn&eacute;es,<BR>
+   &nbsp;&nbsp;- de g&eacute;rer les MOD,<BR>
+   &nbsp;&nbsp;- de cr&eacute;er / modifier / supprimer des comptes utilisateurs,<BR>
+   &nbsp;&nbsp;- de g&eacute;rer les groupes d'utilisateurs pour les partages de planning via le profil,<BR>
+   &nbsp;&nbsp;- de cr&eacute;er / modifier / supprimer des comptes administrateurs,<BR>
+   &nbsp;&nbsp;- d'ajouter / supprimer des &eacute;v&eacute;nements partag&eacute;s entre tous les utilisateurs,<BR>
+   &nbsp;&nbsp;- de supprimer des notes pour all&eacute;ger la base de donn&eacute;es,<BR>
+   &nbsp;&nbsp;- de g&eacute;rer les couleurs / cat&eacute;gories de notes.</LI>
+  <LI>Contr&ocirc;le complet des droits des utilisateurs en termes :<BR>
+   &nbsp;&nbsp;- d'acc&egrave;s aux agendas (permet notamment de cr&eacute;er des comptes pour la consultation seule des plannings),<BR>
+   &nbsp;&nbsp;- de cr&eacute;ation / modification / appropriation des notes,<BR>
+   &nbsp;&nbsp;- d'acc&egrave;s en modification &agrave; certains param&egrave;tre du profil.<BR>
+  Id&eacute;e originale de Funglide, reprise et compl&eacute;t&eacute;e par Omega.</LI>
+  <LI>Phenix devient multilangue gr&acirc;ce au travail de MaxWho17, Frognico, Omega et Berni69, tous les libell&eacute;s
+  et messages de l'application ont &eacute;t&eacute; externalis&eacute;s dans un fichier <I>fr.php</I> du r&eacute;pertoire lang.<BR>
+  Chaque utilisateur peut choisir sa langue via son profil.<BR>
+  La langue par d&eacute;faut de l'application est param&eacute;tr&eacute;e via le script d'installation (&eacute;galement multilangue) ou la console d'administration.<BR>
+  Libre aux polyglottes de participer maintenant &agrave; la traduction, pour l'instant le fran&ccedil;ais, l'anglais et
+  l'italien sont disponibles.</LI>
+  <LI>Gestion des fuseaux horaires pour chaque utilisateur. Possibilit&eacute; de visualiser les planning partag&eacute;s
+  dans leur fuseau d'origine ou dans celui de l'utilisateur connect&eacute;.<BR>
+  Fonctionnalit&eacute; de Frognico et MaxWho17.
+  <LI>Ajout des plannings globaux quotidiens et hebdomadaires.</LI>
+  <LI>Possibilit&eacute; d'avoir une notification des anniversaires de son planning et de son calepin, en la
+  param&eacute;trant dans son profil.<BR>
+  <FONT color="#FF0000">Les contacts partag&eacute;s ne sont pas pris en compte.</FONT></LI>
+  <LI>Correction d'un bug faisant apparaitre une ligne vide dans la liste de choix de l'interface du profil utilisateur.</LI>
+  <LI>Correction d'un bug dans la gestion des contacts qui rendait impossible l'affichage du calendrier et l'utilisation
+  du bouton Importer.<BR>
+  D&eacute;tection et correction par MaxWho17.</LI>
+  <LI>R&eacute;organisation sous forme d'onglet de la page de gestion du profil utilisateur.<BR>
+  Fonctionnalit&eacute; de Frognico et MaxWho17.</LI>
+  <LI>Possibilit&eacute; d'envoyer le rappel d'une note &agrave; un contact associ&eacute; si l'adresse mail de ce dernier a
+  &eacute;t&eacute; renseign&eacute;e.</LI>
+  <LI>Correction d'un bug d'affichage des plannings hebdomadaires et mensuels sous Firefox.<BR>
+  Correction de Frognico</LI>
+  <LI>Correction d'un bug dans la recherche des notes avec le choix de plusieurs zones.<BR>
+  Correction de Andre59</LI>
+  <LI>Ajout des informations sur les mails du contact associ&eacute; &agrave; une note dans la popup sur les plannings.</LI>
+  <LI>Possibilit&eacute; de classer ses favoris dans des groupes. Modification de l'affichage sur la page des
+  favoris et dans le menu de gauche.</LI>
+  <LI>Correction d'un bug d'affichage de la l&eacute;gende des plannings sous Firefox.</LI>
+  <LI>Optimisation du code du planning quotidien pour limiter le nombre de requ&ecirc;tes.<BR>
+  Optimisation de MaxWho17.</LI>
+  <LI>Ajout d'une fonction JavaScript pour am&eacute;liorer la v&eacute;rification des champs de saisie vide dans les
+  diff&eacute;rents formulaires.<BR>
+  Fonctionnalit&eacute; de MaxWho17.</LI>
+  <LI>Modification des feuilles de styles et des fichiers skins pour permettre la cr&eacute;ation d'interfaces
+  plus &eacute;volu&eacute;es.<BR>
+  Fonctionnalit&eacute; de Frognico.</LI>
+  <LI>Possibilit&eacute; de reporter les alertes par popup x minutes, heures ou jours plus tard.</LI>
+  <LI>Acc&egrave;s direct au planning mensuel ou annuel en cliquant sur la date juste en dessous du lien "Aujourd'hui"
+  en haut &agrave; gauche.</LI>
+  <LI>Possibilit&eacute; d'activer (par d&eacute;faut) ou non la mise &agrave; jour automatique des calendriers du menu de
+  gauche sur la s&eacute;lection d'un nouveau mois ou ann&eacute;e. (Param&egrave;tre "<I>Rechargement automatique des
+  calendriers</I>" dans les Options G&eacute;n&eacute;rales du menu d'administration).<BR>
+  <FONT color="#FF0000">Selon la vitesse de connexion et/ou la charge serveur, il peut &ecirc;tre conseill&eacute; de
+  d&eacute;sactiver cette option.</FONT></LI>
+  <LI>Nouvelles listes d&eacute;roulantes pour le choix du mois et de l'ann&eacute;e &agrave; afficher en dessous du lien
+  "Aujourd'hui" en haut &agrave; gauche.</LI>
+  <LI>Possibilit&eacute; de synchroniser Phenix et Sunbird Lightning en continu.</LI>
+  <LI>Enregistrement des couleurs de notes dans la base de donn&eacute;es &agrave; la place du fichier inc/couleur.inc.php</LI>
+  <LI>Possibilit&eacute; d'enregistrer un d&eacute;tail de note dans les libell&eacute;s personnalis&eacute;s.</LI>
+  <LI>Int&eacute;gration d'un installeur / d&eacute;sinstalleur de MOD accessible via la console d'administration. Libre &agrave; vous de personnaliser votre version de Phenix &agrave; volont&eacute;.<BR>
+  Fonctionnalit&eacute; de MaxWho17.</LI>
+  <LI>R&eacute;organisation compl&egrave;te du menu avec notamment le d&eacute;placement des liens d'imports/exports de notes et d'import de contacts dans le "menu Outils" en haut de page.</LI>
+  <LI>Nouvelles listes d&eacute;roulantes dans le menu pour le choix du planning &agrave; afficher, la cr&eacute;ation,
+  le module des disponibilit&eacute;s et la liste des plannings partag&eacute;s.</LI>
+  <LI>Classement des &eacute;v&egrave;nements par ann&eacute;e.</LI>
+  <LI>Possibilit&eacute; de choisir la pr&eacute;sentation de la page d'accueil.</LI>
+</OL>
+
+<P class="Chapitre">[18-Avr-2007] Phenix 4.5a</P>
+<OL type="1">
+  <LI>Correction du d&eacute;calage des infoBulle sous Opera.</LI>
+  <LI>Correction d'un bug dans l'initialisation des flux RSS pour les utilisateurs cr&eacute;&eacute;s &agrave; partir
+  du script d'installation.</LI>
+</OL>
+
+<P class="Chapitre">[14-Avr-2007] Phenix 4.5</P>
+<OL type="1">
+  <LI>Modification de la p&eacute;riodicit&eacute; hebdomadaire dans la cr&eacute;ation de note pour pouvoir choisir directement
+  les jours de la semaine.</LI>
+  <LI>Am&eacute;lioration de la confidentialit&eacute; des notes priv&eacute;es dans la consultation des plannings partag&eacute;s
+  afin de ne plus afficher ni la couleur ni les informations de cr&eacute;ation.</LI>
+  <LI>Modification des modules de disponibilit&eacute;s quotidiennes et hebdomadaires pour tenir compte de la semaine type et
+  des horaires de la journ&eacute;e des utilisateurs s&eacute;lectionn&eacute;s.</LI>
+  <LI>Possibilit&eacute; depuis le profil utilisateur de choisir si l'on veut que les notes termin&eacute;es soient barr&eacute;es
+  ou non dans les plannings (pour la lisibilit&eacute;).</LI>
+  <LI>Correction d'un bug dans le profil utilisateur qui emp&ecirc;chait de pouvoir choisir entre plus de 10 styles d'interface.</LI>
+  <LI>Correction d'un bug dans le module d'import lorsque la description d'une note est sur plusieurs lignes dans le fichier source.<BR>
+  Correction de Frognico, merci.</LI>
+  <LI>Possibilit&eacute; de saisir un emplacement pour les notes.</LI>
+  <LI>Modification du module de recherche pour tenir compte de l'emplacement.</LI>
+  <LI>Ajout d'options dans le module d'export pour exclure certaines cat&eacute;gories de notes (affect&eacute;es, termin&eacute;es ou actives).</LI>
+  <LI>Changement du format de saisie de la date de fin de p&eacute;riodicit&eacute; dans la cr&eacute;ation des notes.</LI>
+  <LI>Repr&eacute;sentation dans le calendrier journalier et dans le planning mensuel global de la semaine type (couleurs diff&eacute;rentes
+  pour les jours non s&eacute;lectionn&eacute;s) ou &agrave; d&eacute;faut des week-end.</LI>
+  <LI>Possibilit&eacute; d'enregistrer des &eacute;v&egrave;nements (date + libell&eacute; + icone + couleur) dans les plannings, exemple les vacances scolaires de la zone C... :<BR>
+  - soit de façon commune &agrave; tous les utilisateurs, via le module d'administration,<BR>
+  - soit personnelle mais avec la possibilit&eacute; de les partager (cf. point suivant)<BR>
+  Fonctionnalit&eacute; bas&eacute;e sur le MOD d'omega propos&eacute; sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Possibilit&eacute; de choisir de partager les libell&eacute;s des notes et les favoris entre tous les utilisateurs.<BR>
+  La variable globale <FONT color="#990000"><B>$MODIF_PARTAGE</B></FONT> du fichier <B>inc/conf.inc.php</B> permet de d&eacute;terminer si les
+  autres utilisateurs peuvent librement modifier un &eacute;l&eacute;ment partag&eacute; (contact/favori/libell&eacute;/&eacute;v&egrave;nement).<BR>
+  <FONT color="#FF0000">Seul le cr&eacute;ateur d'un &eacute;l&eacute;ment partag&eacute; peut le supprimer.</FONT><BR>
+  Fonctionnalit&eacute; bas&eacute;e sur les MOD de Berni69 et cnieg propos&eacute;s sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Possibilit&eacute; d'associer un contact &agrave; une note, en le choisissant parmis ses propres contacts et ceux qui sont partag&eacute;s.<BR>
+  Fonctionnalit&eacute;s li&eacute;es :<BR>
+  - dans la cr&eacute;ation/modification d'une note, la liste des contacts perso et partag&eacute;s est affich&eacute;e pour &eacute;ventuellement en s&eacute;lectionner un.
+  Possibilit&eacute; de renseigner automatiquement le libell&eacute; de la note avec le nom + pr&eacute;nom du contact et le d&eacute;tail avec les informations
+  d'adresses et de num&eacute;ros de t&eacute;l&eacute;phone,<BR>
+  - dans les plannings quotidiens, hebdos et mensuels, ajout d'une icone <IMG src="../image/contact.gif" alt="" border="0" align="absmiddle">
+  qui au survol permet d'afficher certaines informations sur le contact associ&eacute; (nom, adresse, t&eacute;l&eacute;phones),<BR>
+  - dans le planning mensuel global et dispo quotidienne, affichage du nom du contact associ&eacute; dans le popup de d&eacute;tail de la note,<BR>
+  - dans la recherche, ajout de la liste des contacts perso et partag&eacute;s pour rechercher soit directement toutes les notes associ&eacute;es &agrave; un
+  contact (sans saisir d'autres crit&egrave;res), soit combiner la recherche avec les autres crit&egrave;res existant. Dans le r&eacute;sultat de la recherche,
+  le nom du contact associ&eacute; sert de lien pour basculer sur le calepin et afficher toutes les informations du contact,<BR>
+  - dans le r&eacute;sultat de la recherche des contacts (par une lettre ou par crit&egrave;re), ajout d'un lien
+  <IMG src="../image/recherche_note.gif" alt="" border="0" align="absmiddle"> pour chaque contact trouv&eacute;, afin de
+  basculer sur la recherche des notes pour afficher toutes les notes qui lui sont associ&eacute;es et d'un lien
+  <IMG src="../image/ajout_note.gif" alt="" border="0" align="absmiddle"> pour acc&eacute;der &agrave; la cr&eacute;ation
+  d'une note avec le contact associ&eacute; automatiquement positionn&eacute;.</LI>
+  <LI>Prise en compte dans le module d'export et d'import de balises sp&eacute;cifiques &agrave; Phenix pour g&eacute;rer les disponibilit&eacute;s,
+  les rappels, les couleurs et le contact associ&eacute;.</LI>
+  <LI>Correction d'un bug dans l'impression des contacts qui faisait apparaitre des messages d'erreurs en d&eacute;but de page.</LI>
+  <LI>Nombreuses corrections de syntaxe HTML pour la compatibilit&eacute; avec Firefox.</LI>
+  <LI>Possibilit&eacute; d'imprimer directement l'int&eacute;gralit&eacute; de ses contacts (et partag&eacute;s) sous la forme d'un porte-cartes, en cliquant
+  sur l'image
+  <IMG src="../image/impression.gif" width="23" height="21" title="Imprimer mon porte-cartes" border="0" align="absmiddle">
+  pr&eacute;sente dans le sous-menu de "Contacts". Le format d'impression est pr&eacute;vu pour du A4 - Portrait (80 lignes sur 2 colonnes).</LI>
+  <LI>Ajout dans le module d'administration, d'un script de suppression des notes ant&eacute;rieures &agrave; une date donn&eacute;e.</LI>
+  <LI>Limitation des caract&egrave;res interdits dans la saisie des dates sous Firefox.</LI>
+  <LI>Affichage du d&eacute;tail des notes dans le module TiMode (pour faire plaisir &agrave; Neteraser ;) ).</LI>
+  <LI>Affichage du contact associ&eacute; &agrave; une note dans le module TiMode avec un lien direct sur l'affichage du d&eacute;tail du contact.</LI>
+  <LI>Prise en charge d'IE 7.0 dans le script de gestion des popup d'informations.</LI>
+  <LI>Transformation de certaines propri&eacute;t&eacute;s HTML <I>ALT</I> et <I>TITLE</I> en popup JavaScript, pour une meilleure lisibilit&eacute;.</LI>
+  <LI>Ajout de l'option "Note couvrant toute la journ&eacute;e" dans les libell&eacute;s types.</LI>
+  <LI>Ajustement de l'heure de fin en fonction de l'heure de d&eacute;but dans la modification d'une note.</LI>
+  <LI>Nouvelle gestion des jours f&eacute;ri&eacute;s, &agrave; travers un tableau d&eacute;fini dans la fonction <I>getListeJourFerie($annee)</I>
+  du fichier inc/<B>fonctions.inc.php</B>. Pour personnaliser vos jours f&eacute;ri&eacute;s, il suffit de modifier cette fonction pour que
+  l'ensemble de l'application en tienne compte.</LI>
+  <LI>Modification du planning mensuel global pour distinguer plus facilement les notes couvrant toute une journ&eacute;e, des autres.</LI>
+  <LI>Modification du format des mails d'informations envoy&eacute;s par l'application :<BR>
+  - indication du nom d'utilisateur en tant qu'exp&eacute;diteur du message &agrave; la place de "<I>Phenix</I>",<BR>
+  - pour les mails de rappel, indication du libell&eacute; de la note dans le sujet du message &agrave; la place de
+  "<I>Notification de rappel d'une note</I>",<BR>
+  - ajout de l'emplacement de la note (si renseign&eacute;) dans le corps du mail.</LI>
+  <LI>Cr&eacute;ation du Pocket-Phenix, un version de Phenix destin&eacute; au PDA et Smartphone (pour faire encore plus plaisir &agrave; Neteraser ;) ).<BR>
+  Un seul fichier <B>ppx.php</B> qui permet pour l'instant :<BR>
+  - de consulter son agenda,<BR>
+  - ajouter / modifier / supprimer / s'approprier des notes,<BR>
+  - consulter son calepin,<BR>
+  - ajouter / modifier / supprimer des contacts.<BR>
+  Cette version est plus qu'une simple &eacute;volution de TiMode, elle est destin&eacute;e &agrave; incorporer un grand nombre de fonctionnalit&eacute;s de Phenix<BR>
+  L'acc&egrave;s est direct via l'URL : <B>http://votre_site/phenix/ppx.php</B></LI>
+  <LI>Possibilit&eacute; de renseigner un site Internet pour les contacts.</LI>
+  <LI>Int&eacute;gration d'un &eacute;diteur HTML (<A href="http://www.fckeditor.net/">FCKEditor</A>) pour mettre en forme les notes,
+  les m&eacute;mos et les commentaires sur les contacts. L'activation et la configuration de l'&eacute;diteur se fait via le script
+  d'installation, en choisissant "Mettre &agrave; jour votre fichier de configuration".<BR>
+  4 th&egrave;mes sont propos&eacute;s, sachant que l'activation et le th&egrave;me choisi sont valables pour tous les utilisateurs.<BR>
+  Fonctionnalit&eacute; bas&eacute;e sur le MOD d'omega propos&eacute; sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Suppression des appels &agrave; la fonction UNIX_TIMESTAMP dans certaines requ&ecirc;tes SQL qui pouvait entrainer des
+  d&eacute;calages de dates selon certains serveurs.<BR>
+  Bug rapport&eacute; par Mauceri sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug dans la g&eacute;n&eacute;ration de l'URL d'export.<BR>
+  Bug rapport&eacute; par Benoit sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Possibilit&eacute; de consulter son agenda et ceux auxquels l'utilisateur a acc&egrave;s en consultation
+  &agrave; partir d'un flux RSS.<BR>
+  Fonctionnalit&eacute; d&eacute;velopp&eacute;e par Frognico et MaxWho17. Merci &agrave; eux.</LI>
+</OL>
+
+<P class="Chapitre">[16-Nov-2006] Phenix 4.0</P>
+<OL type="1">
+  <LI>Ajout de deux tableaux r&eacute;capitulatifs dans le profil afin de conna&icirc;tre les personnes vous ayant donn&eacute;es droit en
+  consultation et/ou en modification sur leur planning.<BR>
+  Fonctionnalit&eacute; d&eacute;velopp&eacute;e par Frognico, merci.</LI>
+  <LI>Enregistrement de la date de cr&eacute;ation d'une note et affichage dans les popups.<BR>
+  Suggestion de mozz sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug sur les liens des jours des mois suivants et pr&eacute;c&eacute;dents dans le planning mensuel.<BR>
+  Bug rapport&eacute; par Maxime sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug potentiel lors de l'&eacute;dition de notes r&eacute;curentes qui aboutissait &agrave; un 404 erreur.</LI>
+  <LI>Ajout des fonctionnalit&eacute;s d'imports / exports de l'agenda et des contacts, depuis et vers de multiples formats.<BR>
+  Gros travail r&eacute;alis&eacute; par Frognico, encore merci &agrave; lui.</LI>
+  <LI>Possibilit&eacute; via le profil de chaque utilisateur de choisir le format d'affichage des noms : NOM Pr&eacute;nom ou Pr&eacute;nom NOM.</LI>
+  <LI>Ajout de boutons pour transf&eacute;rer tous les utilisateurs disponibles d'une liste vers une autre sans avoir &agrave; les
+  s&eacute;lectionner au pr&eacute;alable.</LI>
+  <LI>Refonte du module des disponibilit&eacute;s quotidiennes pour y afficher les couleurs des notes des notes utilisateurs
+  (et donc plus uniquement du rouge) lorque ceux-ci sont occup&eacute;s, ainsi que le d&eacute;tail d'une tranche horaire au survol de
+  celle-ci avec la souris.</LI>
+  <LI>Modification de l'affichage des notes sans chevauchement dans le planning quotidien pour ne plus les limiter &agrave;
+  la premi&egrave;re colonne.</LI>
+  <LI>Correction d'un bug dans la page d'impression des planning qui ne tenait pas compte du filtre sur les notes que
+  l'utilisateur pouvait avoir choisi.<BR>
+  Bug rapport&eacute; par thedreamer sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Ajout d'un planning global mensuel permettant d'afficher sur une m&ecirc;me page les notes de plusieurs utilisateurs.<BR>
+  Fonctionnalit&eacute; d&eacute;velopp&eacute;e par dJuL, merci.</LI>
+  <LI>Remplacement des fonctions <I>now()</I> dans les requ&ecirc;tes par la construction d'une date en PHP afin d'&eacute;viter les
+  probl&egrave;mes de synchronisation horaire entre les diff&eacute;rents serveurs notamment au niveau de la gestion des sessions.</LI>
+  <LI>Ajout dans les plannings quotidiens, hebdomadaires et mensuels, d'un surlignement des plages horaires lors du survol de
+  la souris pour davantage de lisibilit&eacute;.</LI>
+  <LI>Correction d'un bug dans le module d'impression sur l'affichage des anniversaires des contacts.</LI>
+  <LI>Coloration des jours f&eacute;ri&eacute;s dans l'impression des plannings hebdomadaires et mensuels.</LI>
+  <LI>Possibilit&eacute; de choisir via le profil, le module des disponibilit&eacute;s (quotidien ou hebdomadaire) ouvert par
+  d&eacute;faut lors du clic sur le lien "Disponibilit&eacute;s" du menu.</LI>
+  <LI>Modification de la p&eacute;riodicit&eacute; mensuelle pour cr&eacute;er des notes se r&eacute;p&eacute;tant tous les x mois et pas forc&eacute;ment chaque mois (exemple
+  tous les 3 mois ou tous les 6 mois...).<BR>
+  Id&eacute;e originale de cnieg.</LI>
+  <LI>Ajout d'une biblioth&egrave;que JavaScript permettant de crypter les mots de passe avant envoi du formulaire.<BR>
+  Suggestion de ToMaZi sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+</OL>
+
+<P class="Chapitre">[06-Jan-2006] Phenix 3.5b</P>
+<OL type="1">
+  <LI>Correction d'un bug lors de la suppression d'un anniversaire.<BR>
+  Bug rapport&eacute; par Berni69 sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+</OL>
+
+<P class="Chapitre">[31-D&eacute;c-2005] Phenix 3.5a</P>
+<OL type="1">
+  <LI>Correction d'un bug dans la version iMode qui emp&ecirc;chait son utilisation.<BR>
+  Bug rapport&eacute; par PhilBazas sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+</OL>
+
+<P class="Chapitre">[23-D&eacute;c-2005] Phenix 3.5</P>
+<OL type="1">
+  <LI>Diff&eacute;rentiation par des couleurs dans le module des disponibilit&eacute;s hebdomadaires selon que
+  tout ou partie des utilisateurs s&eacute;lectionn&eacute;s est occup&eacute;e sur une tranche horaire.<BR>
+  Par d&eacute;faut : <FONT color="#ED1015"><B>ROUGE</B></FONT> -> tous les utilisateurs sont occup&eacute;s ;
+  <FONT color="#FFCC00"><B>ORANGE</B></FONT> -> certains utilisateurs sont libres.</LI>
+  <LI>Possibilit&eacute; avec les libell&eacute;s types d'enregistrer une dur&eacute;e et une couleur par d&eacute;faut
+  pour les notes concern&eacute;es.</LI>
+  <LI>Correction d'un bug dans le planning hebdomadaire si aucun jour de la semaine n'&eacute;tait coch&eacute;.</LI>
+  <LI>Indication par la couleur des jours f&eacute;ri&eacute;s dans les plannings hebdomadaires et mensuels.<BR>
+  Suggestion de Puppy sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Possiblit&eacute; pour chaque utilisateur de s'enregistrer des favoris internet qui s'afficheront dans le menu de gauche sous les m&eacute;mos.<BR>
+  Chaque favori est compos&eacute; d'une url, d'un nom et d'un commentaire optionnel qui s'affichera en popup lors du survol du lien.</LI>
+  <LI>Correction d'un bug dans le fichier info_popup.php signal&eacute; par Zibor sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Am&eacute;lioration de la gestion/suppression des informations affich&eacute;es par popup en fonction des diff&eacute;rentes
+  actions sur les notes. Ceci afin d'&eacute;viter l'affichage de popup vide.</LI>
+  <LI>D&eacute;sactivation de l'affichage des heures de d&eacute;but et de fin d'une note (lors d'une cr&eacute;ation/modification),
+  si l'on choisit "<I>Note couvrant toute la journ&eacute;e</I>".<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Lors de la cr&eacute;ation/modification d'une note, seuls les d&eacute;tails de la p&eacute;riodicit&eacute; choisie sont affich&eacute;s.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Ajout d'un libell&eacute; au dessus des listes de choix de personnes pour davantage de compr&eacute;hension.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Correction d'un probl&egrave;me silencieux de type MIME lors de la cr&eacute;ation de la feuille de style en PHP.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Ajout d'une page inc/noscript.html pour signaler &agrave; un utilisateur qu'il ne peut acc&eacute;der &agrave; l'application
+  si son navigateur ne supporte pas le JavaScript.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Correction du message de confirmation affich&eacute; lors de la suppression d'une occurrence d'une note via la page de modification.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Modification des modalit&eacute;s d'appel &agrave; la fonction de v&eacute;rification de validit&eacute; des dates pour les champs de saisie concern&eacute;s.
+  Auparavant cela pouvait aboutir &agrave; l'enregistrement de donn&eacute;es corrompues dans la base de donn&eacute;es en fonction du navigateur.<BR>
+  Contribution de Adrien, Ga&euml;l, Renaud et Romain de l'IUP de Calais.</LI>
+  <LI>Ajout d'une nouvelle interface : Anthracite.</LI>
+  <LI>Possibilit&eacute; d'affecter un m&eacute;mo &agrave; un autre utilisateur qui a autoris&eacute; l'acc&egrave;s en modification de son agenda.
+  La personne destinataire du m&eacute;mo en devient la seule et unique propri&eacute;taire et elle seule pourra donc par la suite
+  l'&eacute;diter ou le supprimer. Les m&eacute;mos restent cependant strictement personnel et ne sont donc pas visibles par les autres
+  utilisateurs qui consultent votre planning.<BR>
+  Suggestion de alxdabrazil sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'une erreur JavaScript lors de l'appel de la page agenda_note.php pour une note r&eacute;currente.</LI>
+  <LI>Suppression de la sensiblit&eacute; &agrave; la casse dans la page de recherche pour l'option "exactement ce libell&eacute;".</LI>
+  <LI>Remplacement du calendrier en Popup pour la s&eacute;lection des dates par une version en DHTML (sans Popup) adapt&eacute;
+  de JSCalendar 1.0.<BR>
+  Script original sur <A href="http://www.dynarch.com" target="_blank">www.dynarch.com</A>.</LI>
+  <LI>Am&eacute;lioration de l'affichage des cases des notes dans le planning hebdomadaire.<BR>
+  Contribution de Manu sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Nouvelle version du fichier <B>info_surveille.php</B> qui permet de l'appeler via une crontab Linux ou via des
+  sites tels que <A href="http://www.webcron.org" target="_blank">WebCron</A> ou
+  <A href="http://www.cronjobs.org/" target="_blank">CronJobs</A> (lien &agrave; indiquer : <I>http://mon_site/r&eacute;pertoire_phenix/info_surveille.php</I>).</LI>
+  <LI>Ajout d'une nouvelle classe Mailer qui devrait permettre &agrave; Phenix d'envoyer des alertes par mail m&ecirc;me si votre
+  h&eacute;bergeur a d&eacute;sactiv&eacute; la fonction <I>mail()</I> de PHP. Cette classe n&eacute;cessite de renseigner 4 nouvelles variables
+  dans le fichier <B>inc/conf.inc.php</B>, lisez attentivement le <A href="install.html">guide d'installation</A>
+  pour voir quand et comment le faire.<BR>
+  Class originale de Bobe disponible sur <A href="http://www.phpcodeur.net/" target="_blank">www.phpcodeur.net</A>.</LI>
+  <LI>Activation des rappels pour les notes couvrant toute une journ&eacute;e. Par d&eacute;faut les horaires des ces notes sont
+  positionn&eacute;s par rapport aux heures de d&eacute;but et de fin de journ&eacute;e de l'utilisateur qui cr&eacute;&eacute;
+  la note.</LI>
+  <LI>Possibilit&eacute; d'exporter les contacts du calepin au format vCard.</LI>
+  <LI>Correction d'un bug dans la requ&ecirc;te de d&eacute;tection de superposition de notes.<BR>
+  Bug rapport&eacute; et corrig&eacute; par Oxyde sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Ajout de la possibilit&eacute; d'effectuer une recherche sur les commentaires saisis pour les contacts, dans le calepin.<BR>
+  Suggestion de ToMaZi sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug dans les plannings hebdomadaires et mensuels qui laissait afficher l'image d'ajout d'une note, lorsque
+  l'on consultait un planning sur lequel on n'avait pas les droits en modifications.<BR>
+  Bug rapport&eacute; par Maxime sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Cr&eacute;ation d'une note depuis le planning hebdomadaire directement &agrave; partir d'un jour et d'une plage horaire
+  (sauf dans le cas ou une note existe d&eacute;j&agrave; sur une plage), mat&eacute;rialis&eacute; par un petit carr&eacute; blanc dans la cellule.</LI>
+  <LI>Reprise de la navigation par la touche tabulation dans la gestion du profil et la gestion des notes.</LI>
+  <LI>Ajout d'un filtre dans les plannings pour afficher les notes en fonction de leur couleur/cat&eacute;gorie.</LI>
+  <LI>Nouveau bouton "Recommencer" sur la page d'ajout d'une note qui permet de lancer l'enregistrement de
+  la note puis de revenir sur le formulaire pour en ajouter une nouvelle &agrave; la diff&eacute;rence du bouton "Enregistrer"
+  qui quant &agrave; lui redirige vers le dernier planning consult&eacute;.<BR>
+  Suggestion de masterh1 sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Nouveau bouton "Recommencer" sur la page d'ajout d'un contact qui permet de lancer l'enregistrement du
+  contact puis de revenir sur le formulaire pour en ajouter un nouveau &agrave; la diff&eacute;rence du bouton "Enregistrer"
+  qui quant &agrave; lui redirige vers la liste des contacts commen&ccedil;ant par la premi&egrave;re lettre du dernier nom saisi.</LI>
+  <LI>R&eacute;affichage des informations saisies si l'enregistrement ou la modification d'un contact &eacute;choue.</LI>
+  <LI>Correction d'un bug dans le calepin qui pouvait faire &eacute;chouer l'enregistrement des contatcs.<BR>
+  Correction propos&eacute;e par baillac sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug, pour ajuster le nombre de participant &agrave; une note (n&eacute;cessaire pour l'appropriation).</LI>
+  <LI>Correction d'un bug dans le planning quotidien qui emp&ecirc;chait l'affichage correct du lien de suppression
+  d'une note affect&eacute;e &agrave; un utilisateur.</LI>
+  <LI>Retour des messages de confirmation / &eacute;chec sur les actions de l'utilisateur, qui avaient disparu depuis la mise
+  en place de la nouvelle interface.</LI>
+</OL>
+
+<P class="Chapitre">[13-Juin-2005] Phenix 3.0b</P>
+<OL type="1">
+  <LI>Correction d'un bug dans le calepin qui emp&ecirc;chait l'enregistrement de nouveaux contacts.<BR>
+  Bug rapport&eacute; par Charles sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A> et corrig&eacute; par Ga&euml;l.</LI>
+</OL>
+
+<P class="Chapitre">[09-Juin-2005] Phenix 3.0a</P>
+<OL type="1">
+  <LI>Correction d'un bug d'affichage dans le planning hebdomadaire avec certains chevauchement de notes.</LI>
+</OL>
+
+<P class="Chapitre">[05-Mai-2005] Phenix 3.0</P>
+<OL type="1">
+  <LI>Refonte compl&egrave;te de l'interface afin d'utiliser au maximum la surface d'affichage
+  disponible. <FONT color="#FF0000"><B>R&eacute;solution minimale conseill&eacute;e 1024x768</B></FONT>.</LI>
+  <LI>Ajout de la liste de s&eacute;lection des libell&eacute;s types de l'utilisateur dans la
+  page de recherche des notes.</LI>
+  <LI>Correction d'un bug dans la page de recherche si le texte recherch&eacute; comportait
+  des guillemets.</LI>
+  <LI>Modification de la version imprimable du planning mensuel afin d'y faire figurer
+  le num&eacute;ro de semaine en d&eacute;but de chaque ligne. Affichage des jours des mois pr&eacute;c&eacute;dent
+  et suivant en gris&eacute;. Affichage de l'heure de fin des notes. L&eacute;ger "relookage" de la page.
+  Remplacement du message d'alerte <I>javascript</I> conseillant une impression en mode
+  paysage, par un popup sur l'image pour imprimer.</LI>
+  <LI>Affichage des couleurs associ&eacute;es aux notes dans les plannings hebdomadaires et
+  mensuels (y compris &agrave; l'impression).</LI>
+  <LI>Suppression de la page de visualisation des styles, devenue incompatible avec la
+  nouvelle interface. Ajout de 2 nouveaux styles.</LI>
+  <LI>Correction d'un bug d'affichage de la date courante sous le calendrier avec
+  Netscape ou Op&eacute;ra.<BR>
+  Bug rapport&eacute; par R. Telle sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Correction d'un bug d'affichage du popup de rappel d'une note avec Op&eacute;ra
+  configur&eacute; pour s'identifier comme MSIE.</LI>
+  <LI>Affichage des m&eacute;mos dans la partie droite sous le calendrier.<BR>
+  Contribution de Gauthier sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI>
+  <LI>Ajout d'une icone dans les planning afin d'indiquer si l'utilisateur a pr&eacute;vu un
+  rappel sur une note.</LI>
+  <LI>Affichage permanent du calendrier des semaines.</LI>
+  <LI>Possibilit&eacute; &agrave; partir du script d'installation de modifier un compte utilisateur
+  (nom, pr&eacute;nom, login et mot de passe).<BR>
+  Contribution de Mac sur le <A href="http://www.phenix.gapi.fr/forum/" target="pxForum">forum</A>.</LI></LI>
+  <LI>Ajout et adaptation du script XT-Dump v0.7 de la <A href="http://dreaxteam.net/" target="_blank">DreaXTeam</A>
+  permettant d'effectuer une sauvegarde de la base de donn&eacute;es &agrave; partir du script d'installation.</LI>
+  <LI>Possibilit&eacute; pour chaque utilisateur, &agrave; partir de la page de connexion, de choisir de
+  stocker ou non son identifiant et son mot de passe (crypt&eacute;) dans un cookie.</LI>
+  <LI>Possibilit&eacute; de supprimer les notes directement depuis les plannings.</LI>
+  <LI>Possibilit&eacute; de choisir via son profil la liste des personnes qui peuvent enregistrer
+  des notes dans votre planning. Cette liste est donc d&eacute;sormais totalement ind&eacute;pendante
+  de celle des personnes qui peuvent consulter votre planning (sans le modifier).</LI>
+  <LI>Ajout d'un module de visualisation des plages horaires libres des personnes &agrave; qui
+  vous pouvez affecter des notes (cf. ci-dessus). Accessible via le menu <B>Disponibilit&eacute;s</B>.
+  Ce module se compose de 2 parties, une visualisation hebdomadaire avec choix de la semaine via
+  le calendrier des semaines dans la partie gauche puis d'une visualisation quotidienne pour
+  un jour choisi dans la page de consultation. Une version "texte" est disponible via l'impression
+  des disponibilit&eacute;s hebdomadaires.</LI>
+  <LI>Possibilit&eacute; au moment de la modification d'une note appartenant &agrave; une s&eacute;rie r&eacute;currente
+  de choisir entre la possibilit&eacute; de modifier toute la s&eacute;rie (en se basant sur les informations
+  de la note m&egrave;re) ou uniquement l'occurrence choisie (dans ce cas le formulaire de modification
+  ne proposera pas les options de p&eacute;riodicit&eacute;).</LI>
+  <LI>Possibilit&eacute; depuis la version i-mode&#8482; d'ajouter, modifier ou supprimer une note.<BR>
+  Concernant l'ajout et la modification, il s'agit d'une version simplifi&eacute;e &agrave; savoir que la liste
+  des utilisateurs auxquels vous pouvez affecter des notes n'est pas disponible (un peu difficile
+  &agrave; g&eacute;rer depuis un GSM), de m&ecirc;me que les options de p&eacute;riodicit&eacute; et de couleur de note.<BR>
+  Aussi dans le cas d'une modification (lien <B>M</B>), les anciens param&egrave;tres pour ces options
+  sont conserv&eacute;s (pour les notes r&eacute;currentes, la modification de toute la s&eacute;rie n'est pas
+  disponible, cf. point ci-dessus) et dans le cas d'un ajout, les valeurs par d&eacute;faut sont
+  utilis&eacute;es (donc pas de r&eacute;currence possible).<BR>
+  Enfin pour la suppression, le lien <B>S</B> permet de supprimer toute la s&eacute;rie d'une note
+  r&eacute;currente et le lien <B>O</B> uniquement l'occurrence souhait&eacute;e.</LI>
+  <LI>Affichage des anniversaires, dans les plannings, pour les contacts du calepin dont vous
+  avez renseign&eacute; la date de naissance (y compris les contacts partag&eacute;s).</LI>
+  <LI>Optimisation du calendrier dans la partie droite (et de la version i-mode&#8482;) pour
+  passer de ~30 requ&ecirc;tes &agrave; 2 (une pour les notes, une pour les anniversaires du calepin).</LI>
+  <LI>Ajout d'un message d'alerte (facultatif et non bloquant), lors de l'affectation de notes
+  &agrave; d'autres utilisateurs. Ce message indique au cr&eacute;ateur de la note que celle-ci se superpose
+  avec d'autres notes pour certaines des personnes concern&eacute;es (la liste de ces derni&egrave;res
+  &eacute;tant indiqu&eacute;e).</LI>
+  <LI>Am&eacute;lioration des alertes par mail pour les notes affect&eacute;es. En plus du mail lors de
+  la cr&eacute;ation/modification d'une note, la suppression d'une note ou d'une occurrence est d&eacute;sormais
+  &eacute;galement signal&eacute;e. Pour la modification d'une note, les utilisateurs qui ne serait plus
+  dans la liste des personnes concern&eacute;es sont &eacute;galement inform&eacute;s que la note a, en ce qui les
+  concerne, &eacute;t&eacute; supprim&eacute;e. Cette fonctionnalit&eacute; d&eacute;pend du fait que les utilisateurs ait renseign&eacute;
+  une adresse email dans leur profil et &eacute;galement qu'ils y aient coch&eacute; la case "<I>M'informer par mail
+  lorsqu'une note m'est affect&eacute;e</I>"</LI>
+  <LI>Remise en forme de la page de consultation du planning mensuel afin qu'elle corresponde
+  &agrave; celle propos&eacute;e jusqu'alors pour l'impression. Possibilit&eacute; de choisir les jours &agrave; afficher pour
+  ceux qui ne souhaitent pas avoir les week-end ou autres jours de la semaine.<BR>
+  La page d'impression &eacute;tant identique &agrave; celle en cours d'affichage.</LI>
+  <LI>Possibilit&eacute; de d&eacute;finir via le profil utilisateur quels sont les jours de la semaine type
+  qui sont affich&eacute;s par d&eacute;faut dans le planning mensuel. Il bien s&ucirc;r possible de les modifier
+  au moment de la consultation.</LI>
+  <LI>Ajout d'une option de p&eacute;riodicit&eacute; quotidienne permettant de cr&eacute;er une note pour les jours
+  de la semaine type d&eacute;finis au point pr&eacute;c&eacute;dent.</LI>
+  <LI>Ajout d'une option de p&eacute;riodicit&eacute; hebdomadaire permettant de d&eacute;finir une note se r&eacute;p&eacute;tant
+  toutes les X semaines.</LI>
+  <LI>Correction d'un bug qui emp&ecirc;chait l'affichage de l'horloge si la variable $RELOAD_PLANNING
+  du fichier inc/conf.inc.php &eacute;tait non nulle.</LI>
+  <LI>Suppression du cookie lorsque l'on clique sur le bouton Quitter, qui au passage devient
+  "D&eacute;connexion".</LI>
+  <LI>Ajout d'une nouvelle variable dans le fichier conf.inc.php afin d'autoriser ou
+  non la modification et la suppression des contacts <U>partag&eacute;s</U> par l'ensemble des
+  utilisateurs et non plus uniquement par leur cr&eacute;ateur.</LI>
+  <LI>Possibilit&eacute; depuis les plannings hebdomadaires et mensuels de cr&eacute;er une note pour un jour
+  pr&eacute;cis en cliquant sur l'image
+  <IMG src="../image/ajout_note.gif" width="13" height="15" title="Ajouter une note ce jour" border="0" align="absmiddle">
+  correspondante.</LI>
+  <LI>Possibilit&eacute; de dupliquer une note, c'est &agrave; dire de cr&eacute;er une nouvelle note &agrave; partir des
+  informations d'une note existante. Lors de l'&eacute;dition d'une note, un bouton <B>Dupliquer</B>
+  en bas de page permet de conserver toutes les informations affich&eacute;es, qu'il ne reste plus
+  qu'&agrave; adapter pour cr&eacute;er une nouvelle note.</LI>
+  <LI>3 nouvelles options de recherche : par le code couleur ou bien sur un libell&eacute; exact
+  (c'est &agrave; dire testant l'&eacute;galit&eacute; avec un = et non plus avec un LIKE) et la possibilit&eacute;
+  d'exclure les notes encours (auparavant il &eacute;tait seulement possible d'exclure les notes
+  termin&eacute;es)</LI>
+  <LI>Acc&egrave;s en modification des notes depuis la page de recherche en cliquant sur le libell&eacute;.
+  Un clic sur la date affiche quant &agrave; lui le planning quotidien pour le jour choisi.</LI>
+  <LI>Possibilit&eacute; de s'approprier une note qui nous a &eacute;t&eacute; affect&eacute; par un autre utilisateur et
+  dont on est le seul destinataire (exemple : la s&eacute;cr&eacute;taire qui saisit les rendez-vous de son
+  patron mais que ce dernier voudrait par la suite pouvoir g&eacute;rer). L'appropriation fonctionne
+  au coup par coup (i.e. pas pour l'ensemble d'une note r&eacute;currente mais pour chaque occurrence
+  individuellement). Ajout d'une nouvelle icone
+  <IMG src="../image/appropriation.gif" width="13" height="11" title="M'approprier cette note qui m'a &eacute;t&eacute; affect&eacute;e" border="0">
+  pour s'approprier une note en cliquant dessus</LI>
+  <LI>Enregistrement dans un fichier &agrave; part (inc/<B>couleur.inc.php</B>) du tableau permettant
+  d'associer une couleur &agrave; une note. Cela permettra de conserver vos personnalisations lors des
+  futures mises &agrave; jour de Phenix. Ce fichier ne sera pas fournit avec les prochaines versions
+  mais il sera automatiquement g&eacute;n&eacute;r&eacute; par le script d'installation si il n'existe pas.</LI>
+  <LI>Enregistrement depuis le profil de la dur&eacute;e par d&eacute;faut d'une note. Choix possibles :
+  15, 30, 45 mn ou 1 heure. Cela permet d'ajuster automatiquement l'heure de fin d'une note
+  &agrave; partir de l'heure de d&eacute;but s&eacute;lectionn&eacute;e et selon la dur&eacute;e choisie.</LI>
+  <LI>R&eacute;&eacute;criture compl&egrave;te du planning annuel, afin de l'afficher sous la forme de petits
+  calendriers mensuels identiques &agrave; celui du menu pour chaque mois de l'ann&eacute;e. Les jours en
+  gras indiquent la pr&eacute;sence d'une note ou d'un anniversaire. Liens vers le planning quotidien
+  en cliquant sur un jour, vers le planning hebdomadaire en cliquant sur un num&eacute;ro de semaine
+  et vers le planning mensuel en cliquant sur un mois.</LI>
+  <LI>Affichage du popup du d&eacute;tail d'une note dans le planning quotidien lors du survol du libell&eacute;
+  comme pour les planning hebdomadaires et mensuels (facilite la lecture).</LI>
+  <LI>Ajout dans le popup, du libell&eacute; de la note, afin d'am&eacute;liorer la lisibilit&eacute; des notes
+  termin&eacute;es et donc barr&eacute;es &agrave; l'affichage (pour les navigateurs compatibles).</LI>
+  <LI>Ajout dans la page de gestion des anniversaires, de la liste de tous les anniversaires
+  saisis par l'utilisateur afin d'en faciliter la gestion (modification / suppression).</LI>
+  <LI>Changement du format de la date d'anniversaire, il faut d&eacute;sormais saisir l'ann&eacute;e...
+  D&eacute;sol&eacute; pour ceux &agrave; qui &ccedil;a va faire du travail mais avec toutes les &eacute;volutions de Phenix
+  cela est devenu n&eacute;cessaire. Cela permet entre autre d'indiquer l'&acirc;ge de la personne (par popup)
+  lors de la notification dans les plannings et &eacute;galement de ne pas afficher les anniversaires
+  pour des dates ant&eacute;rieures &agrave; la date de naissance (i.e. ne pas indiquer l'anniversaire du petit
+  dernier n&eacute; le 24/11/2004 si l'on consulte le 24/11/2003).<BR>
+  <FONT color="#FF0000">Par d&eacute;faut lors de la MAJ via le script d'installation, tous les
+  anniversaires saisis passeront &agrave; l'ann&eacute;e 2004 (pour ne pas g&ecirc;ner les affichages en cours et
+  autoriser les 29 f&eacute;vrier).</FONT></LI>
+  <LI>Correction d'un bug qui occasionnellement faisait afficher les alertes de notes pourtant
+  marqu&eacute;es comme termin&eacute;es par l'utilisateur.</LI>
+  <LI>Nouvelle pr&eacute;sentation en colonne du planning hebdomadaire avec choix des jours selon
+  la semaine type du profil. La partie impression reste identique &agrave; l'ancienne version car elle
+  permet d'afficher le d&eacute;tail des notes.</LI>
+  <LI>Correction d'un bug dans le profil qui permettait de d&eacute;finir une heure de d&eacute;but de la
+  journ&eacute;e type post&eacute;rieure &agrave; l'heure de fin.</LI>
+  <LI>Ajout d'un bouton <B>Supprimer</B> lorsque l'utilisateur &eacute;dite un m&eacute;mo.</LI>
+  <LI>Renommage du r&eacute;pertoire <I>-- Guide Installation --</I> en <B>install</B> pour pallier
+  &agrave; des probl&egrave;mes avec certains OS ou navigateur n'acceptant pas les espaces dans les URL.</LI>
+  <LI>R&eacute;&eacute;criture du guide d'installation pour bien d&eacute;tailler les &eacute;tapes et options n&eacute;cessaires &agrave;
+  l'installation ou &agrave; la mise &agrave; jour de Phenix.</LI>
+  <LI>Ajout de la possibilit&eacute; d'enregistrer une note couvrant toute une journ&eacute;e (exemple pour
+  un cong&eacute;s).<BR>
+  Dans ajout note -> il suffit de cocher la case "Note couvrant toute la journ&eacute;e" &agrave; cot&eacute; de la
+  date.<BR>
+  Dans les plannings, ces notes figurent en premier et portent la mention "Toute la journ&eacute;e" &agrave;
+  la place de la plage horaire dans les popup.<BR>
+  Dans les modules de disponibilit&eacute;s, cela se traduit par une indisponibilit&eacute; de la personne pour
+  toute la journ&eacute;e concern&eacute;e.<BR>
+  Dans le module de recherche, ces notes portent la mention "Toute la journ&eacute;e" &agrave; la place de la
+  plage horaire.</LI>
+  <LI>Possibilit&eacute;, &agrave; partir du script d'installation, d'autoriser ou non l'utilisation de balises
+  HTML dans les champs de saisies pour mettre en forme le texte. L'autorisation &eacute;quivalent &agrave; une
+  faille de s&eacute;curit&eacute; car autorisant l'utilisation de scripts malintentionn&eacute;s.</LI>
+  <LI>Transformation des caract&egrave;res accentu&eacute;s en HTML compatible pour certains navigateurs.</LI>
+  <LI>Possibilit&eacute; depuis le profil utilisateur de param&eacute;trer un rappel type pour les notes (valeurs par
+  d&eacute;faut lors de la cr&eacute;ation d'une note).</LI>
+  <LI>Correction d'un bug lors de l'enregistrement d'une note qui pouvait passer cette derni&egrave;re &agrave; l'&eacute;tat
+  termin&eacute;e avant m&ecirc;me sa date d'ex&eacute;cution.</LI>
+  <LI>Possibilit&eacute; de configurer Phenix pour qu'il recherche une nouvelle version disponible &agrave; partir
+  de la page d'identification.<BR>
+  <FONT color="#FF0000">Aucune information vous concernant n'est transmise, seul un petit fichier de 3 octets est
+  t&eacute;l&eacute;charg&eacute; &agrave; partir du site phenix.gapi.fr</FONT></LI>
+</OL>
+
+<FORM action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="padding:0px; margin:0px;">
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+<TR>
+  <TD width="100%" nowrap><P class="copyright">Phenix (2006)&nbsp;&nbsp;&nbsp;<BR>St&eacute;phane TEIL (<A href="mailto:phenix-agenda@laposte.net">phenix-agenda@laposte.net</A>)&nbsp;&nbsp;&nbsp;</P></TD>
+  <TD align="center" valign="middle">
+    <INPUT type="hidden" name="cmd" value="_s-xclick">
+    <INPUT type="image" src="paypal.gif" border="0" name="submit" title="Soutenez ce projet via PayPal : une solution rapide et totalement s&eacute;curis&eacute;e !" align="middle">
+    <INPUT type="hidden" name="hosted_button_id" value="908608"></TD>
+</TR>
+</TABLE>
+</FORM>
+
+</BODY>
+</HTML>

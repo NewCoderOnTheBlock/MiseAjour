@@ -1,0 +1,312 @@
+<include tpl="aeroport/include.html" />
+
+<div class="row" id="contenu">
+	
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
+    <if cond="{$CLASS_ERREUR} != ''">
+    
+        <div class="{CLASS_ERREUR}">
+            <strong>{ERREUR}</strong>
+        </div>
+		
+        <br />
+        
+    </if>
+	
+	<div class="col-xs-12 col-sm-6 col-md-6 info_client">
+	
+		<h4>{TITRE}</h4>
+		<div class="col-xs-12 col-sm-12 col-md-12 info_client_form">
+			
+			<if cond="{$DEJA__CLIENT}">
+ 
+				<p class="row" style="margin-bottom:20px;">{TXT_DEJA_CLIENT}</p>
+				
+			</if>
+			
+			<form method="post" action="reservation/reservation.php" id="form_info_client">
+    
+				<p class="row" style="margin-bottom:20px;">{DEJA_CLIENT}</p>
+
+				<div class="row">
+					<label for="lst_civ" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{CIVILITE} <sup class="rouge">*</sup></label>
+					<select name="lst_civ" id="lst_civ">
+
+						<foreach ary="{$TAB_CIV}">
+
+							<if cond="{$CIV_CHERCHE} == {VALUE,$TAB_CIV['civilite']}">
+
+								<option value="{VALUE,TAB_CIV['civilite']}" selected="selected">{VALUE,TAB_CIV['civilite']}</option>
+
+							<else />
+
+								<option value="{VALUE,TAB_CIV['civilite']}">{VALUE,TAB_CIV['civilite']}</option>
+
+							</if>
+
+						</foreach>
+
+					</select>
+				</div>
+
+				<div class="row">
+					<label for="nom_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{NOM_CLIENT} <sup class="rouge">*</sup></label>
+					<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="nom_client" name="nom_client" value="{TXT_NOM_CLIENT}" tabindex="1" maxlength="50" />
+				</div>
+				
+				<div class="row">
+					<label for="prenom_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PRENOM_CLIENT} <sup class="rouge">*</sup></label>
+					<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="prenom_client" name="prenom_client" value="{TXT_PRENOM_CLIENT}" tabindex="2" maxlength="50" />
+				</div>
+				
+				<div class="row" style="margin-bottom:10px;">
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{TEL_CLIENT}</div>
+					<div class="row">
+						<label for="indicatif_fixe" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{INDICATIF} <sup class="rouge">*</sup></label>
+						<select class="col-xs-9 col-sm-6 col-md-4" name="indicatif_fixe" id="indicatif_fixe" tabindex="3">
+
+							<foreach ary="{$TAB_IND}">
+
+								<if cond="{VALUE,$TAB_IND['indicatif']} != '0'">
+
+									<if cond="{VALUE,$TAB_IND['indicatif']} != ''">
+
+										<if cond="{VALUE,$TAB_IND['code_pays']} == {$IND_FIXE_CHERCHE}">
+
+											<option value="{VALUE,TAB_IND['code_pays']}" selected="selected">{VALUE,TAB_IND['nom_pays']} - {VALUE,TAB_IND['indicatif']}</option>
+
+										<else />
+
+											<option value="{VALUE,TAB_IND['code_pays']}">{VALUE,TAB_IND['nom_pays']} - {VALUE,TAB_IND['indicatif']}</option>
+
+										</if>
+
+									</if>
+
+								<else />
+
+									<option value=""></option>
+
+								</if>
+
+							</foreach>
+
+						</select>
+						<div class="col-xs-3 col-sm-6 col-md-4">
+							<img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideIndicatif").dialog("open");' />
+							<img id="img_fixe" class="pointer" src="images/error.png" alt="Attention" style="visibility:hidden" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<label for="tel_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{TEL_CLIENT} <sup class="rouge">*</sup></label>
+						<input type="text" id="ind_fixe" size="3" readonly="readonly" />
+						<input type="text" id="tel_client" name="tel_client" value="{TXT_TEL_CLIENT}" tabindex="4"  maxlength="20" />
+					</div>
+				</div>
+				
+				<div class="row" style="margin-bottom:20px;">
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{PORT_CLIENT}</div>
+					<div class="row">
+						<label for="indicatif_port" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{INDICATIF} <sup class="rouge">*</sup></label>
+						<select class="col-xs-9 col-sm-6 col-md-4" name="indicatif_port" id="indicatif_port" tabindex="5">
+
+							<foreach ary="{$TAB_IND}">
+
+								<if cond="{VALUE,$TAB_IND['indicatif']} != '0'">
+
+									<if cond="{VALUE,$TAB_IND['indicatif']} != ''">
+
+										<if cond="{VALUE,$TAB_IND['code_pays']} == {$IND_PORT_CHERCHE}">
+
+											<option value="{VALUE,TAB_IND['code_pays']}" selected="selected">{VALUE,TAB_IND['nom_pays']} - {VALUE,TAB_IND['indicatif']}</option>
+
+										<else />
+
+											<option value="{VALUE,TAB_IND['code_pays']}">{VALUE,TAB_IND['nom_pays']} - {VALUE,TAB_IND['indicatif']}</option>
+
+										</if>
+
+									</if>
+
+								<else />
+
+									<option value=""></option>
+
+								</if>
+
+							</foreach>
+
+						</select>
+						<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideIndicatif").dialog("open");' />
+						<img id="img_port" class="pointer" src="images/error.png" alt="Attention" style="visibility:hidden" /></div>
+					</div>
+					
+					<div class="row">
+						<label for="port_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PORT_CLIENT} <sup class="rouge">*</sup></label>
+						<input type="text" id="ind_port" size="3" readonly="readonly" />
+						<input type="text" id="port_client" name="port_client" value="{TXT_PORT_CLIENT}" tabindex="6" maxlength="20" />
+					</div>
+				</div>
+
+				<!-- KEMPF : Passage de l'adresse en hidden (N'est plus nécessaire)
+				
+				<span>
+					<label for="adresse_client" class="label_cote_4">{ADRESSE_CLIENT} : </label>
+					<input type="text" id="adresse_client" name="adresse_client" value="{TXT_ADRESSE_CLIENT}" tabindex="8" maxlength="200" />
+				</span>
+				
+				<br />-->
+					<input type="hidden" id="adresse_client" name="adresse_client" value="{TXT_ADRESSE_CLIENT}" tabindex="8" maxlength="200" />
+
+				<!-- KEMPF : Passage du code postal en hidden (N'est plus nécessaire)
+				<span>
+					<label for="code_post_client" class="label_cote_4">{CODE_POST_CLIENT} : </label>
+					<input type="text" id="code_post_client" name="code_post_client" value="{TXT_CODE_POST_CLIENT}" tabindex="9" maxlength="5" />
+				</span>-->
+					<input type="hidden" id="code_post_client" name="code_post_client" value="{TXT_CODE_POST_CLIENT}" tabindex="9" maxlength="5" />
+				
+				
+				<!-- KEMPF : Passage de la ville en hidden (N'est plus nécessaire)
+				<span>
+					<label for="ville_client" class="label_cote_4">{VILLE_CLIENT} <span class="rouge">*</span> : </label>
+					<input type="text" id="ville_client" name="ville_client" value="{TXT_VILLE_CLIENT}" tabindex="10" maxlength="50" />
+				</span>
+
+				<br /><br />-->
+					<input type="hidden" id="ville_client" name="ville_client" value="Non définie" tabindex="10" maxlength="50" />
+				
+				<div class="row">
+					<label for="pays_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PAYS_CLIENT} <sup class="rouge">*</sup></label>
+					<select class="col-xs-9 col-sm-6 col-md-4" name="pays_client" id="pays_client" tabindex="11">
+
+						<foreach ary="{$TAB_PAYS}">
+
+							<if cond="{VALUE,$TAB_PAYS['code_pays']} == {$PAYS_CHERCHE}">
+
+								<option value="{VALUE,TAB_PAYS['code_pays']}" selected="selected">{VALUE,TAB_PAYS['nom_pays']}</option>
+
+							<else />
+
+								<option value="{VALUE,TAB_PAYS['code_pays']}">{VALUE,TAB_PAYS['nom_pays']}</option>
+
+							</if>
+
+						</foreach>
+
+					</select>
+				</div>
+
+				<div class="row">
+					<label for="email_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{EMAIL} <sup class="rouge">*</sup></label>
+					<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="email_client" name="email_client" value="{TXT_EMAIL_CLIENT}" tabindex="7" maxlength="50" />
+				</div>
+				
+				<div class="row">
+					<label for="verif_email_client" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{VERIF_EMAIL} <sup class="rouge">*</sup></label>
+					<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="verif_email_client" name="verif_email_client" value="" tabindex="7" maxlength="50" />
+				</div>
+				
+				<p class="row" style="margin-top:20px;margin-bottom:20px;">{WARNING_TEL}</p>
+  
+				<div class="row" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+					<input type="hidden" name="res_2" value="0" />
+					<input type="button" id="retour" value="{BTN_RETOUR}" tabindex="10" onclick="history.back();" style="font-size:1em;padding-left:5px;padding-right:5px;"/>
+					<input type="button" id="raz" value="{BTN_RAZ}" tabindex="11" style="font-size:1em;padding-left:5px;padding-right:5px;"/>
+					<input type="button" value="{BTN_CONTINUER}" id="btn_envoie" tabindex="12" style="font-size:1em;padding-left:5px;padding-right:5px;"/>
+				</div>
+				
+				<span style="font-size:0.8em;"><sup class="rouge">*</sup> : {OBLIGATOIRE}
+				<br />
+				<sup class="rouge">**</sup> : {OBLIGATOIRE_2}
+				</span>
+				
+			</form>
+				
+			<script type="text/javascript" src="scripts/info_client.js"></script>
+			
+		</div>
+		
+	</div>
+	
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="bloc_droite" style="height:auto;">
+			<a href="{LIEN_AIDE}" style="text-decoration:none;">
+				<div class="row info_reservation" style="background-color:#00A0C3;">
+					<h4 style="text-transform:uppercase;color:white;font-size:1.1em;margin-bottom:20px;">{AIDE_RESERVATION}</h4>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape1.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_1}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape2.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_2}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape3.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_3}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape4.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_4}</span></p>
+					</div>
+				</div>
+			</a>
+			<div class="row liens_accueil">
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#2C9EB4;">
+						<img src="images/Horaires_navettes.png">
+						<h4>{HORAIRES_NAVETTES}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#45B3C8;">
+						<img src="images/horaires_vols.png">
+						<h4>{HORAIRES_VOLS}</h4>
+					</div>
+				</a>
+			</div>
+			<div class="row liens_accueil">
+				<a href="a{LIEN_AIDE}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#45B3C8;">
+						<img src="images/infos_trajet.png">
+						<h4>{INFOS}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#2C9EB4;">
+						<img src="images/point_prise.png">
+						<h4>{POINTS_PRISE}</h4>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<div id="popup_aideIndicatif" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {EXPLI_INDICATIF}
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		$( "#popup_aideIndicatif" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+	});
+</script>
+
+<include tpl="footer.html" />

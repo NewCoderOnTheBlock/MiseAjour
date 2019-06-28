@@ -1,0 +1,8 @@
+jms_payment_core:
+    encryption:
+        secret: def000002cecd33f5bcde149ef655d45806ded146795710d2b05571b93ff1ef8e53816da52589b4a8b27ceb71d9af76f1fc70d32d31f80c61b36afca7412cf1bffb34187
+
+jms_payment_paypal:
+    username:  zeiger_api1.hotmail.fr
+    password: BEKXYPGDLE4BAJ4Z
+    signature: AuY-F0VRY9tlUuTEw2rk4TsQ6.pUANgyAiMDUEoIwqe22kbxZutmkiJh 

@@ -1,0 +1,164 @@
+<include tpl="aeroport/include.html" />
+
+<div class="row" id="contenu" style="margin:0;">
+    
+	<div class="row trajets"> 
+		<h3 class="titre_trajets">{TITRE}</h3>
+		<div class="col-xs-12 col-sm-12 col-md-12 liste_trajets" style="padding:0;">
+		
+			<p class="row" style="margin-bottom:10px;text-align:center;">{EXPLICATION}</p>
+			
+			<if cond="{$TRAJETS_EXISTANT}">
+			
+				<foreach ary="{$MES_TRAJETS}">
+			
+					<div id="CollapsiblePanel{VALUE,MES_TRAJETS['ID']}" class="CollapsiblePanel row" style="margin-top:10px;">
+
+						<div class="CollapsiblePanelTab {VALUE,MES_TRAJETS['CLASS']} row" style="margin:0;font-size:0.9em;">
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								{TRAJET_DU} {VALUE,MES_TRAJETS['DATE_LONG']}
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6" style="text-align:right;">
+								{VALUE,MES_TRAJETS['STATUS']}
+							</div>
+						</div>
+
+						<div class="CollapsiblePanelContent row">
+						
+							<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:10px;">
+								<div class="row" style="text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{TITRE_TRAJET}</div>
+									
+								<div class="row">
+									<span style="font-weight:bold;">{TRAJET_DEPART} :</span> {VALUE,MES_TRAJETS['DEPART']}</span>
+								</div>
+								
+								<div class="row">
+									<span><span style="font-weight:bold;">{TRAJET_ARRIVE} :</span> {VALUE,MES_TRAJETS['DEST']}</span>
+								</div>
+								
+								<div class="row">
+									<span><span style="font-weight:bold;">{PT_RASSEMBLEMENT} :</span> {VALUE,MES_TRAJETS['RASSEMBLEMENT']}</span>
+								</div>
+								
+								<if cond="{VALUE,$MES_TRAJETS['INFO_VOL']} != ''">
+									
+									<div class="row">
+										<span><span style="font-weight:bold;">{INFO_VOL} :</span> <br />{VALUE,MES_TRAJETS['INFO_VOL']}</span>
+									</div>
+									
+								</if>
+																
+								<div class="row">
+									<span><span style="font-weight:bold;">{HEURE_DEPART} :</span> {VALUE,MES_TRAJETS['HEURE']}</span>
+								</div>
+								
+								<div class="row">
+									<span><span style="font-weight:bold;">{PASSAGER_ADULTE} :</span> {VALUE,MES_TRAJETS['NB_PERS']}</span>
+								</div>
+								
+								<if cond="{VALUE,$MES_TRAJETS['NB_ENFANT']} > 0">
+								
+									<div class="row">
+										<span><span style="font-weight:bold;">{PASSAGER_ENFANT} :</span> {VALUE,MES_TRAJETS['NB_ENFANT']}</span>
+									</div>
+									
+								</if>	
+
+							</div>
+							
+							<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:10px;">
+								<div class="row" style="text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{INFO_PRATIQUE}</div>
+								
+								<if cond="{VALUE,$MES_TRAJETS['VALIDE']}">
+									
+									<div class="row">	
+										<span><span style="font-weight:bold;">{CHAUFFEUR_NOM} :</span> {VALUE,MES_TRAJETS['NOM_CHAUFFEUR']}</span>
+									</div>
+									
+									<div class="row">	
+										<span><span style="font-weight:bold;">{CHAUFFEUR_PRENOM} :</span> {VALUE,MES_TRAJETS['PRENOM_CHAUFFEUR']}</span>
+									</div>
+									
+									<div class="row">	
+										<span><span style="font-weight:bold;">{CHAUFFEUR_PORT} :</span> {VALUE,MES_TRAJETS['PORT_CHAUFFEUR']}</span>
+									</div>
+								</if>
+
+								<div class="row" style="margin-top:30px;color:white;">	
+									<span style="background-color:#00A0C3;display:inline-block;height:30px;line-height:30px;padding-left:10px;padding-right:10px;font-size:1.2em;"><span style="font-weight:bold;font-size:1.1em;">{TARIF} :</span> {VALUE,MES_TRAJETS['PRIX']} €</span>
+								</div>
+
+								<if cond="{VALUE,$MES_TRAJETS['CLASS']} == 'bleu_attente'">
+
+									<div class="row">
+										{POUR_PAYER}
+
+										<a href="reservation/paiement-manuel.php?id_client={VALUE,MES_TRAJETS['ID_CLIENT']}&id_res={VALUE,MES_TRAJETS['ID_RES']}&id_trajet1={VALUE,MES_TRAJETS['ID_TRAJET']}&id_trajet2=0&id_ligne1={VALUE,MES_TRAJETS['ID_LIGNE']}&id_ligne2=0&ar=0&alea={VALUE,MES_TRAJETS['CODE_CLI']}">
+											<input type="submit" value="{ALT_PAYER}" id="btn_payer"/>
+										</a>
+									</div>
+
+								</if>
+								
+								<if cond="{VALUE,$MES_TRAJETS['EST_ANNULE']} == 0">
+									
+									<if cond="{VALUE,$MES_TRAJETS['EST_PAYE']} == 1 && {VALUE,$MES_TRAJETS['A_OPTION_ANNUL']} == 1">
+
+										<div class="row">
+											<form 	method="post" 
+													action="client/annuler_reservation.php" 
+													id="formulaire_annulation_{VALUE,MES_TRAJETS['ID']}">
+												
+												<input type="hidden" name="id_c" value="{VALUE,MES_TRAJETS['ID_CLIENT']}" />
+												<input type="hidden" name="id_r" value="{VALUE,MES_TRAJETS['ID_RES']}" />
+												<input class="btn_annuler" type="button" value="{OPT_ANNULATION}" id="bouton_annuler_trajet_{VALUE,MES_TRAJETS['ID']}"/>
+												
+											</form>
+										</div>
+										
+										<script type="text/javascript">
+											
+											var b = document.getElementById("bouton_annuler_trajet_{VALUE,MES_TRAJETS['ID']}");var f = document.getElementById("formulaire_annulation_{VALUE,MES_TRAJETS['ID']}");b.onclick = function(){if (confirm("Voulez-vous vraiment annuler votre réservation ?")){f.submit();}};
+											
+										</script>
+									
+									</if>
+									
+								<else />
+
+									<div class="row">
+										{TRAJET_ANNULE}
+									</div>
+									
+								</if>
+						
+							</div>
+						
+						</div>
+					
+						<script type="text/javascript">
+						<!--
+							var CollapsiblePanel{VALUE,MES_TRAJETS['ID']} = new Spry.Widget.CollapsiblePanel("CollapsiblePanel{VALUE,MES_TRAJETS['ID']}", {contentIsOpen:false});
+						//-->
+						</script>
+					
+					</div>
+			
+				</foreach>    
+				
+			<else />
+			
+				<div class="row">{PAS_DE_TRAJET} !</div>
+			
+			</if>
+			
+		</div>
+		
+	</div>    
+    
+</div>
+
+
+
+<include tpl="footer.html" />
+

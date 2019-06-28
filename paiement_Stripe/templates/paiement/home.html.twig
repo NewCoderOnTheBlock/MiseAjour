@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ title}}</h1>
+    {% if age>18 %}
+
+        <p>
+            Hé ben, si un jour j’oublie que je suis boniche, vous serez gentil de me le rappeler !
+        </p>
+
+        <p>
+            Sire, si vous me les enlevez, c’est un tiers de mes revenus qui fout le camp. Parce qu’ils font pas que boire! Ils mangent là un jour sur deux ...
+        </p>
+        <p>
+            Sire, sachez déjà que je ne suis pas homme à me méprendre sur le gaillard d'en face et mon petit doigt me dit que vous en êtes pas la moitié d'un !
+        </p>
+        <p>
+            Du temps de Pendragon, on avait le sens du dramatique : le Lac, Stonehenge, Avalon… Maintenant, dès qu’ils croisent un dragon, ils font un meeting.
+        </p>
+        <p>
+            De temps en temps on tombe sur un farfelu qui croit qu'il a inventé l'eau chaude mais le plus souvent c'est l'adaptation d'un modèle existant
+        </p>
+    {% else %}
+
+
+        <p>
+            Derrière toute personne un petit peu anticonformiste, il y a quelqu'un de riche, mais il y a quelqu'un d'isolé aussi. Donc je m'attendris deux fois pour ces gens-là.
+        </p>
+
+        <p>
+            Je trouve que les gens ont une capacité dingue à s'occuper de ce qui ne les regarde pas
+        </p>
+        <p>
+            J'aime pas les religions, je ne vous le cache pas. Je ne suis pas religieux, je pense que la religion on devrait un peu laisser ce truc, on devrait passer à autre chose.
+        </p>
+        <p>
+            Bohort, je vous donne l'ordre de vous rendre immédiatement en Andalousie pour y rencontrer le chef wisigoth et lui transmettre le message de paix suivant : Coucou
+        </p>
+        <p>
+            Dans ce que je fabrique, j’écris pour faire plaisir à des acteurs. Pas pour des personnages. Le plaisir est la condition sine qua non du jeu, l’aliment donné à l’acteur pour qu’il joue avec du sentiment.
+        </p>
+
+
+        {%endif%}
+    {% endblock %}

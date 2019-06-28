@@ -1,0 +1,152 @@
+<!--
+  /**************************************************************************\
+  * Phenix Agenda                                                            *
+  * http://phenix.gapi.fr                                                    *
+  * Written by    Stephane TEIL            <phenix-agenda@laposte.net>       *
+  * Contributors  Christian AUDEON (Omega) <christian.audeon@gmail.com>      *
+  *               Maxime CORMAU (MaxWho17) <maxwho17@free.fr>                *
+  *               Mathieu RUE (Frognico)   <matt_rue@yahoo.fr>               *
+  *               Bernard CHAIX (Berni69)  <ber123456@free.fr>               *
+  * --------------------------------------------                             *
+  *  This program is free software; you can redistribute it and/or modify it *
+  *  under the terms of the GNU General Public License as published by the   *
+  *  Free Software Foundation; either version 2 of the License, or (at your  *
+  *  option) any later version.                                              *
+  \**************************************************************************/
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <TITLE>Guide d'installation de Phenix</TITLE>
+</HEAD>
+<STYLE type="text/css">
+<!--
+BODY {
+  font-family: Verdana, Arial, Tahoma;
+  font-size : 12px;
+  background-color : #FFFFFF;
+  color : #000000;
+  text-align : justify;
+  margin-left : 20px;
+  margin-right : 20px;
+}
+A,A:LINK,A:VISITED {
+  COLOR: #3333FF;
+  TEXT-DECORATION: none;
+}
+A:HOVER {
+  COLOR: #3333FF;
+  TEXT-DECORATION: underline;
+}
+A.Code {
+  font-size : 11px;
+  font-weight : bold;
+  color : #990000;
+}
+P.Titre {
+  text-decoration : underline;
+  font-weight : bold;
+  font-size : 18px;
+  text-align : center;
+}
+P.Chapitre {
+  background-color : #FFFFE1;
+  border : 1px solid #000000;
+  font-weight : bold;
+  font-size : 13px;
+  padding-left : 5px;
+  padding-bottom : 2px;
+  padding-top : 2px;
+  margin-top : 40px;
+}
+P.Copyright {
+  color : #808080;
+  font-size : 11px;
+  text-align : right;
+}
+//-->
+</STYLE>
+<BODY onload="javascript: window.focus();">
+<P class="Titre">Guide d'installation de Phenix</P>
+
+<P class="Chapitre">Principes de base</P>
+  Pour cr&eacute;er ou mettre &agrave; jour les tables n&eacute;cessaires au bon fonctionnement de
+  Phenix, vous devez utiliser le script <B>install.php</B> du r&eacute;pertoire
+  "<I>install</I>".<BR><BR>
+  <FONT color="#FF0000">Il est important que l'utilisateur MySQL avec lequel
+  vous faites votre installation ait les droits classiques
+  (<B>SELECT/INSERT/UPDATE/DELETE</B>) mais &eacute;galement les droits pour cr&eacute;er ou modifier
+  une table (<B>CREATE et ALTER</B>) sans quoi la cr&eacute;ation ou la mise &agrave; jour ne pourra
+  pas se faire.<BR>
+  De plus vous devez d&eacute;finir des droits en &eacute;criture sur le sous-r&eacute;pertoire <B>inc/</B>
+  afin que le script d'installation puisse modifier votre fichier de configuration.</FONT><BR><BR>
+  Si vous n'avez pas acc&egrave;s &agrave; ces options, t&eacute;l&eacute;chargez le
+  <A href="http://www.phenix.gapi.fr/download/phenix_installation_manuelle.zip">fichier suivant</A>
+  qui contient tous les scripts SQL pour proc&eacute;der &agrave; l'installation ou la mise &agrave; jour de Phenix
+  de fa&ccedil;on manuelle. Tous les d&eacute;tails sont expliqu&eacute;s dans
+  <A href="http://www.phenix.gapi.fr/forum/viewtopic.php?t=3" target="_blank">ce topic</A>.
+
+<P class="Chapitre">Installer Phenix pour la premi&egrave;re fois</P>
+  "D&eacute;zippez" l'archive <B>phenix.zip</B>, t&eacute;l&eacute;charg&eacute;e sur le site, dans le r&eacute;pertoire
+  racine de votre serveur HTTP. Cela a pour effet de cr&eacute;er un nouveau r&eacute;pertoire <I>phenix</I>
+  contenant les fichiers n&eacute;cessaires au bon fonctionnement de Phenix.<BR><BR>
+  Cette application utilise les sessions de php4 (si disponible), si vous &ecirc;tes chez Free
+  ou chez Online.net (Proxad), pensez &agrave; cr&eacute;er un r&eacute;pertoire "<B>sessions</B>" &agrave; la
+  racine de votre site.<BR><BR>
+  Lancez le script d'installation, en appelant depuis votre navigateur<BR>
+  <B>http://<I>adresse_serveur_web</I>/phenix/install/install.php</B><BR><BR>
+  S&eacute;lectionnez alors "Installer Phenix pour la premi&egrave;re fois" dans le menu d&eacute;roulant puis
+  dans la page suivante indiquez les informations n&eacute;cessaires &agrave; la connexion &agrave; votre base
+  de donn&eacute;es.
+  Pour le reste laissez vous guidez...
+
+<P class="Chapitre">Mettre &agrave; jour une version ant&eacute;rieure de Phenix</P>
+  Si votre r&eacute;pertoire actuel de Phenix se nomme "phenix", renommez-le pour sauvegarder
+  temporairement vos fichiers (exemple appelez le <I>phenix_avant_MAJ</I>).<BR><BR>
+  Effectuez une sauvegarde de votre base de donn&eacute;es soit avec un script tel que
+  <A href="http://www.phpmyadmin.net/" target="_blank">phpMyAdmin</A> ou bien &agrave; partir
+  du script d'installation comme d&eacute;taill&eacute; dans le chapitre suivant.<BR><BR>
+  "D&eacute;zippez" l'archive <B>phenix.zip</B>, t&eacute;l&eacute;charg&eacute;e sur le site dans le r&eacute;pertoire
+  racine de votre serveur HTTP. Cela a pour effet de cr&eacute;er un nouveau r&eacute;pertoire <I>phenix</I>
+  contenant les fichiers de la nouvelle version.<BR><BR>
+  Copiez le fichier <I>phenix_avant_MAJ/inc/<B>conf.inc.php</B></I> dans le r&eacute;pertoire
+  <I>phenix/inc</I> afin de ne pas avoir &agrave; ressaisir vos identifiants de connexions.<BR><BR>
+  Si vous avez sauvegard&eacute; votre base de donn&eacute;es, vous &ecirc;tes maintenant pr&ecirc;t &agrave; lancer le script
+  d'installation, en appelant depuis votre navigateur<BR>
+  <B>http://<I>adresse_serveur_web</I>/phenix/install/install.php</B><BR><BR>
+  S&eacute;lectionnez alors "Mettre &agrave; jour votre version de Phenix" dans le menu d&eacute;roulant puis
+  dans la page suivante indiquez la version de Phenix que vous utilisiez jusqu'&agrave; pr&eacute;sent.
+  Pour le reste laissez vous guidez, les options du fichier de configuration sont expliqu&eacute;es
+  plus bas...<BR><BR>
+  Une fois l'installation termin&eacute;e et apr&egrave;s s'&ecirc;tre assur&eacute; que la nouvelle version fonctionne
+  bien, vous pouvez supprimer le r&eacute;pertoire <I>phenix_avant_MAJ</I>.
+
+<P class="Chapitre">Sauvegarde de la base de donn&eacute;es</P>
+  Pour sauvegarder vos donn&eacute;es avec le script d'installation, s&eacute;lectionnez "Sauvegarder
+  la base de donn&eacute;es" dans la liste d&eacute;roulante. Les informations de connexions sont normalement
+  r&eacute;cup&eacute;r&eacute;es &agrave; partir de votre fichier de configuration, il ne vous reste alors plus qu'&agrave;
+  choisir les tables concern&eacute;es, les options d'export (g&eacute;n&eacute;ralement celles par d&eacute;faut
+  conviennent tr&egrave;s bien) et &agrave; cliquer sur le bouton <B>Sauver</B> pour cr&eacute;er votre fichier
+  de sauvegarde.
+
+<P class="Chapitre">Remarques</P>
+  Phenix a &eacute;t&eacute; d&eacute;velopp&eacute; et test&eacute; avec Internet Explorer version 6.0 et ult&eacute;rieure,
+  Firefox 2.0 et ult&eacute;rieure et Op&eacute;ra 8.0 et ult&eacute;rieure. Nous avons fait tout notre possible pour le rendre compatible avec d'autres navigateurs
+  (JavaScript et feuille de style) mais sans en avoir la certitude, si vous rencontrez quelques incompatibilit&eacute;s,
+  merci de nous en tenir inform&eacute;. Nous essaierons dans la mesure du possible de les corriger.
+
+<BR><BR><HR>
+<FORM action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="padding:0px; margin:0px;">
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+<TR>
+  <TD width="100%" nowrap><P class="Copyright">Phenix (2008)&nbsp;&nbsp;&nbsp;<BR>St&eacute;phane TEIL (<A href="mailto:phenix-agenda@laposte.net">phenix-agenda@laposte.net</A>)&nbsp;&nbsp;&nbsp;</P></TD>
+  <TD align="center" valign="middle">
+    <INPUT type="hidden" name="cmd" value="_s-xclick">
+    <INPUT type="image" src="paypal.gif" border="0" name="submit" title="Soutenez ce projet via PayPal : une solution rapide et totalement s&eacute;curis&eacute;e !" align="middle">
+    <INPUT type="hidden" name="hosted_button_id" value="908608"></TD>
+</TR>
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

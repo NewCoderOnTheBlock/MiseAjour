@@ -1,0 +1,49 @@
+<include tpl="aeroport/include.html" />
+
+<div id="contenu_v2">
+    
+	<div class='blocTotal'>
+		<div class='titreBlocTotal'>
+			<span class='txt_titre_colonne_3c'>{TITRE_FIDELITE}</span>
+		</div>
+		<div class='contenuBlocTotal' style="padding:10px;">
+		
+			<form id="form_fidelite" name="form_fidelite" method="post" action="client/adhesion-fidelite.html">
+				
+				<h1>{TITRE_FIDELITE}</h1>
+				
+				<div>					
+					<p>{EXPLICATION}</p>
+					
+					<p><img src="images/icones/info-16.png" alt="info" title="Information"/> {CONDITIONS}</p>
+					
+					<div class="centre">
+						<input id="check_fidelite" type="checkbox" name="souscrire" /> {ACCEPTER_CONDITION}
+						<br />
+						<input id="submitB" type="button" value="{SOUSCRIRE}" />
+					</div>
+				
+				</div>
+				
+			</form>
+			
+		</div>
+	</div>
+	
+</div>
+
+<script>
+<!--
+function verfi_checkbox(){
+	if (document.getElementById('check_fidelite').checked){
+		document.form_fidelite.submit();
+	}else{
+		alert("Veuillez accepter les conditions du programme de fidelité.");
+	}
+}
+document.getElementById('submitB').onclick = verfi_checkbox;
+
+-->
+</script>
+
+<include tpl="footer.html" />

@@ -1,0 +1,524 @@
+
+<include tpl="aeroport/include.html" />
+
+<div id="contenu_v2">
+
+    <input type="hidden" id="logger" value="{LOGGER}" />
+    <input type="hidden" id="heure_fixe_aller" value="{HEURE_FIXE_ALLER}" />
+    <input type="hidden" id="heure_fixe_retour" value="{HEURE_FIXE_RETOUR}" />
+
+    <script type="text/javascript" src="scripts/calendrier.js"></script>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+
+	<!-- Colonne de gauche -->
+	<div class='colonneGauche_3c'>
+				
+		<!-- Bloc des paiements -->
+		<!--<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{MODE_DE_PAIEMENT}</span>
+		</div>
+		<div class='contenuBloc_2c_h180' style="text-align:center;">
+
+			<br /><br />
+			
+			<img src="images/carte_paypal.png" alt="Carte PayPal" class="resize" />
+
+			<br /><br /><br /><br />
+
+			<img src="http://alsace-navette.com/europapark/images/ca_logo.png" alt="e-transaction" />
+			&nbsp;&nbsp;
+			<img src="http://alsace-navette.com/europapark/images/paypal_logo.png" alt="{ALT_PAYPAL}" />
+
+		</div>-->
+		
+		<!-- Visite de l'Alsace  -->
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c' style="font-size:9px">{VISITER_ALSACE}</span>
+		</div>
+		<div class='contenuBloc_2c_h180'>
+			<div class='formulaire_2c'>
+			
+				<object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="150" height="150" style="margin-left:53px;">
+					<param name="movie" value="images/anim_portail.swf" />
+					<param name="quality" value="high" />
+					<param name="wmode" value="opaque" />
+					<param name="swfversion" value="8.0.35.0" />
+					<!-- Cette balise <param> invite les utilisateurs de Flash Player en version 6.0 r65 et ultérieure à télécharger la version la plus récente de Flash Player. Supprimez-la si vous ne voulez pas que cette invite soit visible. -->
+					<param name="expressinstall" value="scripts/expressInstall.swf" />
+					<!-- La balise <object> suivante est destinée aux navigateurs autres qu'IE. Supprimez-la d'IE à l'aide d'IECC. -->
+					<!--[if !IE]>-->
+					<object type="application/x-shockwave-flash" data="images/anim_portail.swf" width="150" height="150">
+						<!--<![endif]-->
+						<param name="quality" value="high" />
+						<param name="wmode" value="opaque" />
+						<param name="swfversion" value="8.0.35.0" />
+						<param name="expressinstall" value="scripts/expressInstall.swf" />
+						<!-- Le navigateur affichera le contenu alternatif suivant pour les utilisateurs d'un lecteur Flash de version 6.0 ou de versions plus anciennes. -->
+						<div>
+						  <h4>Le contenu de cette page nécessite une version plus récente d’Adobe Flash Player.</h4>
+						  <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtenir le lecteur Adobe Flash" /></a></p>
+						</div>
+						<!--[if !IE]>-->
+					</object>
+					<!--<![endif]-->
+				</object>
+
+				<script type="text/javascript">
+				<!--
+					swfobject.registerObject("FlashID");
+				//-->
+				</script>
+				
+			</div>
+		</div>
+			
+		<!-- Bloc météo -->
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{METEO}</span>
+		</div>
+		<div class='contenuBloc_2c_h180' style="text-align:center;">
+
+			<div id='divMeteo'>
+				<div id="cont_df900509b199452c76b658ba01cd7a24">
+					<a href="http://www.tameteo.com/meteo_Strasbourg-Europe-France-Bas+Rhin-LFST-1-26139.html" target="_blank" title="M&eacute;t&eacute;o Strasbourg">Strasbourg</a>
+					<script type="text/javascript" src="http://www.tameteo.com/wid_loader/df900509b199452c76b658ba01cd7a24"></script>
+				</div>
+			</div>
+
+		</div>
+		
+		<!-- Bloc sondage -->
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{SONDAGE}</span>
+		</div>
+		<div class='contenuBloc_2c_h180' style="text-align:center;">
+			
+			<a target="_blank" href="../sondage/" ><img src="images/sondage.jpg" alt="Sondage" style="margin-top:20px;" /></a>
+		
+		</div>
+				
+	</div>
+	
+	<!-- Colonne de droite  -->
+	<div class='colonneDroite_2c'>
+	
+		<!-- Programme fidélité si le client est connecté -->
+		<if cond="{$LOGGER}">
+			<if cond="!{$EST_FIDELE}">
+				<div class='titreColonne_2c'>
+					<span class='txt_titre_colonne_2c'>{TITRE_FIDELITE}</span>
+				</div>
+				<div class='contenuBloc_2c_h180' style="padding:10px;text-align:center;">
+					{EXPLICATION_FIDELITE}
+				</div>
+			</if>
+		<else />
+			<div class='titreColonne_2c'>
+				<span class='txt_titre_colonne_2c'>{SE_CONNECTER}</span>
+			</div>
+			<div class='contenuBloc_2c_h180' style="padding-top:5px;text-align:center;">
+				<form method="post" action="client/client.html">
+								
+					<input type="hidden" name="deja_client" />
+					
+					{EMAIL} : 
+					<br />
+					<input type="text" name="mail" id="mail" />
+					
+					<br />
+					<br />
+					
+					{PASSWD} : 
+					<br />
+					<input type="password" name="pass" id="pass" />
+					
+					<br />
+					<br />
+					
+					<a href="client/password-a2.html">{MDP_OUBLIE}</a>
+					
+					<br />
+					<br />
+					
+					<div class="centre"><input type="submit" value="{BTN_ENVOYER}" /></div>
+				
+				</form>   
+			</div>
+		</if>
+		
+		<!-- Liste des compagnies aériennes  -->
+		<div class='titreColonne_3c'>
+			<span class='txt_titre_colonne_3c'>{TITRE_COMPAGNIE}</span>
+		</div>
+		<div class='contenuBloc_2c_h180'>
+			<div style="text-align:center;overflow:hidden;height:180px;">
+				
+				<marquee behavior="scroll" direction="up" scrolldelay="1" scrollamount="3" onmouseout="start()" onmouseover="stop()">
+					
+					<block name="liste_compagnies">
+						<div style="text-align:center;">											
+							<a href="{liste_compagnies.LIEN}" target="_blank">
+								<img src="images/{liste_compagnies.IMAGE}" alt="{liste_compagnies.TEXTE}" title="{liste_compagnies.TEXTE}" style="max-width:150px;max-height:100px;" />
+							</a>
+						</div>
+
+						<br /><br />
+					</block>
+
+				</marquee>
+				
+			</div>
+		</div>		
+		
+		<!-- Bloc licence -->
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{LICENCE}</span>
+		</div>
+		<div class='contenuBloc_2c_h180' style="text-align:center;">
+			
+			<img src="images/licence.png" alt="Licence" style="margin-top:20px;" />
+			<br />
+			{TEXTE_LICENCE}
+		
+		</div>
+			
+	</div>
+	
+	<!-- CONTENU Centre -->
+	<div class='colonneCentre_3c_h600'>
+		<div class='titreCentre_3c'>
+			<span class='txt_titre_colonne_3c'>{TITLE_RESERVATION}</span>
+		</div>
+		<div class='contenuCentre_3c_h600'>
+			<div style="margin:0px 20px 5px 20px;">
+
+                <if cond="{$CLASS_ERREUR} != ''">
+
+                    <br />
+
+                    <div class="{CLASS_ERREUR}">
+                        <strong>{ERREUR}</strong>
+                    </div>
+
+                    <br />
+
+                </if>
+
+				<form method="post" action="demande_reservation.html" id="form_res">
+					<div>
+
+						<script type="text/javascript" src="scripts/infobulle.js"></script>
+						
+						<br />
+						
+						<span>
+						
+							<label for="lst_trajet_depart" class="label_cote_3">{TRAJET_DEPART} <span class="rouge">*</span> : </label>
+							<select name="lst_trajet_depart" id="lst_trajet_depart">
+
+								<foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+									<if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEP_CHERCHE}">
+
+										<option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+						</span>
+
+						<br />
+
+						<span>
+							<label for="lst_trajet_arrive" class="label_cote_3">{TRAJET_ARRIVE} <span class="rouge">*</span> : </label>
+							<select name="lst_trajet_arrive" id="lst_trajet_arrive">
+
+								<foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+									<if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEST_CHERCHE}">
+
+										<option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+						</span>
+						
+						<div>
+							<br />
+
+							<span class="label_cote_3">{TRAJET_TYPE} <span class="rouge">*</span> : </span>
+
+							<div class="input_type_trajet">
+								<if cond="{$TRAJET} == '1'">
+									<input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" checked="checked" />
+								<else />
+									<input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" />
+								</if>
+
+								<label for="trajet_aller_simple">{TRAJET_ALLER_SIMPLE}</label>
+
+								<if cond="{$TRAJET} == '0'">
+									<input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" checked="checked" />
+								<else />
+									<input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" />
+								</if>
+								<label for="trajet_aller_retour">{TRAJET_ALLER_RETOUR}</label>
+							</div>
+							
+						</div>
+
+						<br />
+
+						<hr style="width:50%;border: 1px solid black;"/>
+						
+						<br />
+
+						<div>
+							<span class="en_valeur">{INFO_VOL} : </span>
+							<br /><br />
+							<div>
+																
+								<span class="label_cote_4">{DATE_DEPART} {ALLER} <span class="rouge">*</span> : </span>
+								<span id="lbl_jour_depart" style="background-color:#FFF" class="pointer" onclick="document.getElementById('ds_conclass2').style.display='none';ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');">{SELECTIONNER_DATE_DEPART}</span>
+
+
+								<span>
+									<input type="hidden" name="jour_depart" id="jour_depart" value="{TXT_JOUR_DEPART}" />
+									<input type="hidden" name="jour_depart_long" id="jour_depart_long" value="{TXT_JOUR_DEPART_LONG}" />
+
+									<input type="button" onfocus="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');" onclick="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');" style="background-image:url(images/calendar.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+
+								</span>
+
+								<table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass1" style="display:none;margin:auto;text-align:center;">
+									<tr>
+										<td id="ds_calclass1" valign="top"><br /></td>
+									</tr>
+								</table>
+
+							</div>
+
+						</div>
+
+						<div id="vol_retour" style="display:none">
+
+							<div>
+								
+								<span class="label_cote_4">{DATE_RETOUR} {RETOUR} <span class="rouge">*</span> : </span>
+								<span id="lbl_jour_retour" style="background-color:#FFF" class="pointer" onclick="document.getElementById('ds_conclass1').style.display='none';ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');">{SELECTIONNER_DATE_RETOUR}</span>
+
+								<span>
+									<input type="hidden" name="jour_retour" id="jour_retour" value="{TXT_JOUR_RETOUR}" />
+									<input type="hidden" name="jour_retour_long" id="jour_retour_long" value="{TXT_JOUR_RETOUR_LONG}" />
+
+									<input type="button" onfocus="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');" onclick="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');" style="background-image:url(images/calendar.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+
+								</span>
+
+								<table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass2" style="display:none;margin:auto;text-align:center;">
+									<tr>
+										<td id="ds_calclass3" valign="top"><br /></td>
+									</tr>
+								</table>
+
+							</div>
+							
+						</div>
+							
+						<br />
+
+						<span class="en_valeur">{NOMBRE_PASSAGER} : </span>
+
+						<br /><br />
+
+						<table width="100%">
+							<tr>
+								<th class="header_tab" style="display:none;width:50%;">{ALLER}</th>
+								<th class="header_tab" style="display:none;width:50%;">{RETOUR}</th>
+							</tr>
+
+							<tr>
+								<td>
+
+									<label for="lst_passager_adulte_aller">{PASSAGER_ADULTE} <span class="rouge">*</span> : </label>
+									<select name="lst_passager_adulte_aller" id="lst_passager_adulte_aller">
+
+										<foreach ary="{$LST_PERSONNE}">
+
+											<if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_ALLER}">
+
+												<option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+											<else />
+
+												<option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+
+									<br />
+
+									<label for="lst_passager_enfant_aller">{PASSAGER_ENFANT} <span class="rouge">*</span> : </label>
+									<select name="lst_passager_enfant_aller" id="lst_passager_enfant_aller">
+
+										<foreach ary="{$LST_ENFANT}">
+
+											<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER}">
+
+												<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+											<else />
+
+												<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+									
+								</td>
+
+								<td>
+								
+									<div id="passager_retour" style="display:none;">
+
+										<label for="lst_passager_adulte_retour">{PASSAGER_ADULTE} <span class="rouge">*</span> : </label>
+										<select name="lst_passager_adulte_retour" id="lst_passager_adulte_retour">
+
+											<foreach ary="{$LST_PERSONNE}">
+
+												<if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_RETOUR}">
+
+													<option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+												<else />
+
+													<option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+												</if>
+
+											</foreach>
+
+										</select>
+
+										<br />
+
+										<label for="lst_passager_enfant_retour" >{PASSAGER_ENFANT} <span class="rouge">*</span> : </label>
+										<select name="lst_passager_enfant_retour" id="lst_passager_enfant_retour">
+
+											<foreach ary="{$LST_ENFANT}">
+
+												<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR}">
+
+													<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+												<else />
+
+													<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+												</if>
+
+											</foreach>
+
+										</select>
+
+									</div>
+									
+								</td>
+								
+							</tr>
+							
+						</table>
+
+						<br />
+						
+						<div style="width:100%;text-align:center;">
+							<input type="button" value="{BTN_ETAPE_SUIVANTE}" id="btn_envoie" />
+						</div>
+
+					</div>
+
+				</form>	
+				
+				<!-- Div de fin de v2 -->		
+	
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<script type="text/javascript" src="scripts/accueil_mini.js"></script>
+	<script src="scripts/swfobject_modified.js" type="text/javascript"></script>
+	
+	
+	<!-- Contenu centre largeur max -->
+	<!-- Bloc photos -->
+	<div class='blocTotal'>
+		<div class='titreBlocTotal'>
+			<span class='txt_titre_colonne_2c'>{PHOTOS}</span>
+		</div>
+		
+		<div class='contenuBlocTotal' style="padding:5px;">
+
+			<div style="padding:5px;">
+
+				<marquee behavior="scroll" direction="left" scrolldelay="1" scrollamount="5" onmouseout="start()" onmouseover="stop()">
+
+					<foreach ary="{$TAB_PHOTOS}">
+
+						<img src="photos/{VALUE,TAB_PHOTOS['PHOTO']}" alt="" />
+
+					</foreach>
+
+				</marquee>
+
+			</div>
+
+		</div>
+		
+	</div>
+	
+	<!-- Bloc des news -->
+	<div class='blocTotal'>
+		<div class='titreBlocTotal'>
+			<span class='txt_titre_colonne_2c'>{NEWS}</span>
+		</div>
+		
+		<div class='contenuBlocTotal' style="padding:5px;">
+	
+			<div class='formulaire_2c' style="overflow:hidden;width:95%;">
+
+				<div style="margin-top:-25px;">
+
+					{NEWS_ALEATOIRE}
+
+				</div>
+
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>
+
+<include tpl="footer.html" />
+

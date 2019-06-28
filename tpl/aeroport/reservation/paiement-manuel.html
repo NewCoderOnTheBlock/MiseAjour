@@ -1,0 +1,451 @@
+<include tpl="aeroport/include.html" />
+
+<div class="row" id="contenu">
+
+	<div class="col-xs-12 col-sm-6 col-md-6 recap_reservation">
+		<h4>{RECAPITULATIF}</h4>
+		<div class="col-xs-12 col-sm-12 col-md-12 recap_reservation_form">
+			
+			<if cond="{$CLASS_ERREUR} != ''">
+			  
+				<div class="erreur">
+					<strong>{ERREUR}</strong>
+				</div>
+			
+			<else />
+				<input type="hidden" name="id_paypal" value="{ID_PAYPAL}"/>
+				<!-- Bloc de "Mon Trajet" -->
+				<div class="row">
+					<h4 class="recap_reservation_form_titre">{TITRE_MON_TRAJET}</h4>
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<span><span style="font-weight:bold;">{TYPE_TRAJET} :</span> {TXT_TYPE_TRAJET}</span>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<span><span style="font-weight:bold;">{TRAJET_DEPART} :</span> {TXT_TRAJET_DEPART}</span>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<span><span style="font-weight:bold;">{TRAJET_ARRIVE} :</span> {TXT_TRAJET_ARRIVE}</span>
+						</div>
+
+						 <if cond="{$TXT_INFO_COMPL} != ''">
+
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<span><span style="font-weight:bold;">{INFO_COMPL} :</span><br /> {TXT_INFO_COMPL}</span>
+							</div>
+
+						</if>
+
+					</div>
+				</div>
+				<!-- Fin Bloc de "Mon Trajet" -->
+				
+				<!-- Bloc de "Aller" -->
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; font-weight: bold; color: black; border-bottom: 2px solid #00A0C3; margin-bottom: 10px;">{ALLER}</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{DATE_DEPART} :</span> {TXT_DATE_DEPART}</span>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{HEURE_DEPART} :</span> {TXT_HEURE_DEPART}</span>
+						</div>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PT_RASSEMBLEMENT} :</span> {TXT_PT_RASS_ALLER}</span>
+						</div>
+
+						<if cond="{$TXT_RASS_ADRESSE_ALLER} != ''">
+							<ul>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{ADRESSE_CLIENT} :</span> {TXT_RASS_ADRESSE_ALLER}</li>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{CODE_POST_CLIENT} :</span> {TXT_RASS_CP_ALLER}</li>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{VILLE_CLIENT} :</span> {TXT_RASS_VILLE_ALLER}</li>
+								</div>
+							</ul>
+						</if>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PASSAGER_ADULTE} :</span> {TXT_PASSAGER_ADULTE_ALLER}</span>
+						</div>
+
+						<if cond="{$TXT_PASSAGER_ENFANT_ALLER} > 0">
+
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{PASSAGER_ENFANT} :</span> {TXT_PASSAGER_ENFANT_ALLER}</span>
+							</div>
+
+						</if>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{INFO_VOL} :</span> <br />
+								{INFO_VOL_ALLER}
+							</span>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!-- Bloc de "Retour" -->
+				<if cond="{$TRAJET} == 0">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; font-weight: bold; color: black; border-bottom: 2px solid #00A0C3; margin-bottom: 10px;">{RETOUR}</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{DATE_RETOUR} :</span> {TXT_DATE_RETOUR}</span>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{HEURE_RETOUR} :</span> {TXT_HEURE_RETOUR}</span>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PT_RASSEMBLEMENT} :</span> {TXT_PT_RASS_RETOUR}</span>
+						</div>
+						
+						<if cond="{$TXT_RASS_ADRESSE_RETOUR} != ''">
+							<ul>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{ADRESSE_CLIENT} :</span> {TXT_RASS_ADRESSE_RETOUR}></li>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{CODE_POST_CLIENT} :</span> {TXT_RASS_CP_RETOUR}</li>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<li><span style="font-weight:bold;">{VILLE_CLIENT} :</span> {TXT_RASS_VILLE_RETOUR}</li>
+								</div>
+							</ul>
+						</if>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PASSAGER_ADULTE} :</span> {TXT_PASSAGER_ADULTE_RETOUR}</span>
+						</div>
+						
+						<if cond="{$TXT_PASSAGER_ENFANT_RETOUR} > 0">
+
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{PASSAGER_ENFANT} :</span> {TXT_PASSAGER_ENFANT_RETOUR}</span>
+							</div>
+							
+						</if>
+
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{INFO_VOL} :</span> <br />
+								{INFO_VOL_RETOUR}
+							</span>
+						</div>
+						
+					</div>
+					
+				</div>
+				</if>
+				
+				<!-- Bloc informations trajet -->
+				<div class="row">
+					<h4 class="recap_reservation_form_titre">{TARIFS}</h4>
+					<div class="row">
+						<if cond="{$TRAJET} == 0"> /* si allez-retour */
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; font-weight: bold; color: black; border-bottom: 2px solid #00A0C3; margin-bottom: 10px;">{ALLER}</div>
+							
+								<if cond="{$TXT_NB_PASSAGER_ALLER} >= {$TXT_FORFAIT_MINI_ALLER}">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{TARIFS_XX_PERSONNE_ALLER} : </span>{TXT_COUT_TRAJET_ALLER} € ({COUT_PAR_PERSONNE_ALLER} € / {PERSONNE})</span>
+									</div>
+								<else />
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{COUT_TRAJET_BASE} : </span>{TXT_COUT_TRAJET_ALLER} € ({FORFAIT_MINI})</span>
+									</div>
+								</if>
+							
+								<if cond="{$TXT_SURCOUT_ALLER} != ''">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{SURCOUT_DEMANDE} : </span>{TXT_SURCOUT_ALLER} €</span>
+									</div>
+								</if>
+							
+								<if cond="{$DOMICILE_ALLER}">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{PRISE_DOMICILE} : </span>{PRIX_PRISE_ALLER} €</span>
+									</div>
+								</if>
+						
+								<if cond="{$MAJ_FERIE_ALLER} > 0">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{LIBELLE_MAJ_FERIE_ALLER} : </span>{MAJ_FERIE_ALLER} €</span>
+									</div>
+								</if>
+							</div>
+							
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; font-weight: bold; color: black; border-bottom: 2px solid #00A0C3; margin-bottom: 10px;">{RETOUR}</div>
+							
+								<if cond="{$TXT_NB_PASSAGER_RETOUR} >= {$TXT_FORFAIT_MINI_RETOUR}">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{TARIFS_XX_PERSONNE_RETOUR} : </span>{TXT_COUT_TRAJET_RETOUR} € ({COUT_PAR_PERSONNE_RETOUR} € / {PERSONNE})</span>
+									</div>
+								<else />
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{COUT_TRAJET_BASE} : </span>{TXT_COUT_TRAJET_RETOUR} € ({FORFAIT_MINI})</span>
+									</div>
+								</if>
+								
+								<if cond="{$TXT_SURCOUT_RETOUR} != ''">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{SURCOUT_DEMANDE} : </span>{TXT_SURCOUT_RETOUR} €</span>
+									</div>
+								</if>
+							
+								<if cond="{$DOMICILE_RETOUR}">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{DEPOSE_DOMICILE} : </span>{PRIX_PRISE_RETOUR} €</span>
+									</div>
+								</if>
+					
+								<if cond="{$MAJ_NUIT_RETOUR} > 0">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{HORAIRE_NUIT} : </span>{MAJ_NUIT_RETOUR} €</span>
+									</div>
+								</if>
+						
+								<if cond="{$MAJ_FERIE_RETOUR} > 0">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<span><span style="font-weight:bold;">{LIBELLE_MAJ_FERIE_RETOUR} : </span>{MAJ_FERIE_RETOUR} €</span>
+									</div>
+								</if>
+							</div>
+							
+						<else /> /* allez simple */
+						
+							<if cond="{$TXT_NB_PASSAGER_TOT} >= {$TXT_FORFAIT_MINI_ALLER}">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{TARIFS_XX_PERSONNE} : </span>{TXT_COUT_TRAJET_ALLER} € ({COUT_PAR_PERSONNE_ALLER} € / {PERSONNE})</span>
+								</div>
+							<else />
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{COUT_TRAJET_BASE} : </span>{TXT_COUT_TRAJET_ALLER} € ({FORFAIT_MINI})</span>
+								</div>
+							</if>
+							
+							<if cond="{$TXT_SURCOUT_ALLER} != ''">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{SURCOUT_DEMANDE} : </span>{TXT_SURCOUT_ALLER} €</span>
+								</div>
+							</if>
+							
+							<if cond="{$DOMICILE_ALLER}">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{PRISE_DOMICILE} : </span>{PRIX_PRISE_ALLER} €</span>
+								</div>	
+							</if>
+					
+							<if cond="{$MAJ_NUIT_ALLER} > 0">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{HORAIRE_NUIT} : </span>{MAJ_NUIT_ALLER} €</span>
+								</div>
+							</if>
+						
+							<if cond="{$MAJ_FERIE_ALLER} > 0">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<span><span style="font-weight:bold;">{LIBELLE_MAJ_FERIE_ALLER} : </span>{MAJ_FERIE_ALLER} €</span>
+								</div>
+							</if>
+							
+						</if>
+						
+						<if cond="{$DERNIERE_MINUTE_72}">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{RES_DER_MIN_72} : </span>{TXT_DER_MIN_72} €</span>
+							</div>
+						<elseif cond="{$DERNIERE_MINUTE_24}" />
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{RES_DER_MIN_24} : </span>{TXT_DER_MIN_24} €</span>
+							</div>
+						</if>
+						
+						<if cond="{$OPT_ANNULATION}">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{TXT_OPTION_ANNULATION} : </span>{MONTANT_OPTION_ANNULATION} €</span>
+							</div>
+						</if>
+					   
+						<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:20px;">
+							<span style="font-size:1.2em;font-weight:bold;text-decoration:underline;">{PRIX_TOTAL} : {TXT_PRIX_TOTAL} €</span>
+						</div>				
+						
+						<if cond="{$ON_A_ATTENDU}">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span style="font-size:1.2em;font-weight:bold;text-decoration:underline;">{PRIX_A_PAYER} : {TXT_MNT_A_PAYER} €</span>
+							</div>							
+						</if>
+						
+					</div>
+					
+				</div>
+				
+				<!-- Bloc informations client -->
+				<div class="row">
+					<h4 class="recap_reservation_form_titre">{TITRE_CLIENT}</h4>
+					<div class="row">						
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{CIVILITE} : </span>{TXT_CIVILITE_CLIENT}</span>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{NOM_CLIENT} : </span>{TXT_NOM_CLIENT}</span>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PRENOM_CLIENT} : </span>{TXT_PRENOM_CLIENT}</span>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{EMAIL} : </span>{TXT_MAIL_CLIENT}</span>
+						</div>
+						<if cond="{$TXT_TEL_CLIENT} != ''">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{TEL_CLIENT} : </span>{TXT_IND_FIXE}{TXT_TEL_CLIENT}</span>
+							</div>
+						</if>
+						
+						<if cond="{$TXT_PORT_CLIENT} != ''">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{PORT_CLIENT} : </span>{TXT_IND_PORT}{TXT_PORT_CLIENT}</span>
+							</div>
+						</if>
+						
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<span><span style="font-weight:bold;">{PAYS_CLIENT} : </span>{TXT_PAYS_CLIENT}</span>
+						</div>
+							
+						<if cond="{$TXT_AUTRE_PASSAGER} == 'oui' ">
+						
+							<div class="col-xs-12 col-sm-12 col-md-12">   			
+								<span><span style="font-weight:bold;">{TITRE_AUTRE_PASSAGER} </span></span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{NOM_AUTRE_PASSAGER} : </span>{TXT_NOM_AUTRE_PASSAGER}</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{INDICATIF_TEL_AUTRE_PASSAGER} : </span>{TXT_INDICATIF_TEL_AUTRE_PASSAGER}</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<span><span style="font-weight:bold;">{TEL_PORT_AUTRE_PASSAGER} : </span>{TXT_TEL_PORT_AUTRE_PASSAGER}</span>
+							</div>
+						
+						</if>
+						
+					</div>
+					
+				</div>
+				
+				<!-- Validation -->
+				<div style="clear:both;" class="row">
+
+					<!-- Bloc du mode de paiement -->
+					<div class="row">
+						<h4 class="recap_reservation_form_titre">{MODE_DE_PAIEMENT}</h4>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
+								<span style="font-weight:bold;">{INFO_MODE_PAIEMENT}</span>
+							</div>
+							
+							<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:20px;">
+							
+								<if cond="{$ACTIVE_CA}">
+									<form action="reservation/envoie_ca.php" method="post">
+										<div class="centre">
+											<input type="hidden" name="paiement_ca" value="{ENCRYPTED_CA}" />
+											<input type="image" src="images/paiement.png" style="width:80%;" alt="e-transaction" name="bouton_paiement" />
+										</div>
+									</form>
+								</if>
+							
+							</div>
+
+							<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1" style="margin-top:20px;">
+										
+								<if cond="{$ACTIVE_PAYPAL}">
+									<form action="https://www.paypal.com/fr/cgi-bin/webscr" method="post">
+										<div class="centre">
+											<input type="hidden" name="cmd" value="_s-xclick" />
+											<input type="hidden" name="encrypted" value="{ENCRYPTED}" />
+											<input type="image" src="http://alsace-navette.com/europapark/images/paypal_logo.png" name="submit" alt="{ALT_PAYPAL}" />
+										</div>
+									</form>
+								</if>
+							
+							</div>	
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</if>
+		<!-- Div de fin -->	
+		</div>
+		
+	</div>
+	
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="bloc_droite">
+			<a href="{LIEN_AIDE}" style="text-decoration:none;">
+				<div class="row info_reservation" style="background-color:#00A0C3;">
+					<h4 style="text-transform:uppercase;color:white;font-size:1.1em;margin-bottom:20px;">{AIDE_RESERVATION}</h4>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape1.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_1}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape2.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_2}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape3.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_3}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape4.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_4}</span></p>
+					</div>
+				</div>
+			</a>
+			<div class="row liens_accueil">
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#2C9EB4;">
+						<img src="images/Horaires_navettes.png">
+						<h4>{HORAIRES_NAVETTES}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#45B3C8;">
+						<img src="images/horaires_vols.png">
+						<h4>{HORAIRES_VOLS}</h4>
+					</div>
+				</a>
+			</div>
+			<div class="row liens_accueil">
+				<a href="{LIEN_AIDE}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#45B3C8;">
+						<img src="images/infos_trajet.png">
+						<h4>{INFOS}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#2C9EB4;">
+						<img src="images/point_prise.png">
+						<h4>{POINTS_PRISE}</h4>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+    
+</div>
+
+
+<include tpl="footer.html" />

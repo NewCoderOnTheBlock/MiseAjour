@@ -1,0 +1,84 @@
+<include tpl="aeroport/include.html" />
+
+<div id="contenu_v2">
+	<!-- Liste des compagnies aériennes  -->
+	
+	<div class='colonneDroite_2c'>
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{TITRE_COMPAGNIE}</span>
+		</div>
+		<div class='contenuBloc_2c_sansh'>
+			<div style="text-align:center;">
+				
+				<block name="liste_compagnies">
+					<div>
+						<div class="blocFondVioletTotal">{liste_compagnies.TEXTE}</div>
+						
+						<br /><br />
+						
+						<a href="{liste_compagnies.LIEN}" target="_blank">
+							<img src="images/{liste_compagnies.IMAGE}" alt="{liste_compagnies.TEXTE}" title="{liste_compagnies.TEXTE}" style="max-width:150px;max-height:100px;" />
+						</a>
+
+						<br /><br />
+					</div>
+				</block>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- TARIFS -->
+	
+	<div class='colonneCentre_2c'>
+		<div class='titreCentre_2c'>
+			<span class='txt_titre_colonne_2c'><div id="tarifs">{TITRE}</div></span>
+		</div>
+		<div class='contenuCentre_2c_infini'>
+		
+			<div class='formulaire_2c'>
+			
+				<table class='tableauTarif'>
+					<block name="tarifs">
+					
+						<tr class='ligneTabTarif' onmouseover='hover_tableau_tarif(this.id)' onmouseout='out_tableau_tarif(this.id)' id='{tarifs.ID}' onclick='changementPageTarif(this.id)'>
+							<td>
+								{tarifs.NOM}
+								<div style='float:right;margin-right:50px' id='prix{tarifs.PRIX_PERSONNE_SIMPLE}'>
+									{FORFAIT_MINI} : {tarifs.PRIX_PERSONNE_SIMPLE} €
+								</div>
+							</td>
+						</tr>		
+										
+					</block>
+				</table>
+				
+				<br />
+				
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class='colonneCentre_2c'>
+	
+		<div class='titreCentre_2c'>
+			<span class='txt_titre_colonne_2c'><div id="tarifs_info"></div></span>
+		</div>
+		
+		<div class='contenuCentre_2c_infini'>
+		
+			<div class='formulaire_2c'>
+				<div id="liste" style="margin-left:10px;">
+					{CONTENU}
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>
+
+
+<include tpl="footer.html" />

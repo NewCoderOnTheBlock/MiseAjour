@@ -1,0 +1,238 @@
+@CHARSET "ISO-8859-1";
+
+/*
+Couleurs : 
+D2C : #A8C73B
+RAJs : #F39C17
+AA : #9F3D8A
+WAG : 0D5155
+*/
+
+body{
+	margin:0;
+	padding:0;
+	font-family:Myriad Pro,Arial,Verdana;
+	overflow:auto;
+}
+
+#contenu{
+	text-align:center;
+	margin-top:2%;	
+}
+
+#bgBody{
+	width:100%;
+	/*height:98%;*/
+	height:120%;
+	position:absolute;
+	z-index:-1;
+}
+
+#carre{
+
+}
+
+td{
+	width:170px;
+	height:135px;
+	font-size:8pt;
+	text-align:justify;
+	font-weight:bold;
+}
+
+
+
+div#txtRAJ{
+	width:175px;
+	height:120px;
+	border:2px solid #F39C17;
+}
+
+div#txtRAJjunior{
+	width:175px;
+	height:120px;
+	border:2px solid #F39C17;
+}
+
+div#txtRAJcampus{
+	width:175px;
+	height:120px;
+	border:2px solid #F39C17;
+}
+
+div#txtRAJplus{
+	width:175px;
+	height:120px;
+	border:2px solid #F39C17;
+}
+
+div#txtD2C{
+	width:175px;
+	height:120px;
+	border:2px solid #A8C73B;
+}
+
+div#txtAA{
+	width:175px;
+	height:120px;
+	text-align:center;
+	border:2px solid #9F3B8A;
+}
+
+
+/* EFFETS SUR LES CARRES */
+div.floated {
+	width: 400px;
+	float: left;
+	margin-left: 1em;
+}
+
+div#myElementD2C {
+	margin-top:-3px;
+	margin-left:-3px;
+	width:173px;
+	height:135px;
+	background:url(../img/carres/carrevertD2C.png) no-repeat;
+	position:absolute;
+}
+
+div#txtD2C {
+	width:147px;
+	height:112px;
+	margin-left:2px;
+	margin-top:3px;
+	padding:5px;
+}
+
+
+div#myElementAA {
+	margin-top:-3px;
+	margin-left:-1px;
+	width:165px;
+	height:130px;
+	background:url(../img/carres/carrevioletAA.png) no-repeat;
+	position:absolute;
+}
+
+div#txtAA {
+	width:147px;
+	height:110px;
+	margin-left:3px;
+	margin-top:3px;
+	padding:5px;
+}
+
+
+div#myElementRAJ {
+	margin-top:-3px;
+	margin-left:-2px;
+	width:172px;
+	height:136px;
+	background:url(../img/carres/carreorangeraj.png) no-repeat;
+	position:absolute;
+}
+
+div#txtRAJ {
+	width:146px;
+	height:112px;
+	margin-left:3px;
+	margin-top:2px;
+	padding:5px;
+}
+
+div#myElementRAJjunior {
+	margin-top:-3px;
+	margin-left:-2px;
+	width:172px;
+	height:135px;
+	background:url(../img/carres/carrerajjunior.png) no-repeat;
+	position:absolute;
+}
+
+div#txtRAJjunior {
+	width:146px;
+	height:112px;
+	margin-left:3px;
+	margin-top:2px;
+	padding:5px;
+}
+
+div#myElementRAJcampus{
+	margin-top:-3px;
+	margin-left:-2px;
+	width:172px;
+	height:135px;
+	background:url(../img/carres/carrerajcampus.png) no-repeat;
+	position:absolute;
+}
+
+div#txtRAJcampus{
+	width:146px;
+	height:112px;
+	margin-left:3px;
+	margin-top:2px;
+	padding:5px;
+}
+
+div#myElementRAJplus{
+	margin-top:-3px;
+	margin-left:-2px;
+	width:172px;
+	height:135px;
+	background:url(../img/carres/carrerajplus.png) no-repeat;
+	position:absolute;
+}
+
+div#txtRAJplus{
+	width:146px;
+	height:112px;
+	margin-left:3px;
+	margin-top:2px;
+	padding:5px;
+}
+
+div#myElementWAG{
+	margin-top:-3px;
+	margin-left:-3px;
+	width:173px;
+	height:135px;
+	background:url(../img/carres/carreWAG.png) no-repeat;
+}
+
+
+/* FIN EFFETS SUR LES CARRES */
+
+
+.titre{
+	font-weight:bold;
+	font-size:15pt;
+	color:black;
+	font-family:Arial;
+	margin-top:10px;
+}
+
+.contenuText{
+	font-family:Arial;
+	font-size:11pt;
+	font-weight:normal;
+	text-indent:30px;
+	width:300px;
+}
+
+.imgDrapeau{border:1px solid black;width:25px;height:17px;cursor:pointer;}
+.divLien{margin-top:50px;}
+.lien{font-weight:bold;font-size:18pt;text-decoration:none;}
+
+#menuLateral a{
+	text-decoration:none;
+	color:black;
+}
+
+#menuLateral{
+	float:left;
+	font-size:15pt;
+	font-weight:bold;
+	padding-top:120px;
+	width:200px;
+}
+a{outline:none}

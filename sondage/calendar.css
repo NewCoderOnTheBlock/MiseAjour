@@ -1,0 +1,29 @@
+.ctx         {border-left:3px solid #003366; border-right:3px solid #000000; border-top:3px solid #003366; border-bottom:3px solid #000000;
+              position:absolute; text-align:left; font-family: Arial; font-size:10pt; background-color:#336699;
+              color:#FFFFFF; visibility:hidden; font-style:normal; font-variant:normal; font-weight:bold; outset; white-space: nowrap}
+.ctxl        {padding-left:15px; padding-right:10px}
+.ctxl2       {padding-left:15px; padding-right:10px; background-color:highlight; color:#003366}
+
+.calh        {background-color: #336699; color:#FFFFFF; font-family: Arial; font-size:8pt; text-align:center; font-weight:bold}
+.calh .sel   {background-color: #003366; color:#ffcc00; cursor:pointer}
+.calh td     {color:#ffffff}
+
+.calm        {background-color: #5588bb; color:#FFFFFF; font-family: Arial; font-size:8pt; text-align:center}
+.calm .sel   {background-color: #003366; color:#ffcc00; font-weight:bold; cursor:pointer}
+.calm td     {color:#ffffff}
+
+.caly        {background-color: #5588bb; color:#FFFFFF; font-family: Arial; font-size:8pt; text-align:center}
+.caly .sel   {background-color: #003366; color:#ffcc00; font-weight:bold; cursor:pointer}
+.caly td     {color:#ffffff}
+
+.cal         {background-color: #336699; color:#FFFFFF; font-family: Arial; font-size:8pt; text-align:center}
+.cal .pas    {background-color: #ddddcc; color:#336699; font-family: Arial; font-size:8pt; text-align:center}
+.cal .tod    {background-color: #336699; color:#ffcc00; font-family: Arial; font-size:8pt; text-align:center; font-weight:bold}
+.cal .sel    {background-color: #003366; color:#ffcc00; cursor:pointer; font-weight:bold}
+.cal .selpas {background-color: #aaaa99; color:#ffcc00; cursor:pointer; font-weight:bold}
+.cal .seltod {background-color: #ffcc00; color:#003366; cursor:pointer; font-weight:bold}
+
+#cal         {visibility:hidden}
+
+img.but      {width:16; height:16; cursor:pointer}
+img.but_cal  {width:16; height:14; cursor:pointer}

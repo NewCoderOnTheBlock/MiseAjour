@@ -1,0 +1,176 @@
+<include tpl="aeroport/include.html" />
+
+<div class="row">	
+	<!-- TARIFS -->
+	
+	<h3 class="titre_tarifs">{TITRE}</h3>
+	
+	<div class="tarifs row">
+		<p style="padding:0 35px;margin-top:20px;">{TARIF_BASE}</p>
+		<div class="liste_tarifs col-xs-12 col-sm-6 col-md-6">	
+			<block name="tarifs">
+				<div class="col-xs-6 col-sm-6 col-md-3 bloc_tarif {tarifs.SELECTIONNE}" onclick="changerTarifs(this,{tarifs.ID})">
+					<div class="col-xs-12 col-sm-12 col-md-12 bloc_tarif_nom">
+						{tarifs.NOM}
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 bloc_tarif_prix">
+						{tarifs.PRIX_PERSONNE_SIMPLE} €
+					</div>
+				</div>				
+			</block>
+		</div>
+		
+		<div class="info_tarifs col-xs-12 col-sm-6 col-md-6">
+			<block name="tarifs">
+				<div class="info_tarifs_nom col-xs-12 col-sm-12 col-md-12" id="info_tarifs_nom_{tarifs.ID}" style="display:{tarifs.DISPLAY};">
+					<div class="col-xs-12 col-sm-12 col-md-6" style="padding:10px 0;"><span style="text-transform:uppercase;font-weight:bold;">{tarifs.NOM}</span><br><a href="pratique.php?id={tarifs.ID}" style="font-size:10px;text-decoration:underline;">{INFOS_PRATIQUES}</a></div>
+					<div class="col-xs-12 col-sm-12 col-md-6" style="text-align:right;padding:10px 0;"><span style="font-weight:bold;">{tarifs.PRIX_PERSONNE_SIMPLE} €</span><br><span class="info_tarifs_petit">{A_PARTIR_DE}</span></div>
+				</div>
+				<div class="info_tarifs_forfait col-xs-12 col-sm-12 col-md-12" id="info_tarifs_forfait_{tarifs.ID}" style="display:{tarifs.DISPLAY};">
+					<div class="info_tarifs_forfait_tarif col-xs-12 col-sm-12 col-md-12">
+						<p>{TARIF}</p>
+						<ul class="col-xs-6 col-sm-8 col-md-8">
+							<li>{TARIF} {PAR_PASSAGER}</li>
+						</ul>
+						<p class="col-xs-6 col-sm-4 col-md-4" style="text-align:right;padding-right:0;">{tarifs.PRIX_PERSONNE_SIMPLE} €<br><span class="info_tarifs_petit">{A_PARTIR_DE}</span></p>
+					</div>
+					<div class="info_tarifs_forfait_min col-xs-12 col-sm-12 col-md-12">
+						<p>{FORFAIT_MINI}</p>
+						<ul class="col-xs-6 col-sm-8 col-md-8">
+							<li>{EXPLI_FORFAIT_MIN_1}{tarifs.PERSONNE} {EXPLI_FORFAIT_MIN_2}</li>
+						</ul>
+						<p class="col-xs-6 col-sm-4 col-md-4" style="text-align:right;padding-right:0;">{tarifs.FORFAIT_SIMPLE} €<br><span class="info_tarifs_petit">{TRAJET_ALLER_SIMPLE}</span></p>
+					</div>
+				</div>
+			</block>
+			<div class="info_tarifs_forfait_options col-xs-12 col-sm-12 col-md-12">
+				<p>{OPTIONS}</p>
+				<ul class="col-xs-12 col-sm-12 col-md-6">
+					<li>{TXT_PRISE_EN_CHARGE}</li>
+				</ul>
+				<p class="col-xs-6 col-sm-6 col-md-3" style="padding-left:0;padding-right:5px;border-right:1px solid #EFEFEF;text-transform:none;">10 €<br>Strasbourg</p>
+				<p class="col-xs-6 col-sm-6 col-md-3" style="text-align:right;padding:0;text-transform:none;">1.1 € / km<br>{HORS} Strasbourg<br><span class="info_tarifs_petit">{A_PARTIR_DE_STRASBOURG}</span></p>
+				<ul class="col-xs-8 col-sm-8 col-md-8">
+					<li>{TXT_HORAIRES_DEMANDE}<br><a href="horaires.php" style="margin-left:1.6em;color:#45B3C8;">{LIEN_HORAIRES}</a></li>
+				</ul>
+				<p class="col-xs-4 col-sm-4 col-md-4" style="text-align:right;padding-right:0;text-transform:none;">16 €</p>
+			</div>
+			
+			<div class="info_tarifs_forfait_services col-xs-12 col-sm-12 col-md-12">
+				<p>{SERVICES}</p>
+				<ul class="col-xs-8 col-sm-9 col-md-8">
+					<li>{TXT_SERVICE_NUIT}</li>
+				</ul>
+				<p class="col-xs-4 col-sm-3 col-md-4" style="text-align:right;padding-right:0;">14 €</p>
+				<ul class="col-xs-8 col-sm-9 col-md-8">
+					<li>{TXT_DERNIERE_MINUTE_72}</li>
+				</ul>
+				<p class="col-xs-4 col-sm-3 col-md-4" style="text-align:right;padding-right:0;">7 €</p>
+				<ul class="col-xs-8 col-sm-9 col-md-8">
+					<li>{TXT_DERNIERE_MINUTE_24}</li>
+				</ul>
+				<p class="col-xs-4 col-sm-3 col-md-4" style="text-align:right;padding-right:0;">14 €</p>
+				<ul class="col-xs-8 col-sm-9 col-md-8">
+					<li>{TXT_SERVICE_ATTENTE}</li>
+				</ul>
+				<p class="col-xs-4 col-sm-3 col-md-4" style="text-align:right;padding-right:0;text-transform:none;">10 € / 30min</p>
+			</div>
+			<block name="tarifs">
+				<div class="col-xs-12 col-sm-6 col-md-6 info_tarifs_rass" id="info_tarifs_rass_{tarifs.ID}" style="text-align:center;background-color:white;padding-top:10px;padding-bottom:10px;display:{tarifs.DISPLAY}">
+					<p><a href="pratique.php?id={tarifs.ID}#infos_pratiques_rass_{tarifs.ID}" style="text-transform:none;color:#45B3C8;"><img src="images/picto/camion.png" style="margin-bottom:10px;"><br>{LIEU_RASSEMBLEMENT}</a></p>
+				</div>
+			</block>
+			<div class="col-xs-12 col-sm-6 col-md-6" style="text-align:center;background-color:white;padding-top:10px;padding-bottom:10px;">
+				<p><a href="" style="text-transform:none;color:#45B3C8;"><img src="images/picto/avion.png" style="margin-bottom:10px;"><br>{INFOS_VOLS}</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function changerTarifs(e,id) {
+		var info_tarifs_nom = document.getElementById('info_tarifs_nom_'+id);
+		var info_tarifs_forfait = document.getElementById('info_tarifs_forfait_'+id);
+		var info_tarifs_rass = document.getElementById('info_tarifs_rass_'+id);
+		
+		var bloc_tarif_selectionne = document.querySelector('.liste_tarifs .bloc_tarif_selectionne');
+		if (bloc_tarif_selectionne != undefined)
+		{
+			bloc_tarif_selectionne.className = bloc_tarif_selectionne.className.replace('bloc_tarif_selectionne','');
+		}
+		
+		e.className = e.className + ' bloc_tarif_selectionne';
+		
+		var tab_info_tarifs_nom = document.querySelectorAll('.tarifs .info_tarifs .info_tarifs_nom');
+		
+		var trouve = false;
+		var info_tarifs_nom_ouvert;
+		var i = 0;
+		while(!trouve && i < tab_info_tarifs_nom.length)
+		{
+			var elem = tab_info_tarifs_nom[i];
+			if (elem.style.display == 'block')
+			{
+				info_tarifs_nom_ouvert = elem;
+				trouve = true;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		var tab_info_tarifs_forfait = document.querySelectorAll('.tarifs .info_tarifs .info_tarifs_forfait');
+		
+		var trouve = false;
+		var tab_info_tarifs_forfait_ouvert;
+		var i = 0;
+		while(!trouve && i < tab_info_tarifs_forfait.length)
+		{
+			var elem = tab_info_tarifs_forfait[i];
+			if (elem.style.display == 'block')
+			{
+				info_tarifs_forfait_ouvert = elem;
+				trouve = true;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		
+		var tab_info_tarifs_rass = document.querySelectorAll('.tarifs .info_tarifs .info_tarifs_rass');
+		
+		var trouve = false;
+		var info_tarifs_rass_ouvert;
+		var i = 0;
+		while(!trouve && i < tab_info_tarifs_rass.length)
+		{
+			var elem = tab_info_tarifs_rass[i];
+			if (elem.style.display == 'block')
+			{
+				info_tarifs_rass_ouvert = elem;
+				trouve = true;
+			}
+			else
+			{
+				i++;
+			}
+		}
+		
+		info_tarifs_nom_ouvert.style.display = 'none';
+		info_tarifs_forfait_ouvert.style.display = 'none';
+		info_tarifs_rass_ouvert.style.display = 'none';
+		
+		info_tarifs_nom.style.display = 'block';
+		info_tarifs_forfait.style.display = 'block';
+		info_tarifs_rass.style.display = 'block';
+		
+		if (window.outerWidth < 767 || window.clientWidth < 767) 
+		{
+			$('html, body').animate({scrollTop: $("#"+info_tarifs_nom.id).offset().top
+				}, "slow");
+		}
+	}
+</script>
+
+<include tpl="footer.html" />

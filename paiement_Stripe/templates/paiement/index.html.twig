@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coucou !
+{% endblock %}
+
+{% block body %}
+
+    <section class="paiements">
+
+        {% for paiement in reservation %}
+            <paiement>
+                <h2>Réservation n°: {{paiement.id}}</h2>
+                <div class="metadata">Fait le {{paiement.createdAt | date('d/m/Y')}} à {{paiement.createdAt | date('H:i')}}</div>
+                <div class="content">
+                    <img alt="" src="https://placehold.it/350x150">
+                    <p>Est-ce que vous avez conscience que j'ai de menues responsabilités au sein de ce gouvernement qui me tiennent relativement éloigné des problèmes de répartition des piaules ?</p>
+                    <a href="{{ path('paiement_show',{'id': paiement.id})}}" class="btn btn-primary">Plus de détail</a>
+                </div>
+            </paiement>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+

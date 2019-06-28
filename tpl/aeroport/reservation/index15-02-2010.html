@@ -1,0 +1,660 @@
+/**************************
+
+Nom du fichier : index.html
+
+Objectif :   Template du fichier Page de reservation numero 4 sur 5 du site alsace navette
+
+Derniere modification : 11-02-2010 MARC CESCUTTI 
+
+****************************/
+
+<include tpl="aeroport/include.html" />
+
+<div id="contenu">
+
+	<include tpl="aeroport/ariane.html" />
+
+    
+    <h1>{RECAPITULATIF}</h1>
+    
+    <br />
+    
+    <h2>{TITRE_TRAJET}</h2>
+    
+    
+    <table class="calc1" style="margin-left:37px" cellpadding="0" cellspacing="0">
+    	<tr class="bg_table2">
+        	<th colspan="3">{TITRE_MON_TRAJET}</th>
+        </tr>
+        <tr>
+            <td style="width:231px;padding:3px 0 3px 10px;">
+                <span><strong>{TYPE_TRAJET} :</strong> {TXT_TYPE_TRAJET}</span>
+            </td>
+            <td style="width:232px;padding:3px 0 3px 0;">
+                <span><strong>{TRAJET_DEPART} :</strong> {TXT_TRAJET_DEPART}</span>
+            </td>
+            <td style="width:231px;padding:3px 3px 3px 0;">
+                <span><strong>{TRAJET_ARRIVE} :</strong> {TXT_TRAJET_ARRIVE}</span>
+            </td>
+        </tr>
+        
+     <if cond="{$TXT_INFO_COMPL} != ''">
+    
+        <tr class="calc1">
+            <td colspan="3" style="padding:3px 0 3px 10px;">
+                <span><strong>{INFO_COMPL} :</strong><br /> {TXT_INFO_COMPL}</span>
+            </td>
+        </tr>
+    </if>
+    
+    	<tr>
+        	<td colspan="3"><div class="bas_border_resa2"></div></td>
+        </tr>
+    
+    </table>
+    
+    <br />
+    
+    
+    <table style="margin-left:37px" cellpadding="0" cellspacing="0">
+        <tr>
+        	<th style="width:350px;" class="bg_table">{ALLER}</th>
+            
+            <if cond="{$TRAJET} == 0">
+            	<th style="width:350px;" class="bg_table">{RETOUR}</th>
+            </if>
+        </tr>
+        <tr>
+            <td class="calc">
+                
+                <br />
+                <span><strong>{DATE_DEPART} :</strong> {TXT_DATE_DEPART}</span>
+                
+                <br />
+                <span><strong>{HEURE_DEPART} :</strong> {TXT_HEURE_DEPART}</span>
+                
+                <br />
+                <span><strong>{PT_RASSEMBLEMENT} :</strong> {TXT_PT_RASS_ALLER}</span>
+                
+                <if cond="{$TXT_RASS_ADRESSE_ALLER} != ''">
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{ADRESSE_CLIENT} :</strong> {TXT_RASS_ADRESSE_ALLER}</span>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{CODE_POST_CLIENT} :</strong> {TXT_RASS_CP_ALLER}</span>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{VILLE_CLIENT} :</strong> {TXT_RASS_VILLE_ALLER}</span>
+                </if>
+                
+                <br />
+                <span><strong>{PASSAGER_ADULTE} :</strong> {TXT_PASSAGER_ADULTE_ALLER}</span>
+                
+                <if cond="{$TXT_PASSAGER_ENFANT_ALLER} > 0">
+                
+                    <br />
+                    <span><strong>{PASSAGER_ENFANT} :</strong> {TXT_PASSAGER_ENFANT_ALLER}</span>
+                    
+                </if>
+            
+                <br />
+                <span><strong>{INFO_VOL} :</strong> <br />
+                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{COMPAGNIE} : </strong>{COMPAGNIE_INFO_VOL_ALLER}
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{DEST_VOL} : </strong>{DEST_INFO_VOL_ALLER}
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{HEURE_VOL} : </strong>{HEURE_INFO_VOL_ALLER}
+                </span>
+                
+            </td>
+    
+            
+            <if cond="{$TRAJET} == 0">
+                
+            <td class="calc">
+                
+                <br />
+                <span><strong>{DATE_RETOUR} :</strong> {TXT_DATE_RETOUR}</span>
+                
+                <br />
+                <span><strong>{HEURE_RETOUR} :</strong> {TXT_HEURE_RETOUR}</span>
+        
+                <br />
+                <span><strong>{PT_RASSEMBLEMENT} :</strong> {TXT_PT_RASS_RETOUR}</span>
+            
+                <if cond="{$TXT_RASS_ADRESSE_RETOUR} != ''">
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{ADRESSE_CLIENT} :</strong> {TXT_RASS_ADRESSE_RETOUR}</span>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{CODE_POST_CLIENT} :</strong> {TXT_RASS_CP_RETOUR}</span>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>{VILLE_CLIENT} :</strong> {TXT_RASS_VILLE_RETOUR}</span>
+                </if>
+                
+                <br />
+                <span><strong>{PASSAGER_ADULTE} :</strong> {TXT_PASSAGER_ADULTE_RETOUR}</span>
+                
+                <if cond="{$TXT_PASSAGER_ENFANT_RETOUR} > 0">
+                
+                    <br />
+                    <span><strong>{PASSAGER_ENFANT} :</strong> {TXT_PASSAGER_ENFANT_RETOUR}</span>
+                    
+                </if>
+                
+                <br />
+                <span><strong>{INFO_VOL} :</strong> <br />
+                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{COMPAGNIE} : </strong>{COMPAGNIE_INFO_VOL_RETOUR}
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{DEST_VOL} : </strong>{DEST_INFO_VOL_RETOUR}
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{HEURE_VOL} : </strong>{HEURE_INFO_VOL_RETOUR}
+                </span>                
+         
+            </td>
+                
+            </if>
+
+        </tr>
+        <tr>
+        	<td><div class="bas_border_resa"></div></td>
+            
+            <if cond="{$TRAJET} == 0">
+            	<td><div class="bas_border_resa"></div></td>
+            </if>
+        </tr>
+    </table>
+   
+    <br />
+    
+    <table style="margin:auto;padding:auto;" cellpadding="0" cellspacing="0">
+        <tr>
+            <th style="width:350px;" class="bg_table">{TITRE_CLIENT}</th>
+            <th style="width:350px;" class="bg_table">{TARIFS}</th>
+        </tr>
+        <tr>
+            <td class="calc2">
+    
+    			<br />
+                <span><strong>{CIVILITE} : </strong>{TXT_CIVILITE_CLIENT}</span>
+                <br />
+                <span><strong>{NOM_CLIENT} : </strong>{TXT_NOM_CLIENT}</span>
+                <br />
+                <span><strong>{PRENOM_CLIENT} : </strong>{TXT_PRENOM_CLIENT}</span>
+                <br />
+                <span><strong>{EMAIL} : </strong>{TXT_MAIL_CLIENT}</span>
+                
+                <if cond="{$TXT_TEL_CLIENT} != ''">
+                    
+                    <br />
+                    <span><strong>{TEL_CLIENT} : </strong>{TXT_IND_FIXE}{TXT_TEL_CLIENT}</span>
+                    
+                </if>
+                
+                <if cond="{$TXT_PORT_CLIENT} != ''">
+                
+                    <br />
+                    <span><strong>{PORT_CLIENT} : </strong>{TXT_IND_PORT}{TXT_PORT_CLIENT}</span>
+                    
+                </if>
+                
+                <if cond="{$TXT_ADRESSE_CLIENT} != ''">
+                
+                    <br />
+                    <span><strong>{ADRESSE_CLIENT} : </strong>{TXT_ADRESSE_CLIENT}</span>
+                    
+                </if>
+                
+                
+                <if cond="{$TXT_CODE_POST_CLIENT} != ''">
+                
+                    <br />
+                    <span><strong>{CODE_POST_CLIENT} : </strong>{TXT_CODE_POST_CLIENT}</span>
+                   
+                </if>
+                
+                <br />
+                <span><strong>{VILLE_CLIENT} : </strong>{TXT_VILLE_CLIENT}</span>
+                
+                <br />
+                <span><strong>{PAYS_CLIENT} : </strong>{TXT_PAYS_CLIENT}</span>
+                
+                
+                <if cond="{$TXT_AUTRE_PASSAGER} == 'oui' ">
+                
+           		<br /><br />    			
+    			<span><strong>{TITRE_AUTRE_PASSAGER} </strong></span>
+    			
+        		<br />
+                <span><strong>{NOM_AUTRE_PASSAGER} : </strong>{TXT_NOM_AUTRE_PASSAGER}</span>
+                
+                <br />
+                <span><strong>{INDICATIF_TEL_AUTRE_PASSAGER} : </strong>{TXT_INDICATIF_TEL_AUTRE_PASSAGER}</span>
+                
+                <br />
+                <span><strong>{TEL_PORT_AUTRE_PASSAGER} : </strong>{TXT_TEL_PORT_AUTRE_PASSAGER}</span>
+                
+        		
+    			</if>
+                
+                
+            </td>
+            <td class="calc2">
+
+                <if cond="{$TRAJET} == 0"> /* si allez-retour */
+
+                    <span class="mev"><i><strong>{ALLER}</strong></i></span>
+                    <br />
+                    <br />
+                    
+                    <if cond="{$TXT_NB_PASSAGER_ALLER} >= {$TXT_FORFAIT_MINI_ALLER}">
+                
+                        <span><strong>{TARIFS_XX_PERSONNE_ALLER} : </strong>{TXT_COUT_TRAJET_ALLER} € ({COUT_PAR_PERSONNE_ALLER} € / {PERSONNE})</span>
+                        
+                    <else />
+                    
+                        <span><strong>{COUT_TRAJET_BASE} : </strong>{TXT_COUT_TRAJET_ALLER} € ({FORFAIT_MINI})</span>
+                    
+                    </if>
+                    
+                    <if cond="{$TXT_SURCOUT_ALLER} != ''">
+                        
+                        <br />
+                       	<span><strong>{SURCOUT_DEMANDE} : </strong>{TXT_SURCOUT_ALLER} €</span>
+                            
+                   	</if>
+                    
+                    <if cond="{$DOMICILE_ALLER}">
+            
+                        <br />
+                        <span><strong>{PRISE_DOMICILE} : </strong>{PRIX_PRISE_ALLER} €</span>
+                        
+                    </if>
+                        
+                    <br />
+                    <br />
+                    <span class="mev"><i><strong>{RETOUR}</strong></i></span>
+                    <br />
+                    <br />
+                    
+                    <if cond="{$TXT_NB_PASSAGER_RETOUR} >= {$TXT_FORFAIT_MINI_RETOUR}">
+                        
+                        <span><strong>{TARIFS_XX_PERSONNE_RETOUR} : </strong>{TXT_COUT_TRAJET_RETOUR} € ({COUT_PAR_PERSONNE_RETOUR} € / {PERSONNE})</span>
+                        
+                    <else />
+                    
+                        <span><strong>{COUT_TRAJET_BASE} : </strong>{TXT_COUT_TRAJET_RETOUR} € ({FORFAIT_MINI})</span>
+                    
+                    </if>
+                    
+                    <if cond="{$TXT_SURCOUT_RETOUR} != ''">
+                        
+                        <br />
+                       	<span><strong>{SURCOUT_DEMANDE} : </strong>{TXT_SURCOUT_RETOUR} €</span>
+                            
+                   	</if>
+                    
+                    <if cond="{$DOMICILE_RETOUR}">
+                
+                        <br />
+                        <span><strong>{DEPOSE_DOMICILE} : </strong>{PRIX_PRISE_RETOUR} €</span>
+                        
+                    </if>
+                    
+                <else /> /* allez simple */
+                
+                    <if cond="{$TXT_NB_PASSAGER_TOT} >= {$TXT_FORFAIT_MINI_ALLER}">
+                        
+                        <span><strong>{TARIFS_XX_PERSONNE} : </strong>{TXT_COUT_TRAJET_ALLER} € ({COUT_PAR_PERSONNE_ALLER} € / {PERSONNE})</span>
+                        
+                    <else />
+                    
+                        <span><strong>{COUT_TRAJET_BASE} : </strong>{TXT_COUT_TRAJET_ALLER} € ({FORFAIT_MINI})</span>
+                    
+                    </if>
+                    
+                    <if cond="{$TXT_SURCOUT_ALLER} != ''">
+                        
+                        <br />
+                       	<span><strong>{SURCOUT_DEMANDE} : </strong>{TXT_SURCOUT_ALLER} €</span>
+                            
+                   	</if>
+                    
+                    <if cond="{$DOMICILE_ALLER}">
+                
+                        <br />
+                        <span><strong>{PRISE_DOMICILE} : </strong>{PRIX_PRISE_ALLER} €</span>
+                            
+                    </if>
+                    
+                </if>
+                
+                <br />
+                
+                <if cond="{$DERNIERE_MINUTE_72}">
+                
+                    <br />
+                    <span><strong>{RES_DER_MIN_72} : </strong>{TXT_DER_MIN_72} €</span>
+                    
+                <elseif cond="{$DERNIERE_MINUTE_24}" />
+                
+                    <br />
+                    <span><strong>{RES_DER_MIN_24} : </strong>{TXT_DER_MIN_24} €</span>
+                    
+                </if>
+                
+                <br /><br />
+               
+                <span><strong style="font-size:1.2em;"><u>{PRIX_TOTAL} : {TXT_PRIX_TOTAL} €</u></strong></span>
+                
+                <br />
+                
+				
+                <if cond="{$ON_A_ATTENDU}">
+                
+                	<br />
+                	<span><strong style="font-size:1.2em;"><u>{PRIX_A_PAYER} : {TXT_MNT_A_PAYER} €</u></strong></span>
+                    <br />
+                    
+                </if>
+                
+				
+                <br />
+            </td>
+        </tr>
+        
+        <tr>
+        	<td><div class="bas_border_resa"></div></td>
+            <td><div class="bas_border_resa"></div></td>
+        </tr>
+    </table>
+    
+    <br />
+    
+    
+    <if cond="{$EST_ADMIN} == '0'">
+    
+    	<h4>{INFO_INCORRECT}</h4>
+    
+		<if cond="{$ENCRYPTED} != ''">
+
+			<br />
+
+            <if cond="{$ATTENDRE_ALLER}">
+                <strong>{JAI_ATTENDU_ALLER}</strong>
+                <br />
+            <elseif cond="{$ATTENDRE_RETOUR}" />
+                <strong>{JAI_ATTENDU_RETOUR}</strong>
+                <br />
+            </if>
+
+            <br />
+
+
+
+            <table class="calc1" style="margin-left:37px" cellpadding="0" cellspacing="0">
+                <tr class="bg_table2">
+                    <th colspan="3">{MODE_DE_PAIEMENT}</th>
+                </tr>
+
+                <if cond="{$PROFESSIONNEL} == 0">
+                    <tr>
+                        <td colspan="2" style="text-align:center"><strong>{INFO_MODE_PAIEMENT}</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width:347px;padding:3px 0 3px 10px;">
+
+                            <if cond="{$ACTIVE_PAYPAL}">
+                                <form action="https://www.paypal.com/fr/cgi-bin/webscr" method="post">
+                                    <div class="centre">
+                                        <input type="hidden" name="cmd" value="_s-xclick" />
+                                        <input type="hidden" name="encrypted" value="{ENCRYPTED}" />
+                                        <input type="image" src="images/payer.png" name="submit" alt="{ALT_PAYPAL}" />
+                                        <br />
+                                        <input type="image" src="images/carte_paypal.png" name="submit" alt="Carte Paypal" />
+                                    </div>
+                                </form>
+                            </if>
+
+                        </td>
+
+                        <td style="width:347px;padding:3px 3px 3px 0;">
+
+                            <if cond="{$ACTIVE_CA}">
+                                <form action="reservation/envoie_ca.php" method="post">
+                                    <div class="centre">
+                                        <input type="hidden" name="paiement_ca" value="{ENCRYPTED_CA}" />
+                                        <input type="image" src="images/credit_agricole.gif" alt="e-transaction" name="bouton_paiement" />
+                                        <br />
+                                        <input type="image" src="images/carte_paybox.png" alt="Carte e-transaction" style="width:50%;" />
+                                    </div>
+                                </form>
+                            </if>
+
+                        </td>
+
+                    </tr>
+                <else />
+                    <tr>
+                        <td colspan="2" style="width:694px; padding:6px 3px 6px 10px">
+                            <span>{JESUISPRO}</span>
+                            <form method="post" action="reservation/confirmation.html">
+                                <p class="centre">
+                                    <input type="hidden" name="res_4" />
+                                    <input type="submit" value="{BTN_CONFIRMATION}" />
+                                </p>
+                            </form>
+                        </td>
+                    </tr>
+                </if>
+                <tr>
+                    <td colspan="3"><div class="bas_border_resa2"></div></td>
+                </tr>
+
+            </table>
+            <br />
+			
+		<else />
+		
+			<if cond="{$IS_DER_MIN} != '0'">
+				<br />
+                <strong>{TXT_DER_MIN}</strong>
+                <br />
+            </if>
+
+            <if cond="{$ON_A_ATTENDU}">
+                <br />
+                <strong>{JAI_ATTENDU}</strong>
+                <br />
+            </if>
+            
+            <br /><br />
+
+            <if cond="{$PROFESSIONNEL} != 0">
+                 <strong>{JESUISPRO}</strong>
+                 <br /><br />
+            </if>
+            
+            <span>{CONFIRMATION_RESA} :</span>
+            
+            <form method="post" action="reservation/confirmation.html">
+            	<p class="centre">
+                	<input type="hidden" name="res_4" />
+                	<input type="submit" value="{BTN_CONFIRMATION}" />
+                </p>
+            </form>
+		
+		</if>
+
+		
+    <else />
+    	
+        <fieldset>
+        	<legend>Options pour la saisie manuelle</legend>
+            
+             <form method="post" action="reservation/res_manuelle.html">
+             
+                <p>
+                    <input type="checkbox" name="avertir_client" id="avertir_client" checked="checked" />
+                    <label for="avertir_client">Envoyer les mails de réservation au client</label>
+                </p>
+                
+                <p>
+                	<label for="lst_der_min">Réservation de dernière minute : </label>
+                    <select name="lst_der_min" id="lst_der_min">
+                    	
+                        <if cond="{$TYPE_RES_DER_MIN} == ''">
+                        
+                            <option value="" selected="selected">Non</option>
+                            <option value="24">- 24h</option>
+                            <option value="72">- 72h</option>
+                            
+                        <elseif cond="{$TYPE_RES_DER_MIN} == '24'" />
+                        
+                        	<option value="">Non</option>
+                            <option value="24" selected="selected">- 24h</option>
+                            <option value="72">- 72h</option>
+                        
+                        <else />
+                        
+                        	<option value="">Non</option>
+                            <option value="24">- 24h</option>
+                            <option value="72" selected="selected">- 72h</option>
+                            
+                        </if>
+                        
+                    </select>
+                </p>
+                
+                <div style="width:50%;float:left">
+
+                    <span class="mev"><i><strong>Aller</strong></i></span>
+
+                    <p>
+                        <if cond="{$A_PAYER_ALLER}">
+                            <input type="checkbox" id="a_payer_aller" name="a_payer_aller" checked="checked" />
+                        <else />
+                            <input type="checkbox" id="a_payer_aller" name="a_payer_aller" />
+                        </if>
+                        <label for="a_payer_aller">Considérer comme payé</label>
+                    </p>
+                    
+                        <p>
+                            <label for="mode_de_paiement">Mode de paiement  </label>
+                            <select name="mode_de_paiement" id="mode_de_paiement">
+                                
+                                                           
+                                    <option value="Espece" selected="selected">Espece</option>
+                                    <option value="Cheque" > Cheque </option>
+                                    
+                           
+                                
+                            </select>                
+                        </p>                    
+
+                    <p>
+                        <label for="nv_prix_aller">Changer le prix du trajet de l'<u>aller</u> : </label>
+                        <input type="text" name="nv_prix_aller" id="nv_prix_aller" value="{TXT_TOTAL_ALLER}" size="3" />
+                        €
+                    </p>
+
+                    <if cond="{$BOOL_NAVETTE_DEMANDE} != '0'">
+                    
+                        <p>
+                            <label for="lst_nv_fixe_aller">Navette à la demande pour l'<u>aller</u> (+ {TARIF_MAJ_DEMANDE} €) ?</label>
+                            <select name="lst_nv_fixe_aller" id="lst_nv_fixe_aller">
+                                
+                                <if cond="{$BOOL_NV_DEMANDE_ALLER} == '1'">
+                                
+                                    <option value="0" selected="selected">Non</option>
+                                    <option value="1">Oui</option>
+                                
+                                <else />
+                                
+                                	<option value="0">Non</option>
+                                    <option value="1" selected="selected">Oui</option>
+                                    
+                                </if>
+                                
+                            </select>                
+                        </p>
+                        
+                    </if>
+                    
+                    <p>
+                        <label for="nv_supplement_aller">Changer le prix de la prise à domicile de l'<u>aller</u> : </label>
+                        <input type="text" id="nv_supplement_aller" name="nv_supplement_aller" value="{TXT_SUPPLEMENT_ALLER}" size="3" />
+                        €
+                    </p>
+                    
+                </div>
+
+                
+                <if cond="{$TRAJET} != 0">
+                    <div style="float:left;width:50%;visibility:hidden;">
+                <else />
+                    <div style="float:left;width:50%">
+                </if>
+
+                <span class="mev"><i><strong>Retour</strong></i></span>
+
+                <p>
+                    <if cond="{$A_PAYER_RETOUR}">
+                        <input type="checkbox" id="a_payer_retour" name="a_payer_retour" checked="checked" />
+                    <else />
+                        <input type="checkbox" id="a_payer_retour" name="a_payer_retour" />
+                    </if>
+                    <label for="a_payer_retour">Considérer comme payé</label>
+                </p>
+
+                <p>
+                    <label for="nv_prix_retour">Changer le prix du trajet du <u>retour</u> : </label>
+                    <input type="text" name="nv_prix_retour" id="nv_prix_retour" value="{TXT_TOTAL_RETOUR}" size="3" />
+                    €
+                </p>
+
+                <if cond="{$BOOL_NAVETTE_DEMANDE} != '0'">
+
+                    <p>
+                        <label for="lst_nv_fixe_retour">Navette à la demande pour le <u>retour</u> (+ {TARIF_MAJ_DEMANDE} €) ?</label>
+                        <select name="lst_nv_fixe_retour" id="lst_nv_fixe_retour">
+
+                            <if cond="{$BOOL_NV_DEMANDE_RETOUR} == '1'">
+
+                                <option value="0" selected="selected">Non</option>
+                                <option value="1">Oui</option>
+
+                            <else />
+
+                                <option value="0">Non</option>
+                                <option value="1" selected="selected">Oui</option>
+
+                            </if>
+
+                        </select>
+                    </p>
+
+                </if>
+
+                <p>
+                    <label for="nv_supplement_retour">Changer  le prix de la prise à domicile du <u>retour</u> : </label>
+                    <input type="text" id="nv_supplement_retour" name="nv_supplement_retour" value="{TXT_SUPPLEMENT_RETOUR}" size="3" />
+                    €
+                </p>
+                    
+                </div>
+
+				<p style="text-align:center">
+                	<input type="hidden" name="res_manuelle" />
+                    <input type="hidden" name="id_paypal" value="{ID_PAYPAL}" />
+                	<input type="submit" value="Confirmer" />
+                </p>
+
+            
+            </form>
+            
+            </fieldset>
+    </if>
+
+    
+</div>
+
+
+<include tpl="footer.html" />

@@ -1,0 +1,22 @@
+ATTENTION: Bien modifier la ligne DATABASE_URL présent dans .env pour la faire correspondre à votre base de donnée.
+
+Git: https://github.com/schmittjoh/JMSPaymentCoreBundle
+
+Faire cette ligne de commande avant d'installer le package de base: composer require symfony/orm-pack
+Créer un fichier payement.yaml dans le dossier packages qui est contenu dans le dossier config.
+
+Aide : https://www.bountysource.com/teams/jmspaymentcorebundle/issues
+
+
+Documentation fichier de base du paiement paypal :https://jmspaymentcorebundle.readthedocs.io/en/stable/setup.html
+
+à ajouter dans config/packages/payement.yaml:
+jms_payment_paypal:
+    username: your_api_username # not your account username
+    password: your_api_password # not your account password
+    signature: your_api_signature
+Nécessite d'avoir un compte paypal professionnel pour avoir ces informations.
+Documentation pour récupérer les informations nécessaires:https://www.paypal.com/fr/smarthelp/article/comment-demander-des-identifiants-de-signature-ou-de-certificat-d%27api--faq3196
+
+
+documentation pour installer le plugin paypal:https://jmspaymentpaypalbundle.readthedocs.io/en/stable/setup.html

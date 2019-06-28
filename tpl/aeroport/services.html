@@ -1,0 +1,93 @@
+<include tpl="aeroport/include.html" />
+
+<div id="contenu_v2">
+    
+	<!-- Publicité  -->
+	<div class='colonneDroite_2c'>
+		<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>...</span>
+		</div>
+		<div class='contenuBloc_2c_h400'>
+			<div class='formulaire_2c_petit'>
+			 
+			</div>
+		</div>
+	</div>
+	
+	<!-- CONTENU -->
+	
+	<div class='colonneCentre_2c'>
+		<div class='titreCentre_2c'>
+			<span class='txt_titre_colonne_2c'>{TITRE}</span>
+		</div>
+		<div class='contenuCentre_2c_infini'>
+				
+			<if cond="{$TYPE} == 'TOUS'">
+				
+				<div style="padding:5px 5px 15px 20px;">{CONTENU}</div>
+
+					<block name="tab_partner">
+						
+						<div>
+							<div class="blocFondVioletTotal">{tab_partner.TITRE}</div>
+							
+							<br /><br />
+							
+							<table style="border:none;width:100%;">
+							
+								<tr>
+									<td style="width:50%;text-align:center;">
+										<a href="{tab_partner.LIEN}"><img src="images/{tab_partner.IMAGE}" alt="" style="height:60px" /></a>
+									</td>
+									<td style="width:50%;">
+										<strong><a href="{tab_partner.LIEN}">{tab_partner.LIEN}</a></strong>
+										<br /><br />
+										<a href="partenaires-p{tab_partner.ID}.html">{VOIR_LE_DETAIL}</a>
+									</td>
+								</tr>
+								
+							</table>
+							
+							<br /><br />
+							
+						</div>
+
+					</block>
+
+			<else />
+
+				<span style="float:right"><a href="partenaires-p{PARTNER_SUIVANT}.html">{SUIVANT}</a></span>
+				<span><a href="partenaires-p{PARTNER_PRECEDENT}.html">{PRECEDENT}</a></span>
+
+				<br />
+				<br />
+				<p>
+					<strong>{NOM} :</strong> {TITREE}
+				</p>
+
+				<p>
+					<strong>{LIEN} :</strong> <a href="{LIENN}">{LIENN}</a>
+				</p>
+
+				<p>
+					<strong>{DESCRIPTION} :</strong> {TEXT}
+				</p>
+
+				<br />
+				<p style="text-align:center">
+					<img src="images/{IMAGE}" alt="" />
+				</p>
+
+
+			</if>
+			
+			<br />
+			
+		</div>
+		
+	</div>
+        
+</div>
+
+
+<include tpl="footer.html" />

@@ -1,0 +1,309 @@
+@charset "utf-8";
+
+#div_service {
+	text-align: center;
+}
+
+#div_service .row {
+	margin:0;
+}
+
+div.shopping > div:last-of-type, div.airport > div:last-of-type{
+	background: transparent;
+	color: white;
+	cursor: pointer;
+	display: table;
+	width: 100%;
+	opacity: 0;
+	position:absolute;
+	top:60px;
+	padding-left:0;
+	padding-right:30px;
+}
+
+div.shopping:hover > div:last-of-type, div.airport:hover > div:last-of-type  {
+	opacity:1;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;
+}
+
+div.shopping:hover > img, div.airport:hover > img {
+	opacity:0.2;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;
+}
+
+div.airport, div.shopping {
+	margin-bottom:40px;
+}
+
+div.airport div, div.shopping div {
+	background-color:white;
+}
+
+div.airport > div:first-of-type, div.shopping > div:first-of-type {
+	padding-top:5px;
+	padding-bottom:10px;
+}
+
+div.airport > div:last-of-type, div.shopping > div:last-of-type {
+	height:350px;
+}
+
+#div_service main.row {
+	margin:auto 10%;
+	padding-top:20px;
+}
+
+#div_service footer.row {
+	margin:auto 10%;
+	margin-top:30px;
+	margin-bottom:0;
+}
+
+div.shopping img, div.airport img {
+	width:150px;
+}
+
+div.airport h3, div.shopping h3 {
+	text-transform:uppercase;
+	font-weight:bold;
+	margin-top:100px;
+}
+
+div.airport > div > p, div.shopping  > div > p {
+	margin-bottom:20px;
+	padding:0;
+}
+
+div.airport > div:last-of-type p:last-of-type, div.shopping > div:last-of-type p:last-of-type {
+	display:inline-block;
+	font-weight:bold;
+}
+
+div.airport > div:last-of-type p:last-of-type, div.shopping > div:last-of-type p:last-of-type {
+	width:250px;
+	text-transform:uppercase;
+	margin:auto;
+	color:white;
+	height:40px;
+	line-height:40px;
+}
+
+div.airport a:hover, div.shopping a:hover {
+	color:white;
+	text-decoration:none;
+}
+
+div.airport > div:last-of-type p:last-of-type {
+	background-color:#00A0C3;
+}
+
+div.airport h3 {
+	color:#00A0C3;
+}
+
+div.shopping > div:last-of-type p:last-of-type {
+	background-color:black;
+}
+
+div.airport > div:last-of-type p:last-of-type:after, div.shopping > div:last-of-type p:last-of-type:after {
+	margin-left:5px;
+	content:'\27A4';
+}
+
+main.row .services p {
+	padding-top:20px;
+	text-transform:uppercase;
+	background-color:white;
+	padding-bottom:30px;
+}
+
+main.row .services > a:first-of-type img {
+	width:150px;	
+}
+
+main.row .services a {
+	text-decoration:none;
+	color:black;
+}
+
+main.row .services div > div {
+	padding-top:30px;
+	height:100px;
+	background-color:white;
+}
+
+main.row > div:last-of-type a {
+	text-transform:uppercase;
+	color:black;
+}
+
+.picto {
+	width:15px;
+	margin-bottom:3px;
+	margin-right:5px;
+}
+
+footer {
+	border-top:20px solid black;
+	padding-top:20px;
+	background-color:white;
+	font-family:Verdana, "Trebuchet MS", Arial, sans-serif;
+	font-size:0.8em;
+}
+
+footer div {
+	text-align:left;
+}
+
+footer > div  > div:nth-of-type(3) img {
+	margin-right:10px;
+	margin-bottom:2px;
+}
+
+footer > div > div:last-of-type > img {
+	width:100%;
+}
+
+footer a , footer a:hover, footer a:visited{
+	color:black;
+	font-size:1em;
+}
+
+footer .picto_footer {
+	width:20px;
+	margin-right:10px;
+}	
+
+@media (max-width:1199px) {
+	main.row .services div img, main.row .services > a:first-of-type img {
+		width:85%;
+	}
+	
+	main.row .services > a:nth-of-type(2) img {
+		width:auto;
+	}
+}
+
+@media (max-width:1050px) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		top:40px;
+	}
+}
+
+@media (max-width:990px) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		top:30px;
+	}
+}
+
+@media (max-width:930px) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		font-size:90%;
+	}
+}
+
+@media (max-width:885px) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		font-size:80%;
+	}
+}
+
+@media (max-width:767px) {
+	#div_service main.row, #div_service footer.row {
+		margin:0 2%;
+	}
+
+	#div_service footer.row {
+		margin:0 20px;
+	}
+	
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		font-size:100%;
+		opacity:1;
+		left:10%;
+	}
+	
+	div.shopping > img, div.airport > img {
+		opacity:0.2;
+	}
+	
+	main.row .services > a > div {
+		margin-bottom:40px;
+		padding-right:15px;
+	}
+	
+	main.row .services p {
+		position:static;
+		margin:auto;
+		padding-top:20px;
+	}
+	
+	main.row .services div:nth-of-type(2n) {
+		padding-right:0;
+	}
+	
+	main.row .services div img {
+		width:auto;
+	}
+	
+	main.row .services > a:first-of-type img {
+		width:150px;
+	}
+	
+	footer  > div > div:first-of-type {
+		text-align:center;
+	}
+	
+	footer > div  > div:nth-of-type(3), footer > div  > div:nth-of-type(4), footer > div  > div:last-of-type, footer > div:last-of-type > div:nth-of-type(2) {
+		margin-top:20px;
+	}
+	
+	footer > div:first-of-type > div {
+		margin-bottom:5px;
+	}
+}
+
+@media (max-width:400px) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		font-size:80%;
+	}
+}
+
+@media (max-width:340px) {
+	div.shopping > div:last-of-type p, div.airport > div:last-of-type p {
+		font-size:80%;
+	}
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	div.shopping > div:last-of-type, div.airport > div:last-of-type {
+		font-size:100%;
+		opacity:1;
+	}
+	
+	div.shopping > img, div.airport > img {
+		opacity:0.2;
+	}
+}
+
+table, td, tr {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+footer a , footer a:hover, footer a:visited{
+	color:black;
+}
+
+body {
+	background-color: #CCCCCC;
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+	font-size: 1.2em;
+}

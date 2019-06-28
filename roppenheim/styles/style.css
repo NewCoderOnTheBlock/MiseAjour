@@ -1,0 +1,206 @@
+/* ==============================================
+   FEUILLE DE STYLES DES GABARITS HTML/CSS --- 03
+   © Elephorm & Alsacreations.com
+   Conditions d'utilisation:
+   http://creativecommons.org/licenses/by/2.0/fr/
+   ============================================== */
+
+
+/* Général */
+body {
+	color: black;
+	background:#FD7014;
+}
+a {
+	color: #0194B5;
+	font-weight: bold;
+}
+a:hover, a:focus {
+	color: #89CBE6;
+}
+strong {
+	color: #FD7014;
+}
+th {
+	color: #B6C90C;
+}
+h1 {
+	text-align: center;
+	color:#0194B5;
+}
+h2 {
+	color:#FD7014;
+}
+
+/* Page */
+#global {
+	background: white;
+}
+
+/* Navigation */
+#navigation {
+	background: url(../images/background_navigation.png) no-repeat center top;
+}
+
+/* Contenu principal */
+#contenu {
+	color: black;
+	background: white;  
+	text-align: left; /* pour corriger le bug de centrage IE */
+}
+#contenu strong {
+	color: #FD7014
+}
+
+/* Pied de page */
+#pied {
+	color: #0194B5;
+}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+html, body {
+	height: 100%; /* Voir -> Note 1 ci-dessous */
+}
+body {
+	padding: 0;
+}
+#global {
+	width: 750px;
+	overflow: hidden; /* -> 2 */
+	margin-left: auto;
+	margin-right: auto; /* -> 3 */
+	border:solid #F2FF2B 1px;
+}
+
+/* En-tête */
+#entete {
+	
+}
+
+/* Menu de navigation */
+#navigation {
+	margin:4 0 0 0;
+	padding-bottom:15px;
+}
+
+#navigation table {
+	margin:auto auto auto auto;
+	border-spacing: 5px;
+}
+#navigation table tr td a{
+	padding: 6px;
+	text-decoration:none;
+	font-size: 0.9em;
+}
+#navigation table tr td:hover, #navigation table tr td:focus{
+	background: #009BB5;
+}
+#navigation table tr td{
+	background: #C6E6EC;
+	border:solid black 1px;
+	padding: 1 2 1 2;
+}
+
+/* Contenu */
+#contenu {
+	text-align:left;
+	padding: 10px 20px;
+}
+#contenu > :first-child {
+	margin-top: 10px;
+}
+#contenu p, #contenu li {
+	line-height: 1.5;
+}
+#contenu .table_spec{
+	border:solid black 1px;
+	border-collapse: collapse;
+}
+#contenu .table_spec th, td{
+	font-size:.8em;
+	border:solid black 1px;
+	padding: 1 20 1 20;
+	text-align:center;
+}
+/* Personnalisation des fieldset */
+#contenu .table_spec fieldset{
+	padding:10 10 10 10;
+	margin:10 10 10 10;
+}
+#contenu .table_spec fieldset legend{
+	color:black;
+}
+#contenu .table_reserv {
+	border:none;
+	width:100%;
+	border-spacing: 5px;
+}
+#contenu .table_reserv td{
+	border:none;
+	text-align:left;
+	font-size:.8em;
+	padding:2 2 2 2;
+	margin:2 2 2 2;
+}
+#contenu .table_reserv  th{
+	border:none;
+	text-align:right;
+	font-size:.8em;
+	padding:2 2 2 2;
+	width:200px;
+}
+/* Champs de texte avec les pointillés */
+#contenu .dotted_input{
+	width:250px;
+	font-size:1.1em;
+	color:black;
+	background:none;
+	border:none;
+	border-bottom:dotted #0194B5 1px;
+}
+/* Personnalisation des fieldset */
+#contenu .spaced_fieldset{
+	margin:5 0 25;
+}
+#contenu .spaced_fieldset legend{
+	color:#0194B5;
+	font-weight: bold;
+	padding:0 20 0 20;
+	margin-left:20px;
+}
+/* Tableau sans bordure centré (Applicable sur div) */
+#contenu .no-border-table{
+	width:100%;
+	text-align:left;
+}
+#contenu .no-border-table table{
+	border:none;
+	text-align:left;
+	margin:auto;
+}
+#contenu .no-border-table table tr{
+	border:none;
+	text-align:left;
+}
+#contenu .no-border-table table tr td{
+	border:none;
+	text-align:left;
+}
+
+/* Pied de page */
+#pied {
+	margin:10px;
+	padding: 5px;
+	font-size: .85em;
+	border-top:solid black 1px;
+}
+#pied p {
+	margin: .5em 0;
+}
+#copyright {
+	text-align: left;
+	font-size: 1em;
+}

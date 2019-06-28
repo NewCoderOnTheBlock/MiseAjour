@@ -1,0 +1,952 @@
+
+<include tpl="aeroport/include.html" />
+
+<div class="row" id="contenu">
+
+    <input type="hidden" id="logger" value="{LOGGER}" />
+    <input type="hidden" id="heure_fixe_aller" value="{HEURE_FIXE_ALLER}" />
+    <input type="hidden" id="heure_fixe_retour" value="{HEURE_FIXE_RETOUR}" />
+
+	<script type="text/javascript" src="{BASEURL}styles/csshover.js"></script>
+    <script type="text/javascript" src="scripts/calendrier.js"></script>
+	<script type="text/javascript" src="{BASEURL}scripts/accueil_mini2.js"></script>
+
+	<!-- Colonne de droite
+	<div class='colonneDroite_2c'>
+	
+		<!-- Programme fidélité si le client est connecté -->
+		<if cond="{$LOGGER}">
+			<if cond="!{$EST_FIDELE}">
+				<!--
+				<div class='titreColonne_2c'>
+					<span class='txt_titre_colonne_2c'>{TITRE_FIDELITE}</span>
+				</div>
+				<div class='contenuBloc_2c_h180' style="padding:10px;text-align:center;">
+					{EXPLICATION_FIDELITE}
+				</div>
+				-->
+			</if>
+		</if>	
+		
+		<!-- Bloc des paiements -->
+		<!--<div class='titreColonne_2c'>
+			<span class='txt_titre_colonne_2c'>{MODE_DE_PAIEMENT}</span>
+		</div>
+		<div class='contenuBloc_2c_h180' style="text-align:center;">
+
+			<br /><br />
+			
+			<img src="images/carte_paypal.png" alt="Carte PayPal" class="resize" />
+
+			<br /><br /><br /><br />
+
+			<img src="http://alsace-navette.com/europapark/images/ca_logo.png" alt="e-transaction" />
+			&nbsp;&nbsp;
+			<img src="http://alsace-navette.com/europapark/images/paypal_logo.png" alt="{ALT_PAYPAL}" />
+
+		</div>
+		
+	</div>-->
+	
+	<!-- CONTENU -->
+	<div class="col-xs-12 col-sm-6 col-md-6 demande_reservation">
+		<h4>{TITLE_RESERVATION}</h4>
+		<div class="col-xs-12 col-sm-12 col-md-12 demande_reservation_form">
+			<if cond="{$CLASS_ERREUR} != ''">
+
+				<br />
+
+				<div class="{CLASS_ERREUR}">
+					<strong>{ERREUR}</strong>
+				</div>
+
+				<br />
+
+			</if>
+
+			<if cond="!{$LOGGER}">
+				<p style="margin-bottom:20px;"><img class="no-class" src="images/icones/connect-16.png" alt="{ALT_AIDE}" /> {DEJA_CLIENT}</p>
+			</if>
+
+			<form method="post" action="reservation/info_client.php" id="form_res">
+				<script type="text/javascript" src="scripts/infobulle.js"></script>
+
+				<div class="type-trajet row">
+					<span class="label_cote_3 col-xs-12 col-sm-12 col-md-4" style="padding:0;">{TRAJET_TYPE}<sup class="rouge">*</sup></span>
+					<div class="col-xs-6 col-xs-6 col-md-4">
+						<label for="trajet_aller_simple" style="font-weight:normal;">{TRAJET_ALLER_SIMPLE}</label>
+						<if cond="{$TRAJET} == '1'">
+							<input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" checked="checked" />
+						<else />
+							<input type="radio" name="type_trajet" id="trajet_aller_simple" value="1" />
+						</if>
+					</div>
+					<div class="col-xs-6 col-xs-6 col-md-4">
+						<label for="trajet_aller_retour" style="font-weight:normal;">{TRAJET_ALLER_RETOUR}</label>
+						<if cond="{$TRAJET} == '0'">
+							<input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" checked="checked" />
+						<else />
+							<input type="radio" name="type_trajet" id="trajet_aller_retour" value="0" />
+						</if>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="lst_trajet_depart" class="label_cote_3 col-xs-12 col-sm-6 col-md-4">{TRAJET_DEPART}<sup class="rouge">*</sup></label>
+					<select name="lst_trajet_depart" id="lst_trajet_depart" class="col-xs-9 col-sm-6 col-md-4">
+						<foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+						
+							<if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEP_CHERCHE}">
+							
+								<option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+								
+							<else />
+
+								<option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+								
+							</if>
+							
+						</foreach>
+						
+					</select>
+				</div>
+
+				<div class="row">
+					<label for="lst_trajet_arrive" class="label_cote_3 col-xs-12 col-sm-6 col-md-4">{TRAJET_ARRIVE}<sup class="rouge">*</sup></label>
+					<select name="lst_trajet_arrive" id="lst_trajet_arrive" class="col-xs-9 col-sm-6 col-md-4">
+
+						<foreach ary="{$LST_DEPART}" as="{$LST_DEP}">
+
+							<if cond="{VALUE,$LST_DEP['id_lieu']} == {$DEST_CHERCHE}">
+
+								<option value="{VALUE,LST_DEP['id_lieu']}" selected="selected">{VALUE,LST_DEP['nom']}</option>
+
+							<else />
+
+								<option value="{VALUE,LST_DEP['id_lieu']}">{VALUE,LST_DEP['nom']}</option>
+
+							</if>
+
+						</foreach>
+
+					</select>
+				</div>
+
+				<div class="row">
+					<h4 class="demande_reservation_form_titre">{INFO_VOL}</h4>
+					<div class="row info_vol">
+						<div class="header_tab" style="display:none;width:100%;text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{ALLER}</div>
+														
+						<div class="row">
+							<div class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{DATE_DEPART}<sup class="rouge">*</sup></div>
+							<div class="col-xs-9 col-sm-6 col-md-4">
+								<span id="lbl_jour_depart" style="background-color:#FFF" class="pointer" onclick="document.getElementById('ds_conclass2').style.display='none';ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');">{SELECTIONNER_DATE_DEPART}</span>
+								<span>
+									<input type="hidden" name="jour_depart" id="jour_depart" value="{TXT_JOUR_DEPART}" />
+									<input type="hidden" name="jour_depart_long" id="jour_depart_long" value="{TXT_JOUR_DEPART_LONG}" />
+									<input type="button" onfocus="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');" onclick="ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass1', '1');ds_sh('lbl_jour_depart', 'ds_conclass1', 'ds_calclass2', '2');" style="background-image:url(images/icones/calendar-16.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+								</span>
+							</div>
+						</div>
+						
+						<div class="row" style="text-align:center;">
+							<table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass1" style="display:none;margin:10px auto 0 auto;">
+								<tr>
+									<td id="ds_calclass1" valign="top"></td>
+									<td id="ds_calclass2" valign="top"></td>
+								</tr>
+							</table>
+						</div>
+						
+						<div class="row">
+							<label for="compagnie_depart_vol" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{COMPAGNIE_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="compagnie_depart_vol" name="compagnie_depart_vol" value="{TXT_COMPAGNIE_DEPART_VOL}" />
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="provenance_depart_vol_2" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PROVENANCE_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="provenance_depart_vol_2" name="provenance_depart_vol_2" maxlength="40" value="{TXT_PROVENANCE_DEPART_VOL_2}"/>
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="provenance_depart_vol_1" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{DEST_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="provenance_depart_vol_1" name="provenance_depart_vol_1" maxlength="40" value="{TXT_PROVENANCE_DEPART_VOL_1}" />
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="heure_depart_vol" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;"><span id="text_heure_vol_1">{HEURE_VOL}</span><sup class="rouge">*</sup></label>
+							<div class="col-xs-9 col-sm-6 col-md-4" style="padding:0;">
+								<select name="heure_depart_vol" id="heure_depart_vol">
+
+									<foreach ary="{$HEURE_LST}">
+
+										<if cond="{VALUE,$HEURE_LST['code_heure']} == {$TXT_HEURE_DEPART_VOL}">
+
+											<option value="{VALUE,HEURE_LST['code_heure']}" selected="selected">{VALUE,HEURE_LST['heure']}</option>
+
+										<else />
+
+											<option value="{VALUE,HEURE_LST['code_heure']}">{VALUE,HEURE_LST['heure']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+								<span>h</span>
+								<select name="minute_depart_vol" id="minute_depart_vol">
+
+									<foreach ary="{$MINUTE_LST}">
+
+										<if cond="{VALUE,$MINUTE_LST['code_heure']} == {$TXT_MINUTE_DEPART_VOL}">
+
+											<option value="{VALUE,MINUTE_LST['code_heure']}" selected="selected">{VALUE,MINUTE_LST['heure']}</option>
+
+										<else />
+
+											<option value="{VALUE,MINUTE_LST['code_heure']}">{VALUE,MINUTE_LST['heure']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" id="vol_retour" style="display:none;margin-top:10px;">
+						<div class="header_tab" style="display:none;width:100%;text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{RETOUR}</div>
+
+						<div class="row">
+							<span class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{DATE_RETOUR}<sup class="rouge">*</sup></span>
+							<div class="col-xs-9 col-sm-6 col-md-4">
+								<span class="pointer" id="lbl_jour_retour" style="background-color:#FFF" onclick="document.getElementById('ds_conclass1').style.display='none';ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');">{SELECTIONNER_DATE_RETOUR}</span>
+								<span>
+									<input type="hidden" name="jour_retour" id="jour_retour" value="{TXT_JOUR_RETOUR}" />
+									<input type="hidden" name="jour_retour_long" id="jour_retour_long" value="{TXT_JOUR_RETOUR_LONG}" />
+									<input type="button" onfocus="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');" onclick="ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass3', '1');ds_sh('lbl_jour_retour', 'ds_conclass2', 'ds_calclass4', '2');" style="background-image:url(images/icones/calendar-16.png); height:16px; width:16px;padding:0;margin:0;border:0;" class="pointer" />
+								</span>
+							</div>
+						</div>
+							
+						<div class="row" style="text-align:center;">
+							<table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass2" style="display:none;margin:10px auto 0 auto;">
+								<tr style="float:left; display:inline;">
+									<td id="ds_calclass3" valign="top"></td>
+									<td id="ds_calclass4" valign="top"></td>
+								</tr>
+							</table>
+						</div>
+								
+						<div class="row">
+							<label for="compagnie_retour_vol" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{COMPAGNIE_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="compagnie_retour_vol" name="compagnie_retour_vol" value="{TXT_COMPAGNIE_RETOUR_VOL}" />
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="provenance_retour_vol_1" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PROVENANCE_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="provenance_retour_vol_1" name="provenance_retour_vol_1" maxlength="40" value="{TXT_PROVENANCE_RETOUR_VOL_1}" />
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="provenance_retour_vol_2" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{DEST_VOL}<sup class="rouge">*</sup></label>
+							<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="provenance_retour_vol_2" name="provenance_retour_vol_2" maxlength="40" value="{TXT_PROVENANCE_RETOUR_VOL_2}" />
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideVol").dialog("open");' /></div>
+						</div>
+
+						<div class="row">
+							<label for="heure_retour_vol" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;"><span id="text_heure_vol_2">{HEURE_VOL}</span><sup class="rouge">*</sup></label>
+							<div class="col-xs-9 col-sm-6 col-md-4" style="padding:0;">
+								<select name="heure_retour_vol" id="heure_retour_vol">
+
+									<foreach ary="{$HEURE_LST}">
+
+										<if cond="{VALUE,$HEURE_LST['code_heure']} == {$TXT_HEURE_RETOUR_VOL}">
+
+											<option value="{VALUE,HEURE_LST['code_heure']}" selected="selected">{VALUE,HEURE_LST['heure']}</option>
+
+										<else />
+
+											<option value="{VALUE,HEURE_LST['code_heure']}">{VALUE,HEURE_LST['heure']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+								<span>h</span>
+								<select name="minute_retour_vol" id="minute_retour_vol">
+
+									<foreach ary="{$MINUTE_LST}">
+
+										<if cond="{VALUE,$MINUTE_LST['code_heure']} == {$TXT_MINUTE_RETOUR_VOL}">
+
+											<option value="{VALUE,MINUTE_LST['code_heure']}" selected="selected">{VALUE,MINUTE_LST['heure']}</option>
+
+										<else />
+
+											<option value="{VALUE,MINUTE_LST['code_heure']}">{VALUE,MINUTE_LST['heure']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<div class="row">
+					<h4 class="demande_reservation_form_titre">{INFO_TRANSPORT}</h4>
+					<div class="row info_transport">
+						<div class="header_tab" style="display:none;width:100%;text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{ALLER}</div>
+						
+						<if cond="{$CHANGE_ALLER} != ''">
+							<div class="row" id="horaire_aller">
+								<p class="col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{HORAIRE_CHOISI}<sup class="rouge">**</sup></p>
+								<p class="col-xs-3 col-sm-6 col-md-4">{NOUVEL_HORAIRE_ALLER}</p>
+								<input type="hidden" value="{NOUVEL_HORAIRE_ALLER}" name="nouvel_horaire_aller">
+							</div>
+						</if>	
+						
+						<div class="row" id="horaire_fixe_aller" style="display:none;">
+							<label for="lst_fixe_depart" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{FIXE_ALLER}<sup class="rouge">**</sup></label>
+							<select id="lst_fixe_depart" name="lst_fixe_depart"><option></option></select>
+							<img class="pointer" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideFixe").dialog("open");' />
+							<input type="hidden" value="{HEURE_DEPART_CHERCHE}" id="heure_depart_cherche">
+						</div>
+						
+						<div class="row">
+							<label for="lst_heure_depart" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{HEURE_DEPART}<sup class="rouge">*</sup><span id="etoile_depart" style="display:none"><sup class="rouge">*</sup></span></label>
+							<select name="lst_heure_depart" id="lst_heure_depart">
+
+								<foreach ary="{$LST_HEURE}">
+
+									<if cond="{VALUE,$LST_HEURE['code_heure']} == {$HEURE_DEPART_CHERCHE} && {$HEURE_FIXE_ALLER} == 0">
+
+										<option value="{VALUE,LST_HEURE['code_heure']}" selected="selected">{VALUE,LST_HEURE['heure']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_HEURE['code_heure']}">{VALUE,LST_HEURE['heure']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+							<img class="pointer" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideDemande").dialog("open");'/>
+						</div>
+
+						<div class="row">
+							<label for="pt_rassemblement_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;"><span id="label_pt_rassemblement_aller" >{PT_RASSEMBLEMENT}</span><sup class="rouge">*</sup></label>
+							<select name="pt_rassemblement_aller" id="pt_rassemblement_aller" class="col-xs-9 col-sm-6 col-md-4">
+
+								<foreach ary="{$LST_PT_RASSEMBLEMENT}" as="{$PT}">
+
+									<if cond="{VALUE,$PT['id_pt']} == {$PT_RASSEMBLEMENT_ALLER_CHERCHE}">
+
+										<option value="{VALUE,PT['id_pt']}" selected="selected">{VALUE,PT['nom']}</option>
+
+									<else />
+
+										<option value="{VALUE,PT['id_pt']}">{VALUE,PT['nom']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+							<div class="col-xs-3 col-sm-6 col-md-4"><img class="pointer" style="margin-left:5px;" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideRassemblement").dialog("open");' /></div>
+						</div>
+						
+						<div class="row" id="rass_aller" style="display:none">								
+							<div class="row">
+								<label for="rass_adresse_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{ADRESSE_CLIENT} <sup class="rouge">*</span></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_adresse_aller" name="rass_adresse_aller" value="{TXT_RASS_ADRESSE_ALLER}" maxlength="200" />
+							</div>
+
+							<div class="row">
+								<label for="rass_cp_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{CODE_POST_CLIENT} <sup class="rouge">*</sup></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_cp_aller" name="rass_cp_aller" value="{TXT_RASS_CP_ALLER}" maxlength="5" />
+							</div>
+
+							<div class="row">
+								<label for="rass_ville_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{VILLE_CLIENT} <sup class="rouge">*</sup></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_ville_aller" name="rass_ville_aller" value="{TXT_RASS_VILLE_ALLER}" maxlength="50" />
+							</div>
+						</div>
+					</div>
+				
+					<div class="row" id="retour" style="display:none;">
+				
+						<div class="header_tab" style="display:none;width:100%;text-align:center;font-weight:bold;color:black;border-bottom:2px solid #00A0C3;margin-bottom:10px;">{RETOUR}</div>
+
+						<if cond="{$CHANGE_RETOUR} != ''">
+							<div class="row" id="horaire_retour">
+								<p class="col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{HORAIRE_CHOISI}<sup class="rouge">**</sup></p>
+								<p class="col-xs-3 col-sm-6 col-md-4">{NOUVEL_HORAIRE_RETOUR}</p>
+								<input type="hidden" value="{NOUVEL_HORAIRE_RETOUR}" name="nouvel_horaire_retour">
+							</div>
+						</if>
+						
+						<div class="row" id="horaire_fixe_retour">
+							<label for="lst_fixe_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{FIXE_RETOUR}<sup class="rouge">**</sup></label>
+							<select id="lst_fixe_retour" name="lst_fixe_retour"><option></option></select> 
+							<img class="pointer" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideFixe").dialog("open");' />
+							<input type="hidden" value="{HEURE_RETOUR_CHERCHE}" id="heure_retour_cherche">
+						</div>
+
+						<div class="row">
+							<label for="lst_heure_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{HEURE_RETOUR}<sup class="rouge">*</sup><span id="etoile_retour"><sup class="rouge">*</sup></span></label>
+							<select name="lst_heure_retour" id="lst_heure_retour">
+
+								<foreach ary="{$LST_HEURE}">
+
+									<if cond="{VALUE,$LST_HEURE['code_heure']} == {$HEURE_RETOUR_CHERCHE} && {$HEURE_FIXE_RETOUR} == 0">
+
+										<option value="{VALUE,LST_HEURE['code_heure']}" selected="selected">{VALUE,LST_HEURE['heure']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_HEURE['code_heure']}">{VALUE,LST_HEURE['heure']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+							<img class="pointer" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideDemande").dialog("open");' />
+						</div>
+
+						<div class="row">
+							<label for="pt_rassemblement_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;"><span id="label_pt_rassemblement_retour" >{PT_RASSEMBLEMENT}</span><sup class="rouge">*</sup></label>
+							<select name="pt_rassemblement_retour" id="pt_rassemblement_retour" class="valign_select" style="width:200px;">
+
+								<foreach ary="{$LST_PT_RASSEMBLEMENT}" as="{$PT}">
+
+									<if cond="{VALUE,$PT['id_pt']} == {$PT_RASSEMBLEMENT_RETOUR_CHERCHE}">
+
+										<option value="{VALUE,PT['id_pt']}" selected="selected">{VALUE,PT['nom']}</option>
+
+									<else />
+
+										<option value="{VALUE,PT['id_pt']}">{VALUE,PT['nom']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+							<img class="pointer" src="images/icones/info-16.png" alt="{ALT_AIDE}" onclick='$("#popup_aideRassemblement").dialog("open");' />
+						</div>
+							
+						<div class="row" id="rass_retour" style="display:none">									
+							<div class="row">
+								<label for="rass_adresse_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{ADRESSE_CLIENT} <sup class="rouge">*</sup></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_adresse_retour" name="rass_adresse_retour" value="{TXT_RASS_ADRESSE_RETOUR}" maxlength="200" />
+							</div>
+
+							<div class="row">
+								<label for="rass_cp_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{CODE_POST_CLIENT} <sup class="rouge">*</sup></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_cp_retour" name="rass_cp_retour" value="{TXT_RASS_CP_RETOUR}" maxlength="5" />
+							</div>
+
+							<div class="row">
+								<label for="rass_ville_retour" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{VILLE_CLIENT} <sup class="rouge">*</sup></label>
+								<input class="col-xs-9 col-sm-6 col-md-4" type="text" id="rass_ville_retour" name="rass_ville_retour" value="{TXT_RASS_VILLE_RETOUR}" maxlength="50" />
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<h4 class="demande_reservation_form_titre">{NOMBRE_PASSAGER}</h4>
+					<div class="row passager">
+					<!--<table>
+						<tr>
+							<th class="header_tab" style="display:none;width:350px;padding:1px;color:#363636;background:#F4BE04;">{ALLER}</th>
+							<th class="header_tab" style="display:none;width:350px;padding:1px;color:#363636;background:#F4BE04;">{RETOUR}</th>
+						</tr>
+						
+						<tr>
+							<th class="header_tab" style="display:none;">&nbsp;</th>
+							<th class="header_tab" style="display:none;">&nbsp;</th>
+						</tr>
+
+						<tr>
+							<td>-->
+						<div class="row">
+							<label for="lst_passager_adulte_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ADULTE}<sup class="rouge">*</sup></label>
+							<select name="lst_passager_adulte_aller" id="lst_passager_adulte_aller">
+							
+								<foreach ary="{$LST_PERSONNE}">
+
+									<if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_ALLER}">
+
+										<option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+						</div>
+
+						<div class="row">
+							<label for="lst_passager_enfant_aller" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ENFANT}<sup class="rouge">*</sup></label>
+							<select name="lst_passager_enfant_aller" id="lst_passager_enfant_aller">
+
+								<foreach ary="{$LST_ENFANT}">
+
+									<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER}">
+
+										<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+									<else />
+
+										<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+									</if>
+
+								</foreach>
+
+							</select>
+						</div>
+
+						<div class="row" id="passager_aller_enfant" style="display:none">
+							<div class="row">
+								<label for="lst_passager_enfant_aller_g0" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ENFANT_G0}<sup class="rouge">*</sup></label>
+								<select name="lst_passager_enfant_aller_g0" id="lst_passager_enfant_aller_g0">
+
+									<foreach ary="{$LST_ENFANT}">
+
+										<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G0}">
+
+											<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+										<else />
+
+											<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+
+							<div class="row">
+								<label for="lst_passager_enfant_aller_g1" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ENFANT_G1}<sup class="rouge">*</sup></label>
+								<select name="lst_passager_enfant_aller_g1" id="lst_passager_enfant_aller_g1">
+
+									<foreach ary="{$LST_ENFANT}">
+
+										<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G1}">
+
+											<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+										<else />
+
+											<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+
+							<div class="row">
+								<label for="lst_passager_enfant_aller_g2" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ENFANT_G2}<sup class="rouge">*</sup></label>
+								<select name="lst_passager_enfant_aller_g2" id="lst_passager_enfant_aller_g2">
+
+									<foreach ary="{$LST_ENFANT}">
+
+										<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G2}">
+
+											<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+										<else />
+
+											<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+							
+							<div class="row">
+								<label for="lst_passager_enfant_aller_g3" class="label_cote_4 col-xs-12 col-sm-6 col-md-4" style="text-transform:none;">{PASSAGER_ENFANT_G3}<sup class="rouge">*</sup></label>
+								<select name="lst_passager_enfant_aller_g3" id="lst_passager_enfant_aller_g3">
+
+									<foreach ary="{$LST_ENFANT}">
+
+										<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_ALLER_G3}">
+
+											<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+										<else />
+
+											<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+										</if>
+
+									</foreach>
+
+								</select>
+							</div>
+						</div>
+					</div>
+				</div><!--
+							</td>
+
+							<td>
+							
+								<div id="passager_retour" style="display:none;">
+
+									<label for="lst_passager_adulte_retour" class="label_cote_4">{PASSAGER_ADULTE} <span class="rouge">*</span> : </label>
+									<select name="lst_passager_adulte_retour" id="lst_passager_adulte_retour">
+
+										<foreach ary="{$LST_PERSONNE}">
+
+											<if cond="{VALUE,$LST_PERSONNE['personne']} == {$NB_PERSONNE_CHERCHE_RETOUR}">
+
+												<option value="{VALUE,LST_PERSONNE['personne']}" selected="selected">{VALUE,LST_PERSONNE['personne']}</option>
+
+											<else />
+
+												<option value="{VALUE,LST_PERSONNE['personne']}">{VALUE,LST_PERSONNE['personne']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+
+									<br />
+
+									<label for="lst_passager_enfant_retour" class="label_cote_4">{PASSAGER_ENFANT} <span class="rouge">*</span> : </label>
+									<select name="lst_passager_enfant_retour" id="lst_passager_enfant_retour">
+
+										<foreach ary="{$LST_ENFANT}">
+
+											<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR}">
+
+												<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+											<else />
+
+												<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+											</if>
+
+										</foreach>
+
+									</select>
+									<br />
+
+									<div id="passager_retour_enfant" style="display:none">
+										<br />
+
+										<span>
+											<label for="lst_passager_enfant_retour_g0" class="label_cote_4">{PASSAGER_ENFANT_G0} <span class="rouge">*</span> : </label>
+											<select name="lst_passager_enfant_retour_g0" id="lst_passager_enfant_retour_g0">
+
+												<foreach ary="{$LST_ENFANT}">
+
+													<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G0}">
+
+														<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+													<else />
+
+														<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+													</if>
+
+												</foreach>
+
+											</select>
+										</span>
+
+										<br />
+
+										<span>
+											<label for="lst_passager_enfant_retour_g1" class="label_cote_4">{PASSAGER_ENFANT_G1} <span class="rouge">*</span> : </label>
+											<select name="lst_passager_enfant_retour_g1" id="lst_passager_enfant_retour_g1">
+
+												<foreach ary="{$LST_ENFANT}">
+
+													<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G1}">
+
+														<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+													<else />
+
+														<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+													</if>
+
+												</foreach>
+
+											</select>
+										</span>
+
+										<br />
+
+										<span>
+											<label for="lst_passager_enfant_retour_g2" class="label_cote_4">{PASSAGER_ENFANT_G2} <span class="rouge">*</span> : </label>
+											<select name="lst_passager_enfant_retour_g2" id="lst_passager_enfant_retour_g2">
+
+												<foreach ary="{$LST_ENFANT}">
+
+													<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G2}">
+
+														<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+													<else />
+
+														<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+													</if>
+
+												</foreach>
+
+											</select>
+										</span>
+
+										<br />
+
+										<span>
+											<label for="lst_passager_enfant_retour_g3" class="label_cote_4">{PASSAGER_ENFANT_G3} <span class="rouge">*</span> : </label>
+											<select name="lst_passager_enfant_retour_g3" id="lst_passager_enfant_retour_g3">
+
+												<foreach ary="{$LST_ENFANT}">
+
+													<if cond="{VALUE,$LST_ENFANT['personne']} == {$NB_ENFANT_CHERCHE_RETOUR_G3}">
+
+														<option value="{VALUE,LST_ENFANT['personne']}" selected="selected">{VALUE,LST_ENFANT['personne']}</option>
+
+													<else />
+
+														<option value="{VALUE,LST_ENFANT['personne']}">{VALUE,LST_ENFANT['personne']}</option>
+
+													</if>
+
+												</foreach>
+
+											</select>
+											
+										</span>
+
+									</div>
+
+								</div>
+								
+							</td>
+							
+						</tr>
+						
+					</table>-->
+				<div class="row">
+					<h4 class="demande_reservation_form_titre">{CONFIRMATION}</h4>
+					<div class="row info_compl">
+						<label for="info_compl" class="col-xs-12 col-sm-6 col-md-4" style="font-weight:normal;">{INFO_COMPL}</label>
+						<div class="col-xs-12 col-sm-6 col-md-8" style="padding:0;"><textarea rows="4" name="info_compl" id="info_compl" style="width:100%;max-width:100%;">{TXT_INFO_COMPL}</textarea></div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-top:20px;">
+					<div class="col-xs-2 col-sm-2 col-md-1" style="padding-right:5px;text-align:center;">
+						<input type="checkbox" id="opt_annulation" name="opt_annulation" />
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-11" style="padding:0;">
+						<label for="opt_annulation">{OPTION_ANNUL} </label>
+						<img onclick='$("#popup_optionAnnulation").dialog("open");' class="pointer" id="icone_aide_option_annul" src="images/icones/info-16.png" />
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-2 col-sm-2 col-md-1" style="padding-right:5px;text-align:center;">
+						<input type="checkbox" id="accept_cgv" name="accept_cgv"/>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-11" style="padding:0;">
+						<label for="accept_cgv" style="font-weight:bold;">{TXT_ACCEPT_CGV}</label>
+					</div>
+				</div>
+				
+				<input type="hidden" name="res_1" id="res_1" value="0" />
+
+				<div class="row" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+					<input type="button" value="{BTN_RAZ}" id="btn_raz" style="text-transform:uppercase;"/>
+					<input type="button" value="{BTN_ENVOYER}" id="btn_envoie_res" style="text-transform:uppercase;"/>
+				</div>
+			</form>	
+			
+			<span style="font-size:0.8em;"><sup class="rouge">*</sup> : {OBLIGATOIRE}
+				<br />
+				<sup class="rouge">**</sup> : {OBLIGATOIRE_2}
+			</span>
+		</div>
+	</div>
+	
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="bloc_droite">
+			<a href="{LIEN_AIDE}" style="text-decoration:none;">
+				<div class="row info_reservation" style="background-color:#00A0C3;">
+					<h4 style="text-transform:uppercase;color:white;font-size:1.1em;margin-bottom:20px;">{AIDE_RESERVATION}</h4>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape1.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_1}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape2.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_2}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape3.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_3}</span></p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3">
+						<img src="./images/etape4.png" class="image_etape"><br>
+						<p class="image_hover"><span>{ETAPE_4}</span></p>
+					</div>
+				</div>
+			</a>
+			<div class="row liens_accueil">
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#2C9EB4;">
+						<img src="images/Horaires_navettes.png">
+						<h4>{HORAIRES_NAVETTES}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#45B3C8;">
+						<img src="images/horaires_vols.png">
+						<h4>{HORAIRES_VOLS}</h4>
+					</div>
+				</a>
+			</div>
+			<div class="row liens_accueil">
+				<a href="{LIEN_AIDE}">
+					<div class="col-xs-12 col-sm-6 col-md-6 gauche" style="background-color:#45B3C8;">
+						<img src="images/infos_trajet.png">
+						<h4>{INFOS}</h4>
+					</div>
+				</a>
+				<a href="{LIEN_HORAIRES}">
+					<div class="col-xs-12 col-sm-6 col-md-6 droite" style="background-color:#2C9EB4;">
+						<img src="images/point_prise.png">
+						<h4>{POINTS_PRISE}</h4>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="scripts/ajax.js"></script>
+<script type="text/javascript" src="scripts/accueil.js"></script>
+<script src="scripts/swfobject_modified.js" type="text/javascript"></script>
+<style type="text/css" src="scripts/ajax.js"></style>
+
+<div id="popup_optionAnnulation" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {EXPLI_OPTION_ANNUL}
+</div>
+<div id="popup_aideFixe" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {HOVER_AIDE_FIXE}
+</div>
+<div id="popup_aideDemande" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {HOVER_AIDE}
+</div>
+<div id="popup_aideRassemblement" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {AIDE_PT_RASSEMBLEMENT}
+</div>
+<div id="popup_aideVol" title="{ALT_AIDE}">
+	<img class="pointer" src="images/icones/info-16.png" /> {AIDE_VOL}
+</div>
+
+<script type="text/javascript">
+	$(function() {		
+		$( "#popup_optionAnnulation" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+		$( "#popup_aideFixe" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+		$( "#popup_aideDemande" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+		$( "#popup_aideRassemblement" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+		$( "#popup_aideVol" ).dialog({
+			modal: true,
+			autoOpen: false,
+			width: 500,
+			resizable: false,
+			draggable: false,
+			buttons: {
+				Ok: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+	});
+
+</script>
+
+<include tpl="footer.html" />
+
